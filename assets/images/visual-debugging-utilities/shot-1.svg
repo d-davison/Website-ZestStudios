@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="On-screen debug messages placeholder">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fb8d6"/><stop offset="100%" stop-color="#cfe0ea"/>
+    </linearGradient>
+  </defs>
+  <!-- scene -->
+  <rect width="1600" height="1000" fill="url(#sky1)"/>
+  <rect y="560" width="1600" height="440" fill="#c9b98f"/>
+  <path d="M0 560 L1600 560 L1600 640 L0 700 Z" fill="#b7a878" opacity="0.6"/>
+  <!-- simple blocks (city / obstacles) -->
+  <g fill="#e9edf1" stroke="#aeb6bd" stroke-width="3">
+    <rect x="360" y="360" width="150" height="230"/><rect x="560" y="300" width="120" height="290"/>
+    <rect x="1040" y="330" width="150" height="260"/><rect x="1230" y="390" width="120" height="200"/>
+  </g>
+  <g fill="#f4c542"><rect x="720" y="520" width="90" height="60" rx="10"/><rect x="860" y="540" width="90" height="55" rx="10"/></g>
+  <!-- HUD on-screen debug messages -->
+  <g font-family="Consolas,Menlo,monospace" font-size="40" font-weight="700">
+    <rect x="60" y="70" width="560" height="290" rx="10" fill="#000000" opacity="0.32"/>
+    <text x="90" y="140" fill="#ffe14d">Speed: 42.0</text>
+    <text x="90" y="205" fill="#57e389">Grounded: true</text>
+    <text x="90" y="270" fill="#5ac8ff">Targets in range: 3</text>
+    <text x="90" y="335" fill="#ff6b6b">No path found</text>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif"><rect x="1180" y="900" width="360" height="46" rx="23" fill="#000000" opacity="0.4"/><text x="1360" y="931" fill="#fff" font-size="23" text-anchor="middle" opacity="0.9">On-screen messages (placeholder)</text></g>
+</svg>
