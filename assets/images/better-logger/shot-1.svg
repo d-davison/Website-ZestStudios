@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Logging Console placeholder">
+  <rect width="1600" height="1000" fill="#0f1115"/>
+  <!-- window -->
+  <rect x="110" y="96" width="1380" height="808" rx="14" fill="#191c22" stroke="#2a2f39" stroke-width="2"/>
+  <rect x="110" y="96" width="1380" height="64" rx="14" fill="#22262f"/>
+  <rect x="110" y="130" width="1380" height="30" fill="#22262f"/>
+  <circle cx="150" cy="128" r="9" fill="#ff5f56"/><circle cx="182" cy="128" r="9" fill="#ffbd2e"/><circle cx="214" cy="128" r="9" fill="#27c93f"/>
+  <text x="260" y="136" fill="#c7ccd6" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="600">Logging Console</text>
+  <!-- toolbar / channel filters -->
+  <rect x="150" y="196" width="360" height="46" rx="23" fill="#0f1218" stroke="#2a2f39"/>
+  <text x="176" y="226" fill="#6a7180" font-family="Arial,Helvetica,sans-serif" font-size="24">Search logs…</text>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700">
+    <rect x="560" y="198" width="150" height="42" rx="21" fill="#123122"/><circle cx="588" cy="219" r="8" fill="#3ec46d"/><text x="606" y="227" fill="#8ee7ac">Gameplay</text>
+    <rect x="726" y="198" width="96" height="42" rx="21" fill="#122636"/><circle cx="752" cy="219" r="8" fill="#4aa3ff"/><text x="768" y="227" fill="#9fccff">AI</text>
+    <rect x="838" y="198" width="200" height="42" rx="21" fill="#2e2410"/><circle cx="866" cy="219" r="8" fill="#f0a021"/><text x="884" y="227" fill="#f2c980">Networking</text>
+    <rect x="1054" y="198" width="96" height="42" rx="21" fill="#301521"/><circle cx="1080" cy="219" r="8" fill="#dd1e4b"/><text x="1096" y="227" fill="#f090a8">UI</text>
+  </g>
+  <!-- log rows -->
+  <g font-family="Consolas,Menlo,monospace" font-size="26">
+    <rect x="150" y="278" width="1290" height="54" rx="8" fill="#12151b"/><text x="176" y="313"><tspan fill="#3ec46d">[Gameplay]</tspan><tspan fill="#c7ccd6"> player entered zone 4</tspan></text>
+    <rect x="150" y="342" width="1290" height="54" rx="8" fill="#171b22"/><text x="176" y="377"><tspan fill="#4aa3ff">[AI]</tspan><tspan fill="#c7ccd6"> guard switched to Patrol state</tspan></text>
+    <rect x="150" y="406" width="1290" height="54" rx="8" fill="#12151b"/><text x="176" y="441"><tspan fill="#f0a021">[Networking]</tspan><tspan fill="#c7ccd6"> snapshot received (24ms)</tspan></text>
+    <rect x="150" y="470" width="1290" height="54" rx="8" fill="#171b22"/><text x="176" y="505"><tspan fill="#dd1e4b">[UI]</tspan><tspan fill="#c7ccd6"> inventory panel opened</tspan></text>
+    <rect x="150" y="534" width="1290" height="54" rx="8" fill="#12151b"/><text x="176" y="569"><tspan fill="#3ec46d">[Gameplay]</tspan><tspan fill="#c7ccd6"> collected coin x3</tspan></text>
+    <rect x="150" y="598" width="1290" height="54" rx="8" fill="#171b22"/><text x="176" y="633"><tspan fill="#4aa3ff">[AI]</tspan><tspan fill="#c7ccd6"> recalculating path…</tspan></text>
+    <rect x="150" y="662" width="1290" height="54" rx="8" fill="#12151b"/><text x="176" y="697"><tspan fill="#f0a021">[Networking]</tspan><tspan fill="#c7ccd6"> ping 31ms</tspan></text>
+    <rect x="150" y="726" width="1290" height="54" rx="8" fill="#171b22"/><text x="176" y="761"><tspan fill="#dd1e4b">[UI]</tspan><tspan fill="#c7ccd6"> settings saved</tspan></text>
+  </g>
+  <!-- placeholder ribbon -->
+  <g font-family="Arial,Helvetica,sans-serif"><rect x="1150" y="828" width="290" height="44" rx="22" fill="#000000" opacity="0.35"/><text x="1295" y="858" fill="#ffffff" font-size="22" text-anchor="middle" opacity="0.85">Custom Console (placeholder)</text></g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Tutorial video placeholder">
+  <defs>
+    <linearGradient id="vg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b2430"/>
+      <stop offset="100%" stop-color="#0e1319"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#vg)"/>
+  <g fill="#ffffff" opacity="0.06" font-family="Consolas,Menlo,monospace" font-size="30">
+    <text x="90" y="140">[Gameplay] ...</text><text x="90" y="210">[AI] ...</text><text x="90" y="280">[UI] ...</text>
+    <text x="1120" y="820">[Networking] ...</text><text x="1120" y="890">[Gameplay] ...</text>
+  </g>
+  <circle cx="800" cy="440" r="120" fill="#ff0000"/>
+  <path d="M760 380 L760 500 L865 440 Z" fill="#ffffff"/>
+  <text x="800" y="660" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="58" font-weight="800" text-anchor="middle">Watch the Tutorial</text>
+  <text x="800" y="722" fill="#9fb0c3" font-family="Arial,Helvetica,sans-serif" font-size="34" text-anchor="middle">YouTube walkthrough coming soon</text>
+  <g font-family="Arial,Helvetica,sans-serif"><rect x="630" y="892" width="340" height="48" rx="24" fill="#000000" opacity="0.4"/><text x="800" y="924" fill="#ffffff" font-size="24" text-anchor="middle" opacity="0.85">PLACEHOLDER — replace me</text></g>
+</svg>

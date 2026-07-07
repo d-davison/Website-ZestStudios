@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Colored console prefixes placeholder">
+  <rect width="1600" height="1000" fill="#0f1115"/>
+  <rect x="110" y="96" width="1380" height="808" rx="14" fill="#2c2c2c" stroke="#1c1c1c" stroke-width="2"/>
+  <!-- Unity console toolbar -->
+  <rect x="110" y="96" width="1380" height="60" rx="14" fill="#3c3c3c"/>
+  <rect x="110" y="126" width="1380" height="30" fill="#3c3c3c"/>
+  <text x="150" y="134" fill="#dcdcdc" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="600">Console</text>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#cfcfcf">
+    <rect x="300" y="110" width="90" height="34" rx="5" fill="#4a4a4a"/><text x="345" y="133" text-anchor="middle">Clear</text>
+    <rect x="404" y="110" width="120" height="34" rx="5" fill="#4a4a4a"/><text x="464" y="133" text-anchor="middle">Collapse</text>
+  </g>
+  <!-- console entries -->
+  <g font-family="Consolas,Menlo,monospace" font-size="25">
+    <rect x="110" y="170" width="1380" height="66" fill="#262626"/><circle cx="146" cy="203" r="10" fill="#9fdcff"/><text x="176" y="212"><tspan fill="#3ec46d">[Gameplay]</tspan><tspan fill="#e6e6e6"> Player took 12 damage</tspan></text>
+    <rect x="110" y="236" width="1380" height="66" fill="#2c2c2c"/><circle cx="146" cy="269" r="10" fill="#9fdcff"/><text x="176" y="278"><tspan fill="#4aa3ff">[AI]</tspan><tspan fill="#e6e6e6"> Boss entered phase 2</tspan></text>
+    <rect x="110" y="302" width="1380" height="66" fill="#3a2f1e"/><circle cx="146" cy="335" r="10" fill="#ffd25a"/><text x="176" y="344"><tspan fill="#f0a021">[Networking]</tspan><tspan fill="#f2e2c0"> High latency: 180ms</tspan></text>
+    <rect x="110" y="368" width="1380" height="66" fill="#2c2c2c"/><circle cx="146" cy="401" r="10" fill="#9fdcff"/><text x="176" y="410"><tspan fill="#dd1e4b">[UI]</tspan><tspan fill="#e6e6e6"> Opened pause menu</tspan></text>
+    <rect x="110" y="434" width="1380" height="66" fill="#3a1e1e"/><circle cx="146" cy="467" r="10" fill="#ff6b6b"/><text x="176" y="476"><tspan fill="#f0a021">[Networking]</tspan><tspan fill="#ffc9c9"> Connection lost</tspan></text>
+    <rect x="110" y="500" width="1380" height="66" fill="#262626"/><circle cx="146" cy="533" r="10" fill="#9fdcff"/><text x="176" y="542"><tspan fill="#3ec46d">[Gameplay]</tspan><tspan fill="#e6e6e6"> Checkpoint reached</tspan></text>
+    <rect x="110" y="566" width="1380" height="66" fill="#2c2c2c"/><circle cx="146" cy="599" r="10" fill="#9fdcff"/><text x="176" y="608"><tspan fill="#4aa3ff">[AI]</tspan><tspan fill="#e6e6e6"> Spawned 3 minions</tspan></text>
+  </g>
+  <!-- stack trace panel -->
+  <rect x="110" y="638" width="1380" height="200" fill="#1e1e1e"/>
+  <g font-family="Consolas,Menlo,monospace" font-size="22" fill="#9aa0a6">
+    <text x="150" y="686"><tspan fill="#3ec46d">[Gameplay]</tspan> Player took 12 damage</text>
+    <text x="150" y="726">  at PlayerHealth.TakeDamage (Assets/Scripts/PlayerHealth.cs:42)</text>
+    <text x="150" y="766">  at Enemy.Attack (Assets/Scripts/Enemy.cs:88)</text>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif"><rect x="1150" y="852" width="300" height="42" rx="21" fill="#000000" opacity="0.4"/><text x="1300" y="881" fill="#ffffff" font-size="22" text-anchor="middle" opacity="0.85">Unity console (placeholder)</text></g>
+</svg>
