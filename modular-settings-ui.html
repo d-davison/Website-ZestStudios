@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- ==============================================
+        Basic Page Needs
+        =============================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+
+        <title>Zest Studios - Modular Settings UI</title>
+
+        <meta name="description" content="A drop-in, data-driven settings menu for Unity. Define options as ScriptableObjects and get a polished settings UI with sliders, toggles, dropdowns, live descriptions, JSON save/load, and 30+ built-in setting types.">
+        <meta name="subject" content="Data-driven settings menus for Unity">
+        <meta name="author" content="Zest Studios">
+
+        <!-- ==============================================
+        Favicons
+        =============================================== -->
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+        <!-- ==============================================
+        Vendor Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/slider.min.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/vendor/icons.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/animation.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/gallery.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/cookie-notice.min.css">
+
+        <!-- ==============================================
+        Custom Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/default.css">
+        <link rel="stylesheet" href="assets/css/theme-pink.css">
+
+        <!-- ==============================================
+        Theme Settings
+        =============================================== -->
+        <style>
+            :root {
+                --header-bg-color: #111111;
+                --nav-item-color: #f5f5f5;
+                --top-nav-item-color: #f5f5f5;
+
+                --section-1-bg-color: #ffffff;
+                --section-2-bg-color: #f5f5f5;
+
+                --footer-bg-color: #191919;
+            }
+
+            /* Solid dark header bar (light top section would hide the overlay navbar). */
+            #header .navbar{background-color:#111111;box-shadow:0 2px 12px rgba(0,0,0,.18);}
+
+            /* Product panel + content */
+            #product .bl-name{font-size:2.6rem;font-weight:800;line-height:1.1;margin:0 0 .5rem;}
+            #product .bl-lead{font-size:1.05rem;color:#555;}
+            #product .bl-meta{color:#8a8a8a;font-size:.85rem;margin-top:1rem;}
+            .bl-tags{display:flex;flex-wrap:wrap;gap:8px;margin:1.25rem 0;padding:0;list-style:none;}
+            .bl-tags li{background:#efefef;border-radius:999px;padding:.28rem .8rem;font-size:.8rem;color:#444;}
+            .bl-tags li.status{background:#fdecc8;color:#8a5a00;}
+            .bl-features{list-style:none;padding:0;margin:1.5rem 0 0;}
+            .bl-features li{position:relative;padding:.65rem 0 .65rem 2rem;border-top:1px solid #e6e6e6;}
+            .bl-features li:last-child{border-bottom:1px solid #e6e6e6;}
+            .bl-features li::before{content:'';position:absolute;left:0;top:1.05rem;width:12px;height:12px;border-radius:3px;background:#dd1e4b;}
+            .bl-features strong{display:block;margin-bottom:.15rem;}
+            code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
+            .spec{list-style:none;padding:0;margin:1rem 0 0;}
+            .spec li{display:flex;flex-wrap:wrap;gap:.25rem 1rem;padding:.6rem 0;border-top:1px solid #e6e6e6;}
+            .spec li .k{flex:0 0 240px;font-weight:700;color:#333;}
+            .spec li .v{color:#555;}
+            .ai-note{margin-top:2.25rem;padding:1rem 1.25rem;background:#efefef;border-left:3px solid #bbb;border-radius:6px;color:#555;font-size:.9rem;}
+        </style>
+
+        <script src="assets/components/header.js" type="text/javascript" defer></script>
+        <script src="assets/components/footer.js" type="text/javascript" defer></script>
+        <script src="assets/components/contact.js" type="text/javascript" defer></script>
+        <script src="assets/components/media-gallery.js" type="text/javascript" defer></script>
+    </head>
+
+    <body>
+
+        <!-- Header -->
+        <header-component></header-component>
+
+        <!-- Product [gallery + info] -->
+        <section id="product" class="section-1 single featured">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Media gallery (Asset Store style) -->
+                    <div class="col-12 col-lg-8 p-0 align-self-start">
+                        <media-gallery>
+                            <!-- Placeholder art for now. Replace the SVGs with real screenshots,
+                                 and set the last item's "id" to your YouTube tutorial id. -->
+                            <script type="application/json">
+                            [
+                                { "type": "image",   "src": "assets/images/modular-settings-ui/hero.svg",    "alt": "Modular Settings UI" },
+                                { "type": "image",   "src": "assets/images/modular-settings-ui/shot-1.svg",  "alt": "Settings panel with widgets" },
+                                { "type": "image",   "src": "assets/images/modular-settings-ui/shot-2.svg",  "alt": "ScriptableObject settings config" },
+                                { "type": "image",   "src": "assets/images/modular-settings-ui/shot-3.svg",  "alt": "Graphics settings with impact hints" },
+                                { "type": "youtube", "id": "YOUR_YOUTUBE_ID", "thumb": "assets/images/better-logger/video-thumb.svg", "alt": "Modular Settings UI tutorial" }
+                            ]
+                            </script>
+                        </media-gallery>
+                    </div>
+
+                    <!-- Product info panel -->
+                    <div class="col-12 col-lg-4 p-0 pl-lg-5 mt-4 mt-lg-0 align-self-start">
+                        <h1 class="bl-name">Modular Settings UI</h1>
+                        <p class="bl-lead">A drop-in, data-driven settings menu for Unity. Define your options as ScriptableObjects and get a polished settings UI with sliders, toggles, dropdowns, live descriptions, JSON save/load, and 30+ built-in setting types &mdash; no boilerplate.</p>
+
+                        <ul class="bl-tags">
+                            <li class="status">In development</li>
+                            <li>Unity 6</li>
+                            <li>UI System</li>
+                            <li>Settings</li>
+                            <li>TextMeshPro</li>
+                        </ul>
+
+                        <a href="https://github.com/d-davison/Unity-Modular-Settings-UI" target="_blank" rel="noopener noreferrer" class="btn primary-button"><i class="icon-social-github"></i>View on GitHub</a>
+
+                        <p class="bl-meta">Developed by Zest Studios</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Content [description] -->
+        <section id="content" class="section-2 single">
+            <div class="container">
+                <div class="row">
+                    <main class="col-12 col-lg-10 mx-auto p-0">
+
+                        <h2 class="featured mt-0 ml-0">A settings menu that builds itself from data</h2>
+
+                        <p>Modular Settings UI is a complete, reusable settings-menu system for Unity games. Instead of hand-wiring every options screen, you describe your settings as data and the system builds and manages the UI for you.</p>
+
+                        <p>Settings are defined with ScriptableObjects &mdash; grouped into pages, each with a display name, description, and behaviour &mdash; so designers can add, reorder, and configure options without touching code. The library ships with <strong>30+ common setting types out of the box</strong> across Audio, Graphics, Gameplay, Controls, Localisation, and Debug categories: from master volume and resolution to VSync, quality presets, FOV, gamepad dead zones, and an FPS counter.</p>
+
+                        <p>Each setting binds to a UI widget &mdash; toggle, slider, dropdown, or selector &mdash; and hovering a widget shows a live description panel so players know exactly what each option does. Graphics settings can advertise a performance impact (low / medium / high) to guide players.</p>
+
+                        <p>Values persist automatically as JSON in the player's persistent data folder, with instant-save or save-on-exit modes. A change-callback system lets any part of your game react the moment a setting changes, and specialized types handle the fiddly bits &mdash; screen resolution, window mode, and audio input/output device selection &mdash; for you.</p>
+
+                        <h3 class="mt-5">Features</h3>
+                        <ul class="bl-features">
+                            <li><strong>Data-driven</strong> Define settings as ScriptableObject groups &mdash; no per-option UI code.</li>
+                            <li><strong>30+ built-in setting types</strong> Audio, Graphics, Gameplay, Controls, Localisation, and Debug categories, ready to use.</li>
+                            <li><strong>Widget library</strong> Toggle, slider, dropdown, and selector widgets bind directly to your settings.</li>
+                            <li><strong>Live descriptions</strong> Hovering a setting shows an explanatory panel for the player.</li>
+                            <li><strong>Performance impact hints</strong> Graphics settings can show a low / medium / high impact badge.</li>
+                            <li><strong>Specialized types</strong> Resolution, window mode, and audio input/output device pickers built in.</li>
+                            <li><strong>Automatic JSON persistence</strong> Saves to <code>persistentDataPath</code>; instant-save or save-on-exit.</li>
+                            <li><strong>Reactive callbacks</strong> Subscribe to changes with <code>AddTrigger(SettingType, Action)</code>.</li>
+                            <li><strong>Typed API</strong> <code>GetBool / GetFloat / GetInt / GetString(SettingType)</code> for reading values anywhere.</li>
+                            <li><strong>Built for Unity 6</strong> Uses TextMeshPro and the new Input System.</li>
+                        </ul>
+
+                        <h3 class="mt-5">Technical details</h3>
+                        <ul class="spec">
+                            <li><span class="k">Namespace</span><span class="v"><code>Dandev.Unity_Modular_Settings_UI</code></span></li>
+                            <li><span class="k">Built with</span><span class="v">Unity 6 (6000.3), TextMeshPro, and the new Input System</span></li>
+                            <li><span class="k">Configuration</span><span class="v"><code>SettingsGroupScriptableObject</code> &rarr; <code>SettingTypeScriptableObject</code>, created from the <code>Settings/New Settings Group</code> asset menu</span></li>
+                            <li><span class="k">Manager</span><span class="v"><code>UserSettings</code> singleton (<code>DontDestroyOnLoad</code>) with typed getters</span></li>
+                            <li><span class="k">Setting types</span><span class="v">Bool, Float, Int, String + specialized Int (Resolution, WindowMode, AudioInputDevice, AudioOutputDevice)</span></li>
+                            <li><span class="k">Built-in settings</span><span class="v">30+ <code>SettingType</code> values across Audio / Graphics / Gameplay / Controls / Localisation / Debug</span></li>
+                            <li><span class="k">Persistence</span><span class="v">JSON at <code>Application.persistentDataPath/UserSettings.json</code>; InstantSave or SaveOnExit</span></li>
+                            <li><span class="k">Reactivity</span><span class="v"><code>AddTrigger(SettingType, Action)</code> callbacks fire when a value changes</span></li>
+                            <li><span class="k">Widgets</span><span class="v">Toggle, Slider, Dropdown, Selector; hover-driven description panel; per-setting impact (None / Low / Medium / High)</span></li>
+                        </ul>
+
+                        <p class="ai-note">This package is in active development and its API may change before release. AI coding assistants were used to help write and refactor the source code; all code was reviewed and tested by the developer. The package contains no AI-generated art, audio, or other assets.</p>
+
+                    </main>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <!-- Points of Contact -->
+        <contact-component></contact-component>
+
+        <footer-component></footer-component>
+
+        <!-- #region Global ============================ -->
+
+        <!-- Modal [responsive menu] -->
+        <div id="menu" class="p-0 modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        Menu <i class="icon-close"></i>
+                    </div>
+                    <div class="menu modal-body">
+                        <div class="row w-100">
+                            <div class="items p-0 col-12 text-center">
+                                <!-- Append [navbar] -->
+                            </div>
+                            <div class="contacts p-0 col-12 text-center">
+                                <!-- Append [navbar] -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll [to top] -->
+        <div id="scroll-to-top" class="scroll-to-top">
+            <a href="#header" class="smooth-anchor">
+                <i class="icon-arrow-up"></i>
+            </a>
+        </div>
+
+        <!-- ==============================================
+        Vendor Scripts
+        =============================================== -->
+        <script src="assets/js/vendor/jquery.min.js"></script>
+        <script src="assets/js/vendor/jquery.easing.min.js"></script>
+        <script src="assets/js/vendor/jquery.inview.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/ponyfill.min.js"></script>
+        <script src="assets/js/vendor/slider.min.js"></script>
+        <script src="assets/js/vendor/animation.min.js"></script>
+        <script src="assets/js/vendor/progress-radial.min.js"></script>
+        <script src="assets/js/vendor/bricklayer.min.js"></script>
+        <script src="assets/js/vendor/gallery.min.js"></script>
+        <script src="assets/js/vendor/shuffle.min.js"></script>
+        <script src="assets/js/vendor/cookie-notice.min.js"></script>
+        <script src="assets/js/vendor/particles.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <!-- #endregion Global ========================= -->
+
+    </body>
+</html>

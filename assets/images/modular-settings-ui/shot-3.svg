@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Graphics settings with impact badges placeholder">
+  <rect width="1600" height="1000" fill="#0f1115"/>
+  <rect x="110" y="96" width="1380" height="808" rx="14" fill="#191c22" stroke="#2a2f39" stroke-width="2"/>
+  <rect x="110" y="96" width="1380" height="66" rx="14" fill="#22262f"/><rect x="110" y="130" width="1380" height="32" fill="#22262f"/>
+  <text x="150" y="138" fill="#e9edf3" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700">Graphics</text>
+  <!-- rows with impact badges -->
+  <g font-family="Arial,Helvetica,sans-serif" font-size="26">
+    <!-- Resolution dropdown -->
+    <text x="150" y="256" fill="#dfe4ec">Resolution</text><rect x="900" y="228" width="440" height="46" rx="8" fill="#262a3b" stroke="#3a3f52"/><text x="922" y="259" fill="#c9cfe6" font-size="23">2560 x 1440</text><path d="M1300 246 l16 0 l-8 12 z" fill="#c9cfe6"/>
+    <!-- Window Mode selector -->
+    <text x="150" y="346" fill="#dfe4ec">Window Mode</text><rect x="900" y="318" width="440" height="46" rx="8" fill="#262a3b" stroke="#3a3f52"/><path d="M930 341 l-14 -12 l0 24 z" fill="#8b7bff"/><text x="1120" y="349" fill="#c9cfe6" font-size="23" text-anchor="middle">Fullscreen</text><path d="M1310 329 l14 12 l-14 12 z" fill="#8b7bff"/>
+    <!-- Texture Quality + high impact -->
+    <text x="150" y="436" fill="#dfe4ec">Texture Quality</text>
+    <rect x="470" y="410" width="150" height="38" rx="19" fill="#3a1e22"/><text x="545" y="436" fill="#ff6b6b" font-size="20" text-anchor="middle">High impact</text>
+    <rect x="900" y="418" width="440" height="46" rx="8" fill="#262a3b" stroke="#3a3f52"/><text x="1120" y="449" fill="#c9cfe6" font-size="23" text-anchor="middle">Ultra</text>
+    <!-- Anti-aliasing + low impact -->
+    <text x="150" y="526" fill="#dfe4ec">Anti-Aliasing</text>
+    <rect x="440" y="500" width="140" height="38" rx="19" fill="#1f3a2a"/><text x="510" y="526" fill="#57e389" font-size="20" text-anchor="middle">Low impact</text>
+    <rect x="900" y="508" width="440" height="46" rx="8" fill="#262a3b" stroke="#3a3f52"/><text x="1120" y="539" fill="#c9cfe6" font-size="23" text-anchor="middle">TAA</text>
+    <!-- Shadow Quality + medium impact -->
+    <text x="150" y="616" fill="#dfe4ec">Shadow Quality</text>
+    <rect x="450" y="590" width="180" height="38" rx="19" fill="#33300f"/><text x="540" y="616" fill="#ffd25a" font-size="20" text-anchor="middle">Medium impact</text>
+    <rect x="900" y="598" width="440" height="46" rx="8" fill="#262a3b" stroke="#3a3f52"/><text x="1120" y="629" fill="#c9cfe6" font-size="23" text-anchor="middle">High</text>
+    <!-- VSync toggle -->
+    <text x="150" y="706" fill="#dfe4ec">VSync</text><rect x="900" y="682" width="90" height="44" rx="22" fill="#41455f"/><circle cx="923" cy="704" r="16" fill="#c9cfe6"/>
+    <!-- FPS counter toggle on -->
+    <text x="150" y="786" fill="#dfe4ec">Show FPS</text><rect x="900" y="762" width="90" height="44" rx="22" fill="#8b7bff"/><circle cx="968" cy="784" r="16" fill="#fff"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif"><rect x="1120" y="828" width="270" height="44" rx="22" fill="#000000" opacity="0.4"/><text x="1255" y="858" fill="#fff" font-size="22" text-anchor="middle" opacity="0.85">Impact hints (placeholder)</text></g>
+</svg>
