@@ -101,7 +101,7 @@
                         <div class="row intro">
                             <div class="col-12 p-0">
                                 <h2 class="featured alt">About Us</h2>
-                                <p>We at Zest Studios are a super small Indie Game company who develop game and applications for fun! We started off developing games and applications in our spare-time and aim to be a huge Indie hit.<br><br>We've been developing and publishing games and apps for 5 years.</p>
+                                <p>We at Zest Studios are a super small Indie Game company who develop game and applications for fun! We started off developing games and applications in our spare-time and aim to be a huge Indie hit.<br><br>We've been developing and publishing games and apps for <span class="years-since" data-since="2017">9</span> years.</p>
                             </div>
                         </div>
                         <div class="row items">
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="col-12 col-md-9 align-self-center">
                                         <h4>Experience</h4>
-                                        <p>We have 5 years of experience developing apps and games.</p>
+                                        <p>We have <span class="years-since" data-since="2017">9</span> years of experience developing apps and games.</p>
                                     </div>  
                                 </div>
                             </div>
@@ -150,14 +150,14 @@
                         <div class="card no-hover">
                             <i class="icon icon-game-controller"></i>
                             <h4>Mobile Games</h4>
-                            <p>Hyper-casual and puzzle games for Android &mdash; Tilt Rocket, Free Sweetcorn, and Balltopia.</p>
+                            <p>Hyper-casual and puzzle games for Android: Tilt Rocket, Free Sweetcorn, and Balltopia.</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 item">
                         <div class="card no-hover">
                             <i class="icon icon-puzzle"></i>
                             <h4>Unity Packages &amp; Tools</h4>
-                            <p>Editor tools and asset packs that speed up Unity development &mdash; logging, level management, settings, and more.</p>
+                            <p>Editor tools and asset packs that speed up Unity development: logging, level management, settings, and more.</p>
                         </div>
                     </div>
                 </div>
@@ -334,6 +334,14 @@
         <script src="assets/js/vendor/cookie-notice.min.js"></script>
         <script src="assets/js/vendor/particles.min.js"></script>
         <script src="assets/js/main.js"></script>
+
+        <!-- Keep "X years" counts current, anchored to the founding year via data-since -->
+        <script>
+            document.querySelectorAll('.years-since').forEach(function (el) {
+                var since = parseInt(el.dataset.since, 10);
+                if (since) { el.textContent = new Date().getFullYear() - since; }
+            });
+        </script>
 
         <!-- #endregion Global ========================= -->
 
