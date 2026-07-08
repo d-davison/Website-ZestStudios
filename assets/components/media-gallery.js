@@ -1,5 +1,5 @@
 /* =====================================================================
-   <media-gallery> — Unity Asset Store–style media gallery.
+   <media-gallery>: Unity Asset Store–style media gallery.
    =====================================================================
 
    A big "stage" shows the selected image or a YouTube embed. A row of
@@ -92,6 +92,7 @@
     render() {
       var items = this._items;
       if (!items.length) { this.innerHTML = ""; return; }
+      var multi = items.length > 1;
 
       this.innerHTML =
         '<div class="mg" tabindex="0">' +
@@ -102,9 +103,9 @@
               '<button class="mg-btn mg-full" type="button" title="Fullscreen" aria-label="Fullscreen"><i class="icon-size-fullscreen"></i></button>' +
             '</div>' +
             '<div class="mg-toast">Link copied</div>' +
-            '<div class="mg-counter"></div>' +
+            (multi ? '<div class="mg-counter"></div>' : '') +
           '</div>' +
-          '<div class="mg-thumbs">' +
+          (multi ? '<div class="mg-thumbs">' +
             items.map(function (it, i) {
               var vid = isVideo(it);
               var src = vid ? it.thumb : it.src;
@@ -113,10 +114,11 @@
                 (src ? '<img src="' + esc(src) + '" alt="' + esc(alt) + '">' : "") +
                 '</button>';
             }).join("") +
-          '</div>' +
+          '</div>' : '') +
         '</div>';
 
       this._root = this.querySelector(".mg");
+      this._stage = this.querySelector(".mg-stage");
       this._media = this.querySelector(".mg-media");
       this._counter = this.querySelector(".mg-counter");
       this._toast = this.querySelector(".mg-toast");
@@ -145,15 +147,18 @@
       this.querySelectorAll(".mg-thumb").forEach(function (b, bi) {
         b.classList.toggle("is-active", bi === i);
       });
-      this._counter.textContent = (i + 1) + "/" + n;
+      if (this._counter) this._counter.textContent = (i + 1) + "/" + n;
 
+      var stage = this._stage;
       if (isVideo(it)) {
         if (validYouTubeId(it.id)) {
+          if (stage) stage.style.aspectRatio = "16 / 9";
           this._media.innerHTML =
             '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(it.id.trim()) +
             '?rel=0&autoplay=1" title="' + esc(it.alt || "Tutorial video") +
             '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
         } else {
+          if (stage) stage.style.aspectRatio = "16 / 10";
           this._media.innerHTML =
             '<div class="mg-videohint"><div class="mg-play"></div>' +
             '<p>Tutorial video coming soon</p>' +
@@ -161,6 +166,16 @@
         }
       } else {
         this._media.innerHTML = '<img src="' + esc(it.src) + '" alt="' + esc(it.alt || "") + '">';
+        // Fit the stage to the image's own aspect ratio so it expands to fill with no letterbox bars.
+        var img = this._media.querySelector("img");
+        if (img && stage) {
+          var fit = function () {
+            if (img.naturalWidth && img.naturalHeight) {
+              stage.style.aspectRatio = img.naturalWidth + " / " + img.naturalHeight;
+            }
+          };
+          if (img.complete) fit(); else img.addEventListener("load", fit);
+        }
       }
     }
 
