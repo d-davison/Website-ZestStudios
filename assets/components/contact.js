@@ -1,5 +1,5 @@
 /* =====================================================================
-   <contact-component> — "Points of Contact" band shown above the footer.
+   <contact-component>: "Points of Contact" band shown above the footer.
    =====================================================================
 
    Three clickable cards: Instagram, Email, and Discord. Drop it on any
@@ -53,7 +53,7 @@
                           <div class="card">
                               <i class="icon icon-envelope"></i>
                               <h4>studioszest@gmail.com</h4>
-                              <p class="mb-1">Email us &mdash; we reply within 8 hours on business days.</p>
+                              <p class="mb-1">Email us. We reply within 8 hours on business days.</p>
                           </div>
                       </a>
                   </div>
