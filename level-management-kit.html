@@ -13,11 +13,11 @@
 
         <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
 
-        <title>Zest Studios - Tilt Rocket</title>
+        <title>Zest Studios - Level Management Kit</title>
 
-        <meta name="description" content="Creative Agency, Portfolio, Corporate, Startup & Technology">
-        <meta name="subject" content="Creative Agency, Portfolio, Corporate, Startup & Technology">
-        <meta name="author" content="Codings">
+        <meta name="description" content="A complete, automatic level management and save system for Unity mobile games. Set your levels and sections, and the UI, loading, and saving are generated for you.">
+        <meta name="subject" content="Automatic level management kit for Unity">
+        <meta name="author" content="Zest Studios">
 
         <!-- ==============================================
         Favicons
@@ -46,198 +46,171 @@
         Theme Settings
         =============================================== -->
         <style>
-            :root {              
-                --h1-size: 5rem;
-                
+            :root {
                 --header-bg-color: #111111;
                 --nav-item-color: #f5f5f5;
                 --top-nav-item-color: #f5f5f5;
-                --hero-bg-color: #000000;
 
-                --section-1-bg-color: #f5f5f5;
-                --section-2-bg-color: #eeeeee;
-                --section-3-bg-color: #f5f5f5;
-            
+                --section-1-bg-color: #ffffff;
+                --section-2-bg-color: #f5f5f5;
+
                 --footer-bg-color: #191919;
             }
+
+            /* Solid dark header bar (light top section would hide the overlay navbar). */
+            #header .navbar{background-color:#111111;box-shadow:0 2px 12px rgba(0,0,0,.18);}
+
+            /* Product panel + content */
+            #product .bl-name{font-size:2.6rem;font-weight:800;line-height:1.1;margin:0 0 .5rem;}
+            #product .bl-lead{font-size:1.05rem;color:#555;}
+            #product .bl-meta{color:#8a8a8a;font-size:.85rem;margin-top:1rem;}
+            .bl-tags{display:flex;flex-wrap:wrap;gap:8px;margin:1.25rem 0;padding:0;list-style:none;}
+            .bl-tags li{background:#efefef;border-radius:999px;padding:.28rem .8rem;font-size:.8rem;color:#444;}
+            .bl-features{list-style:none;padding:0;margin:1.5rem 0 0;}
+            .bl-features li{position:relative;padding:.65rem 0 .65rem 2rem;border-top:1px solid #e6e6e6;}
+            .bl-features li:last-child{border-bottom:1px solid #e6e6e6;}
+            .bl-features li::before{content:'';position:absolute;left:0;top:1.05rem;width:12px;height:12px;border-radius:3px;background:#dd1e4b;}
+            .bl-features strong{display:block;margin-bottom:.15rem;}
+            #content code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
+            #content h4{margin-top:1.75rem;}
+            #content ul li{margin-bottom:.35rem;}
         </style>
-        
+
         <script src="assets/components/header.js" type="text/javascript" defer></script>
         <script src="assets/components/footer.js" type="text/javascript" defer></script>
         <script src="assets/components/contact.js" type="text/javascript" defer></script>
+        <script src="assets/components/media-gallery.js" type="text/javascript" defer></script>
     </head>
-
-    <!-- Header -->
-    <header-component></header-component>
 
     <body>
 
+        <!-- Header -->
+        <header-component></header-component>
 
-        <!-- Hero -->
-        <section id="slider" class="hero p-0 odd featured">
-            <div class="swiper-container no-slider slider-h-100">
-                <div class="swiper-wrapper">
+        <!-- Product [gallery + info] -->
+        <section id="product" class="section-1 single featured">
+            <div class="container">
+                <div class="row">
 
-                    <!-- Item 1 -->
-                    <div class="swiper-slide slide-center">
-                        
-                        <img src="assets/images/bg-levelmanagementpackage.jpg" class="full-image" data-mask="70">
-                        
-                        <div class="slide-content row text-center">
-                            <div class="col-12 mx-auto inner">
-                                <h1 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text">Complete & Automatic Level Management Kit</h1>
-                                <nav data-aos="zoom-out-up" data-aos-delay="800" aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="" target="_blank" class="btn ml-lg-auto primary-button"><i class="icon-rocket"></i>Coming Soon</a></li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
+                    <!-- Media gallery (Asset Store style) -->
+                    <div class="col-12 col-lg-8 p-0 align-self-start">
+                        <media-gallery>
+                            <script type="application/json">
+                            [
+                                { "type": "image", "src": "assets/images/news-lmp1.jpg", "alt": "Automatically generates all level UI" },
+                                { "type": "image", "src": "assets/images/news-lmp2.jpg", "alt": "Level Management Kit" },
+                                { "type": "image", "src": "assets/images/bg-levelmanagementpackage.jpg", "alt": "Level Management Kit" }
+                            ]
+                            </script>
+                        </media-gallery>
                     </div>
+
+                    <!-- Product info panel -->
+                    <div class="col-12 col-lg-4 p-0 pl-lg-5 mt-4 mt-lg-0 align-self-start">
+                        <h1 class="bl-name">Level Management Kit</h1>
+                        <p class="bl-lead">A complete, automatic level management and save system for Unity mobile games. Set your number of levels and sections, and the UI, loading, and saving are generated for you. Just add your gameplay.</p>
+
+                        <ul class="bl-tags">
+                            <li>Unity</li>
+                            <li>Mobile</li>
+                            <li>Level System</li>
+                            <li>Save System</li>
+                            <li>Addressables</li>
+                        </ul>
+
+                        <a href="https://assetstore.unity.com/packages/tools/gui/complete-automatic-mobile-level-management-kit-214640" target="_blank" rel="noopener noreferrer" class="btn primary-button"><i class="icon-rocket"></i>Get on the Asset Store</a>
+
+                        <p class="bl-meta">Developed by Zest Studios</p>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Content -->
-        <section id="content" class="section-1 single featured">
+        <!-- Content [description] -->
+        <section id="content" class="section-2 single">
             <div class="container">
                 <div class="row">
+                    <main class="col-12 col-lg-10 mx-auto p-0">
 
-                    <!-- Main -->
-                    <main class="col-12 p-0">
-                        <div class="row">
-                            <div class="col-12 align-self-center">
-                                <h2 class="featured mt-0 ml-0">Complete & Automatic Mobile Level Management Kit</h2>
-                                <h3>Introduction</h3>
-                                <p>Level management kit is a completely automatic level management system, tied in with Unity’s Addressable system (but could be easily change to something else). It’s your simple go-to mobile game kit that gives you everything you need: a structured base to your game, all you need to go is add your gameplay!
-                                <br><br>
-                                With this, easily customize how many levels and sections your game will have, and the UI will automatically be generated to suit your input. From there, you can load and play into any game, and your game stats will be saved, and you can continue playing onto the next level, automatically loading, and saving as you go.
-                                <br><br>
-                                With this system, nothing is hidden inside DLLs, so everything can be edited to suit your game.
-                                <br><br>
-                                Asset available now on the Unity Asset Store.
-                                </p>
-                                
-                                <!-- Image -->
-                                <div class="gallery">
-                                    <a href="assets/images/news-lmp1.jpg">
-                                        <img src="assets/images/news-lmp1.jpg" class="w-100">
-                                    </a>
-                                </div>
-                                <br>
-                                <div class="gallery">
-                                    <a href="assets/images/news-lmp2.jpg">
-                                        <img src="assets/images/news-lmp2.jpg" class="w-100">
-                                    </a>
-                                </div>
-                                <br>
-                                <h3>How To Guide</h3>
-                                <p>
-                                    The way that the system works is that you have your main gameplay scene (Scene_Gameplay) and inside this scene you have all the systems that you might need, and when you want to load a level, this level is instantiated in, configured, used, and then destroyed; ready for the next level to be added.
-                                    <br><br>
-                                    So how do you swap out the current level template with your levels and gameplay?
-                                <h4>Step 1: Configuring Your Levels</h4>
-                                    LevelObject.cs is a class that is attached to each level object that is spawned in. We need to add and setup our levels so that they use this system.
-                                    <br><br>
-                                    Simply add component to the parent of the level, and then configure all the different settings.
-                                    <br><br>
-                                    Here there will be slots for the level gem, and the level coins (default 3 coins and 1 gem) and the end game button, which you don’t need to worry about yet! Add the Collectables.cs component to all your collectables, and configure them to what they are, a gem, or a coin. Then drag these into the gem and coin variables. The last variable, startTransform, is there the player will start in the level. Simply create an empty game object within the level object, drag it to where you want the player to start and assign the variable. Make sure that the player object is in the Scene_Gameplay scene and assigned in the GameManager.
-                                    <br><br>
-                                    From there, the collectables will collect and automatically count themselves. 
-                                    <br>
-                                <h4>Step 2: Configuring the Game Rules</h4>
-                                    If your level finishes from a player colliding into an object (such as a finish line), attach the component FinishLevelObject.cs to your end goal. This imply has a function that calls GameManager.Instance.FinishLevel, and make sure that your player has the tag “Player” and you have a collider set to On Trigger.
-                                    <br>
-                                <h4>Step 3: Level Data</h4>
-                                    If your levels aren’t all prefabs already, turn these into prefabs and put them into a folder in your project. From here, locate the LevelDataScriptableObject called LevelData in Assets/LevelManagement. Here copy the sizes you put in the Level Selector game object (Amount of sections and amount of levels in each section) and then drag the game objects into LevelData. This is where the levels will be loaded from.
-                                    <br>
-                                <h4>Step 4: Extras</h4>
-                                    If you want to change the UI, you can find the prefabs in Assets/LevelManagementKit/UI, other than that, most of the UI can be changed directly in the scene.
-                                </p>
-                                <h3>Package Information and Glossary</h3>
-                                <p> 
-                                <h4>Level System</h4>
-                                    The level selector is the main script for all the level management, in here you can easily customise how many sections there are, and SectionData of the level.
-                                <ul>
-                                    <li>Level Panels Parent: The parent transform of where the parent panel will be placed in the hierarchy
-                                    </li>
-                                    <li>Section Button Prefab: The section select button prefab
-                                    </li>
-                                    <li>Level Button Prefab: The level select button prefab
-                                    </li>
-                                    <li>Section Panel Prefab: The scrolling section prefab that the buttons above are instantiated into
-                                    </li>
-                                </ul>
-                                    <br>
-                                <h4>Sections</h4>
-                                    Section (SectionData) hold the data for indivudla sections. Most of this information is generated but some of it can be assigned, such as:
-                                <ul>
-                                    <li>Size: Size is how many sections you want your game to have
-                                    </li>
-                                    <li>Section ID: The name of the section (displayed in UI)
-                                    </li>
-                                    <li>Section Length: How many levels are in this section
-                                    </li>
-                                </ul>
-                                 <br>
-                                <h4>UI Manager and the UI System</h4>
-                                    The UI Manager has some basic UI functionality built into some core methods that are called by different scripts such as the game manager during different fundamental parts of the game (for example, when the game is ending, and the end screen needs to appear). To make this part flashier, you could add some animations into this UI Manager rather than doing what is happening now (just a simple turning the object on and off).
-                                    <br>
-                                <h4>UI Stat Shower</h4>
-                                    UIStatShower is a script that gets a certain stat and shows it with the prefab that it comes with (either the progress display, or the currency display). Inside these you select the drop down as to what display you want to show and make sure it’s being updated along with the 3 bars at the top. 
-                                    <br>
-                                <h4>UI Coin Gem Tab</h4>
-                                    The UICoinGemTab is used in a few different places, with the functionality being to show how many coins and gems the user has collected. This is done both at the end of the game, and in the level select UI.
-                                    <br><br>
-                                    Simply drag and drop the prefab in where you need it, and call SetUI(amount of coins, amount of gems) and the UI will show this.
-                                    <br>
-                                <h4>Collectables</h4>
-                                    Collectable Manager is an easy way for you to change how the collectables sound/look. Simply change the sounds CoinCollect and GemCollect to change how the different collectables sounds.
-                                    <br><br>
-                                    The Collectable script contains some simple functionality for collecting the item, which can be easily changed / added to where needed.
-                                    <br>
-                                <h4>Game Management and Gameplay Functionality</h4>
-                                    The Game Manager is a Singleton class that holds all of the gameplay functionality from Loading the level, to Starting the level and finishing the level. The GameManager script also contains the class GameManagerHelper will a lot of constant variables that you can change to your liking
-                                    <br>
-                                <ul>
-                                    <li>Max Moves: How many moves the player can make until they stop receiving a score bonus. This can be linked to your player if you want it to be, if not it can be ignored.
-                                    </li>
-                                    <li>Timer Points Max: How long the player can take and receive the highest point boost
-                                    </li>
-                                    <li>Timer Points Middle: How long the player can take and receive the second highest point boost
-                                    </li>
-                                    <li>Timer Points Least: How long the player can take and receive the lowest point boost
-                                    </li>
-                                    <li>Timer Points None: How long the player can take and receive no point boost point boost
-                                    </li>
-                                    <li>Coin Score: Default point score for a coin
-                                    </li>
-                                    <li>Gem Score: Default point score for a gem
-                                    </li>
-                                </ul>
-                                    <br>
-                                <h4>Stats Management</h4>
-                                    Stat Manager holds the functionality for holding all the basic statistics from the player, and also the levelling system (LevelSystem).
-                                    <br><br>
-                                    Inside the LevelSystem you can change how muchn XP you need to rank up. By default it is 15 levels, incrementing slowly the XP that you need for each level (10 to 3000 xp) and after level 15 it is 3000 XP per level to level up.
-                                    <br>
-                                </p>
-                                <!-- Post Holder -->
-                                <ul class="mb-5 post-holder">
-                                    <li class="post-meta-item">
-                                        <time class="date"><span class="posted-on">Developed by <a href="#" rel="bookmark"><time class="entry-date published updated" datetime="2018-11-01T06:18:46+00:00">Zest Studios</time></a></span></time>
-                                    </li>
-                                </ul>                     
-                            </div>
-                        </div>        
+                        <h2 class="featured mt-0 ml-0">Automatic level management for mobile games</h2>
+
+                        <p>Level Management Kit is a completely automatic level management system, tied into Unity's Addressables system (but easily swapped for something else). It's your simple go-to mobile game kit: a structured base for your game where all you need to do is add your gameplay.</p>
+
+                        <p>Customise how many levels and sections your game has, and the UI is generated automatically to suit your input. From there you can load and play into any level, your stats are saved, and you continue onto the next level, automatically loading and saving as you go. Nothing is hidden inside DLLs, so everything can be edited to suit your game. Available now on the Unity Asset Store.</p>
+
+                        <h3 class="mt-5">Features</h3>
+                        <ul class="bl-features">
+                            <li><strong>Auto-generated level UI</strong> Set your number of sections and levels, and the selection UI is built to match.</li>
+                            <li><strong>Addressables-based loading</strong> Levels are instantiated, configured, used, and destroyed on demand. Swap the backend if you prefer.</li>
+                            <li><strong>Automatic save &amp; continue</strong> Progress and stats are saved as you play, loading you back in where you left off.</li>
+                            <li><strong>Collectables built in</strong> Coins and gems that count themselves, with configurable sounds and scoring.</li>
+                            <li><strong>Stats &amp; levelling system</strong> Tracks player statistics and an XP-based levelling curve you can tune.</li>
+                            <li><strong>Fully editable</strong> No hidden DLLs: every script is open and editable to fit your game.</li>
+                        </ul>
+
+                        <h3 class="mt-5">How it works</h3>
+                        <p>You have one main gameplay scene (<code>Scene_Gameplay</code>) that holds all the systems you might need. When you want to load a level, it's instantiated in, configured, used, and then destroyed, ready for the next level. Here's how to swap the level template out for your own levels and gameplay.</p>
+
+                        <h4>Step 1: Configuring your levels</h4>
+                        <p><code>LevelObject.cs</code> is a class attached to each level object that's spawned in. Add the component to the parent of the level, then configure the settings. There are slots for the level gem, the level coins (3 coins and 1 gem by default), and the end-game button. Add the <code>Collectables.cs</code> component to your collectables, configure each as a gem or a coin, and drag them into the gem and coin variables. The last variable, <code>startTransform</code>, is where the player starts the level. Create an empty game object in the level, position it, and assign it. Make sure the player object is in <code>Scene_Gameplay</code> and assigned in the GameManager. From there, collectables count themselves automatically.</p>
+
+                        <h4>Step 2: Configuring the game rules</h4>
+                        <p>If a level finishes when the player collides with an object (such as a finish line), attach <code>FinishLevelObject.cs</code> to your end goal. It calls <code>GameManager.Instance.FinishLevel</code>. Just make sure your player has the tag &ldquo;Player&rdquo; and a collider set to Is Trigger.</p>
+
+                        <h4>Step 3: Level data</h4>
+                        <p>If your levels aren't prefabs already, turn them into prefabs and put them in a folder. Then locate the <code>LevelDataScriptableObject</code> called LevelData in <code>Assets/LevelManagement</code>. Copy the sizes you set in the Level Selector (amount of sections and levels per section) and drag the game objects into LevelData. This is where the levels are loaded from.</p>
+
+                        <h4>Step 4: Extras</h4>
+                        <p>To change the UI, find the prefabs in <code>Assets/LevelManagementKit/UI</code>; most of the rest of the UI can be changed directly in the scene.</p>
+
+                        <h3 class="mt-5">What's inside</h3>
+
+                        <h4>Level System</h4>
+                        <p>The Level Selector is the main script for all level management. Here you customise how many sections there are and the section data.</p>
+                        <ul>
+                            <li><strong>Level Panels Parent:</strong> the parent transform where the panel is placed in the hierarchy.</li>
+                            <li><strong>Section Button Prefab:</strong> the section-select button prefab.</li>
+                            <li><strong>Level Button Prefab:</strong> the level-select button prefab.</li>
+                            <li><strong>Section Panel Prefab:</strong> the scrolling section prefab the buttons are instantiated into.</li>
+                        </ul>
+
+                        <h4>Sections</h4>
+                        <p>Sections (SectionData) hold the data for individual sections. Most of it is generated, but some can be assigned:</p>
+                        <ul>
+                            <li><strong>Size:</strong> how many sections your game has.</li>
+                            <li><strong>Section ID:</strong> the section name (shown in the UI).</li>
+                            <li><strong>Section Length:</strong> how many levels are in the section.</li>
+                        </ul>
+
+                        <h4>UI Manager &amp; the UI system</h4>
+                        <p>The UI Manager has basic UI functionality in core methods called by other scripts (such as the Game Manager) during key moments, for example, showing the end screen when the game finishes. You can add animations here to make it flashier rather than simply toggling objects on and off.</p>
+
+                        <h4>UI Stat Shower</h4>
+                        <p><code>UIStatShower</code> fetches a stat and shows it with its prefab (progress display or currency display). Pick the display from the dropdown and keep it updated along with the three bars at the top.</p>
+
+                        <h4>UI Coin &amp; Gem Tab</h4>
+                        <p>The <code>UICoinGemTab</code> shows how many coins and gems the player has collected, used both at the end of a game and in the level-select UI. Drop the prefab where you need it and call <code>SetUI(coins, gems)</code> to update it.</p>
+
+                        <h4>Collectables</h4>
+                        <p>The Collectable Manager makes it easy to change how collectables sound and look: swap the CoinCollect and GemCollect sounds to change them. The Collectable script contains simple collect functionality that's easy to change or extend.</p>
+
+                        <h4>Game management &amp; gameplay</h4>
+                        <p>The Game Manager is a singleton holding all gameplay functionality, from loading to starting and finishing a level. It also contains <code>GameManagerHelper</code> with constants you can tune:</p>
+                        <ul>
+                            <li><strong>Max Moves:</strong> moves before the player stops receiving a score bonus (optional).</li>
+                            <li><strong>Timer Points Max / Middle / Least / None:</strong> how long the player can take to receive each point boost tier.</li>
+                            <li><strong>Coin Score:</strong> default score for a coin.</li>
+                            <li><strong>Gem Score:</strong> default score for a gem.</li>
+                        </ul>
+
+                        <h4>Stats management</h4>
+                        <p>The Stat Manager holds all the player's basic statistics and the levelling system (<code>LevelSystem</code>). You can change how much XP is needed to rank up: by default 15 levels, incrementing the XP required (10 to 3000 XP), and 3000 XP per level after level 15.</p>
+
                     </main>
                 </div>
             </div>
         </section>
-
-    
-
-    
 
         <!-- Footer -->
         <!-- Points of Contact -->
@@ -280,84 +253,6 @@
             </div>
         </div>
 
-        <!-- Modal [sign] -->
-        <div id="sign" class="p-0 modal fade" role="dialog" aria-labelledby="sign" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideout" role="document">
-                <div class="modal-content full">
-                    <div class="modal-header" data-dismiss="modal">
-                        Sign In Form <i class="icon-close"></i>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="row">
-                            <div class="col-12 p-0 align-self-center">
-                                <div class="row">
-                                    <div class="col-12 p-0 pb-3">
-                                        <h2>Sign In</h2>
-                                        <p>Don't have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#register">Register now</a>.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="email" class="form-control" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group align-self-center">
-                                        <button class="btn primary-button"><i class="icon-login"></i>LOGIN</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal [register] -->
-        <div id="register" class="p-0 modal fade" role="dialog" aria-labelledby="register" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideout" role="document">
-                <div class="modal-content full">
-                    <div class="modal-header" data-dismiss="modal">
-                        Register Form <i class="icon-close"></i>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="row">
-                            <div class="col-12 p-0 align-self-center">
-                                <div class="row">
-                                    <div class="col-12 p-0 pb-3">
-                                        <h2>Register</h2>
-                                        <p>Have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#sign">Sign In</a>.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="text" class="form-control" placeholder="Name" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="email" class="form-control" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Confirm Password" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group align-self-center">
-                                        <button class="btn primary-button"><i class="icon-rocket"></i>REGISTER</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Modal [responsive menu] -->
         <div id="menu" class="p-0 modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">
             <div class="modal-dialog modal-dialog-slideout" role="document">
@@ -384,12 +279,7 @@
             <a href="#header" class="smooth-anchor">
                 <i class="icon-arrow-up"></i>
             </a>
-        </div>        
-        
-        <!-- ==============================================
-        Google reCAPTCHA // Put your site key here
-        =============================================== -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6Lf-NwEVAAAAAPo_wwOYxFW18D9_EKvwxJxeyUx7"></script>
+        </div>
 
         <!-- ==============================================
         Vendor Scripts

@@ -13,11 +13,11 @@
 
         <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
 
-        <title>Zest Studios - Tilt Rocket</title>
+        <title>Zest Studios - Low Poly Weapon Pack</title>
 
-        <meta name="description" content="Creative Agency, Portfolio, Corporate, Startup & Technology">
-        <meta name="subject" content="Creative Agency, Portfolio, Corporate, Startup & Technology">
-        <meta name="author" content="Codings">
+        <meta name="description" content="A low poly 3D medieval weapon pack for Unity - swords, knives, axes, and hammers with handle-set origins, ready to drag and drop into your game.">
+        <meta name="subject" content="Low poly 3D medieval weapon pack for Unity">
+        <meta name="author" content="Zest Studios">
 
         <!-- ==============================================
         Favicons
@@ -46,102 +46,107 @@
         Theme Settings
         =============================================== -->
         <style>
-            :root {              
-                --h1-size: 5rem;
-                
+            :root {
                 --header-bg-color: #111111;
                 --nav-item-color: #f5f5f5;
                 --top-nav-item-color: #f5f5f5;
-                --hero-bg-color: #000000;
 
-                --section-1-bg-color: #f5f5f5;
-                --section-2-bg-color: #eeeeee;
-                --section-3-bg-color: #f5f5f5;
-            
+                --section-1-bg-color: #ffffff;
+                --section-2-bg-color: #f5f5f5;
+
                 --footer-bg-color: #191919;
             }
+
+            /* Solid dark header bar (light top section would hide the overlay navbar). */
+            #header .navbar{background-color:#111111;box-shadow:0 2px 12px rgba(0,0,0,.18);}
+
+            /* Product panel + content */
+            #product .bl-name{font-size:2.6rem;font-weight:800;line-height:1.1;margin:0 0 .5rem;}
+            #product .bl-lead{font-size:1.05rem;color:#555;}
+            #product .bl-meta{color:#8a8a8a;font-size:.85rem;margin-top:1rem;}
+            .bl-tags{display:flex;flex-wrap:wrap;gap:8px;margin:1.25rem 0;padding:0;list-style:none;}
+            .bl-tags li{background:#efefef;border-radius:999px;padding:.28rem .8rem;font-size:.8rem;color:#444;}
+            .bl-features{list-style:none;padding:0;margin:1.5rem 0 0;}
+            .bl-features li{position:relative;padding:.65rem 0 .65rem 2rem;border-top:1px solid #e6e6e6;}
+            .bl-features li:last-child{border-bottom:1px solid #e6e6e6;}
+            .bl-features li::before{content:'';position:absolute;left:0;top:1.05rem;width:12px;height:12px;border-radius:3px;background:#dd1e4b;}
+            .bl-features strong{display:block;margin-bottom:.15rem;}
         </style>
-        
+
         <script src="assets/components/header.js" type="text/javascript" defer></script>
         <script src="assets/components/footer.js" type="text/javascript" defer></script>
         <script src="assets/components/contact.js" type="text/javascript" defer></script>
+        <script src="assets/components/media-gallery.js" type="text/javascript" defer></script>
     </head>
-
-    <!-- Header -->
-    <header-component></header-component>
 
     <body>
 
+        <!-- Header -->
+        <header-component></header-component>
 
-        <!-- Hero -->
-        <section id="slider" class="hero p-0 odd featured">
-            <div class="swiper-container no-slider slider-h-100">
-                <div class="swiper-wrapper">
+        <!-- Product [gallery + info] -->
+        <section id="product" class="section-1 single featured">
+            <div class="container">
+                <div class="row">
 
-                    <!-- Item 1 -->
-                    <div class="swiper-slide slide-center">
-                        
-                        <img src="assets/images/bg-lowpolyweapons.jpg" class="full-image" data-mask="70">
-                        
-                        <div class="slide-content row text-center">
-                            <div class="col-12 mx-auto inner">
-                                <h1 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text">Low Poly Package</h1>
-                                <nav data-aos="zoom-out-up" data-aos-delay="800" aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="https://assetstore.unity.com/packages/3d/props/weapons/low-poly-3d-medieval-weapon-pack-186935?_ga=2.85830928.888112976.1646420842-595255809.1645737148" target="_blank" class="btn ml-lg-auto primary-button"><i class="icon-rocket"></i>Download for Free</a></li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
+                    <!-- Media gallery (Asset Store style) -->
+                    <div class="col-12 col-lg-8 p-0 align-self-start">
+                        <media-gallery>
+                            <script type="application/json">
+                            [
+                                { "type": "image", "src": "assets/images/news-lowpolyweapons.jpg", "alt": "Low poly medieval weapons" },
+                                { "type": "image", "src": "assets/images/bg-lowpolyweapons.jpg",   "alt": "Low poly weapon pack" }
+                            ]
+                            </script>
+                        </media-gallery>
                     </div>
+
+                    <!-- Product info panel -->
+                    <div class="col-12 col-lg-4 p-0 pl-lg-5 mt-4 mt-lg-0 align-self-start">
+                        <h1 class="bl-name">Low Poly Weapon Pack</h1>
+                        <p class="bl-lead">A low poly 3D medieval weapon pack for Unity: swords, knives, axes, and hammers, with origins set to the handle so they're ready to drag and drop into your game.</p>
+
+                        <ul class="bl-tags">
+                            <li>Unity</li>
+                            <li>3D Props</li>
+                            <li>Weapons</li>
+                            <li>Low Poly</li>
+                        </ul>
+
+                        <a href="https://assetstore.unity.com/packages/3d/props/weapons/low-poly-3d-medieval-weapon-pack-186935" target="_blank" rel="noopener noreferrer" class="btn primary-button"><i class="icon-rocket"></i>Get on the Asset Store</a>
+
+                        <p class="bl-meta">Developed by Zest Studios</p>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Content -->
-        <section id="content" class="section-1 single featured">
+        <!-- Content [description] -->
+        <section id="content" class="section-2 single">
             <div class="container">
                 <div class="row">
+                    <main class="col-12 col-lg-10 mx-auto p-0">
 
-                    <!-- Main -->
-                    <main class="col-12 p-0">
-                        <div class="row">
-                            <div class="col-12 align-self-center">
-                                <h2 class="featured mt-0 ml-0">Low Poly 3D Medieval Weapon Pack</h2>
-                                <p>This pack contains the following: 9x Swords and Knifes, 3x Axes, 3x Hammers.
-                                <br><br>
-                                All the assets in the pack have had the origins of the object set to the handle of weapons meaning they are ready to drag and drop into your game!
-                                <br><br>
-                                If you need to make any changes to the files, you can import the FBX files into any other software (Maya or Max etc..).
-                                <br><br>
-                                If the materials need to be changed, new materials can be made and dragged into the place of the current materials that were imported from the FBX file.
-                                </p>
-                                
-                                <!-- Image -->
-                                <div class="gallery">
-                                    <a href="assets/images/news-lowpolyweapons.jpg">
-                                        <img src="assets/images/news-lowpolyweapons.jpg" class="w-100">
-                                    </a>
-                                </div>
+                        <h2 class="featured mt-0 ml-0">Low Poly 3D Medieval Weapon Pack</h2>
 
-                                <!-- Post Holder -->
-                                <ul class="mb-5 post-holder">
-                                    <li class="post-meta-item">
-                                        <time class="date"><span class="posted-on">Developed by <a href="#" rel="bookmark"><time class="entry-date published updated" datetime="2018-11-01T06:18:46+00:00">Zest Studios</time></a></span></time>
-                                    </li>
-                                </ul>
+                        <p>A set of clean, game-ready low poly medieval weapons for Unity. The pack contains 15 models: 9 swords and knives, 3 axes, and 3 hammers.</p>
 
-                                
-                            </div>
-                        </div>        
+                        <p>Every asset has had its origin set to the handle of the weapon, so they're ready to drag and drop straight into your game and parent to a character's hand. Need to tweak something? The FBX source files can be imported into any other 3D software (Maya, Max, Blender, and so on), and materials can be swapped out by creating new materials and dropping them in place of the imported ones.</p>
+
+                        <h3 class="mt-5">Features</h3>
+                        <ul class="bl-features">
+                            <li><strong>15 weapons</strong> 9 swords &amp; knives, 3 axes, and 3 hammers.</li>
+                            <li><strong>Handle-set origins</strong> Pivots are placed at the handle, so weapons drag, drop, and parent to a hand cleanly.</li>
+                            <li><strong>Low poly &amp; game-ready</strong> Lightweight meshes suited to mobile and stylised projects.</li>
+                            <li><strong>FBX source files</strong> Import and edit in Maya, Max, Blender, or any 3D package.</li>
+                            <li><strong>Swappable materials</strong> Restyle the weapons by dropping in your own materials.</li>
+                        </ul>
+
                     </main>
                 </div>
             </div>
         </section>
-
-    
-
-    
 
         <!-- Footer -->
         <!-- Points of Contact -->
@@ -184,84 +189,6 @@
             </div>
         </div>
 
-        <!-- Modal [sign] -->
-        <div id="sign" class="p-0 modal fade" role="dialog" aria-labelledby="sign" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideout" role="document">
-                <div class="modal-content full">
-                    <div class="modal-header" data-dismiss="modal">
-                        Sign In Form <i class="icon-close"></i>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="row">
-                            <div class="col-12 p-0 align-self-center">
-                                <div class="row">
-                                    <div class="col-12 p-0 pb-3">
-                                        <h2>Sign In</h2>
-                                        <p>Don't have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#register">Register now</a>.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="email" class="form-control" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group align-self-center">
-                                        <button class="btn primary-button"><i class="icon-login"></i>LOGIN</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal [register] -->
-        <div id="register" class="p-0 modal fade" role="dialog" aria-labelledby="register" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideout" role="document">
-                <div class="modal-content full">
-                    <div class="modal-header" data-dismiss="modal">
-                        Register Form <i class="icon-close"></i>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="row">
-                            <div class="col-12 p-0 align-self-center">
-                                <div class="row">
-                                    <div class="col-12 p-0 pb-3">
-                                        <h2>Register</h2>
-                                        <p>Have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#sign">Sign In</a>.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="text" class="form-control" placeholder="Name" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="email" class="form-control" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Confirm Password" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group align-self-center">
-                                        <button class="btn primary-button"><i class="icon-rocket"></i>REGISTER</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Modal [responsive menu] -->
         <div id="menu" class="p-0 modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">
             <div class="modal-dialog modal-dialog-slideout" role="document">
@@ -288,12 +215,7 @@
             <a href="#header" class="smooth-anchor">
                 <i class="icon-arrow-up"></i>
             </a>
-        </div>        
-        
-        <!-- ==============================================
-        Google reCAPTCHA // Put your site key here
-        =============================================== -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6Lf-NwEVAAAAAPo_wwOYxFW18D9_EKvwxJxeyUx7"></script>
+        </div>
 
         <!-- ==============================================
         Vendor Scripts
