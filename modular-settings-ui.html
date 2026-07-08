@@ -74,9 +74,10 @@
             .bl-features strong{display:block;margin-bottom:.15rem;}
             code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
             .spec{list-style:none;padding:0;margin:1rem 0 0;}
-            .spec li{display:flex;flex-wrap:wrap;gap:.25rem 1rem;padding:.6rem 0;border-top:1px solid #e6e6e6;}
+            .spec li{display:flex;gap:.25rem 1rem;padding:.6rem 0;border-top:1px solid #e6e6e6;}
             .spec li .k{flex:0 0 240px;font-weight:700;color:#333;}
-            .spec li .v{color:#555;}
+            .spec li .v{flex:1 1 auto;min-width:0;color:#555;}
+            @media (max-width:640px){.spec li{flex-wrap:wrap;}.spec li .k,.spec li .v{flex:0 0 100%;}}
             .ai-note{margin-top:2.25rem;padding:1rem 1.25rem;background:#efefef;border-left:3px solid #bbb;border-radius:6px;color:#555;font-size:.9rem;}
         </style>
 
@@ -103,11 +104,7 @@
                                  and set the last item's "id" to your YouTube tutorial id. -->
                             <script type="application/json">
                             [
-                                { "type": "image",   "src": "assets/images/modular-settings-ui/hero.svg",    "alt": "Modular Settings UI" },
-                                { "type": "image",   "src": "assets/images/modular-settings-ui/shot-1.svg",  "alt": "Settings panel with widgets" },
-                                { "type": "image",   "src": "assets/images/modular-settings-ui/shot-2.svg",  "alt": "ScriptableObject settings config" },
-                                { "type": "image",   "src": "assets/images/modular-settings-ui/shot-3.svg",  "alt": "Graphics settings with impact hints" },
-                                { "type": "youtube", "id": "YOUR_YOUTUBE_ID", "thumb": "assets/images/better-logger/video-thumb.svg", "alt": "Modular Settings UI tutorial" }
+                                { "type": "image", "src": "assets/images/modular-settings-ui/coming-soon.svg", "alt": "Modular Settings UI, screenshots coming soon" }
                             ]
                             </script>
                         </media-gallery>
@@ -116,7 +113,7 @@
                     <!-- Product info panel -->
                     <div class="col-12 col-lg-4 p-0 pl-lg-5 mt-4 mt-lg-0 align-self-start">
                         <h1 class="bl-name">Modular Settings UI</h1>
-                        <p class="bl-lead">A drop-in, data-driven settings menu for Unity. Define your options as ScriptableObjects and get a polished settings UI with sliders, toggles, dropdowns, live descriptions, JSON save/load, and 30+ built-in setting types &mdash; no boilerplate.</p>
+                        <p class="bl-lead">A drop-in, data-driven settings menu for Unity. Define your options as ScriptableObjects and get a polished settings UI with sliders, toggles, dropdowns, live descriptions, JSON save/load, and 30+ built-in setting types. No boilerplate.</p>
 
                         <ul class="bl-tags">
                             <li class="status">In development</li>
@@ -125,8 +122,6 @@
                             <li>Settings</li>
                             <li>TextMeshPro</li>
                         </ul>
-
-                        <a href="https://github.com/d-davison/Unity-Modular-Settings-UI" target="_blank" rel="noopener noreferrer" class="btn primary-button"><i class="icon-social-github"></i>View on GitHub</a>
 
                         <p class="bl-meta">Developed by Zest Studios</p>
                     </div>
@@ -145,15 +140,15 @@
 
                         <p>Modular Settings UI is a complete, reusable settings-menu system for Unity games. Instead of hand-wiring every options screen, you describe your settings as data and the system builds and manages the UI for you.</p>
 
-                        <p>Settings are defined with ScriptableObjects &mdash; grouped into pages, each with a display name, description, and behaviour &mdash; so designers can add, reorder, and configure options without touching code. The library ships with <strong>30+ common setting types out of the box</strong> across Audio, Graphics, Gameplay, Controls, Localisation, and Debug categories: from master volume and resolution to VSync, quality presets, FOV, gamepad dead zones, and an FPS counter.</p>
+                        <p>Settings are defined with ScriptableObjects (grouped into pages, each with a display name, description, and behaviour) so designers can add, reorder, and configure options without touching code. The library ships with <strong>30+ common setting types out of the box</strong> across Audio, Graphics, Gameplay, Controls, Localisation, and Debug categories: from master volume and resolution to VSync, quality presets, FOV, gamepad dead zones, and an FPS counter.</p>
 
-                        <p>Each setting binds to a UI widget &mdash; toggle, slider, dropdown, or selector &mdash; and hovering a widget shows a live description panel so players know exactly what each option does. Graphics settings can advertise a performance impact (low / medium / high) to guide players.</p>
+                        <p>Each setting binds to a UI widget (toggle, slider, dropdown, or selector) and hovering a widget shows a live description panel so players know exactly what each option does. Graphics settings can advertise a performance impact (low / medium / high) to guide players.</p>
 
-                        <p>Values persist automatically as JSON in the player's persistent data folder, with instant-save or save-on-exit modes. A change-callback system lets any part of your game react the moment a setting changes, and specialized types handle the fiddly bits &mdash; screen resolution, window mode, and audio input/output device selection &mdash; for you.</p>
+                        <p>Values persist automatically as JSON in the player's persistent data folder, with instant-save or save-on-exit modes. A change-callback system lets any part of your game react the moment a setting changes, and specialized types handle the fiddly bits (screen resolution, window mode, and audio input/output device selection) for you.</p>
 
                         <h3 class="mt-5">Features</h3>
                         <ul class="bl-features">
-                            <li><strong>Data-driven</strong> Define settings as ScriptableObject groups &mdash; no per-option UI code.</li>
+                            <li><strong>Data-driven</strong> Define settings as ScriptableObject groups: no per-option UI code.</li>
                             <li><strong>30+ built-in setting types</strong> Audio, Graphics, Gameplay, Controls, Localisation, and Debug categories, ready to use.</li>
                             <li><strong>Widget library</strong> Toggle, slider, dropdown, and selector widgets bind directly to your settings.</li>
                             <li><strong>Live descriptions</strong> Hovering a setting shows an explanatory panel for the player.</li>
@@ -178,7 +173,7 @@
                             <li><span class="k">Widgets</span><span class="v">Toggle, Slider, Dropdown, Selector; hover-driven description panel; per-setting impact (None / Low / Medium / High)</span></li>
                         </ul>
 
-                        <p class="ai-note">This package is in active development and its API may change before release. AI coding assistants were used to help write and refactor the source code; all code was reviewed and tested by the developer. The package contains no AI-generated art, audio, or other assets.</p>
+                        <p class="ai-note">This package is in active development and its API may change before release.</p>
 
                     </main>
                 </div>

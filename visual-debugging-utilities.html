@@ -74,9 +74,10 @@
             .bl-features strong{display:block;margin-bottom:.15rem;}
             code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
             .spec{list-style:none;padding:0;margin:1rem 0 0;}
-            .spec li{display:flex;flex-wrap:wrap;gap:.25rem 1rem;padding:.6rem 0;border-top:1px solid #e6e6e6;}
+            .spec li{display:flex;gap:.25rem 1rem;padding:.6rem 0;border-top:1px solid #e6e6e6;}
             .spec li .k{flex:0 0 240px;font-weight:700;color:#333;}
-            .spec li .v{color:#555;}
+            .spec li .v{flex:1 1 auto;min-width:0;color:#555;}
+            @media (max-width:640px){.spec li{flex-wrap:wrap;}.spec li .k,.spec li .v{flex:0 0 100%;}}
             .code-block{background:#12151b;color:#e6e6e6;border-radius:10px;padding:1.15rem 1.35rem;overflow-x:auto;font-family:Consolas,Menlo,monospace;font-size:.92rem;line-height:1.6;white-space:pre;margin:1rem 0 0;}
             .code-block .c{color:#7f8a9a;}
             .code-block .t{color:#57e389;}
@@ -106,11 +107,7 @@
                                  and set the last item's "id" to your YouTube tutorial id. -->
                             <script type="application/json">
                             [
-                                { "type": "image",   "src": "assets/images/visual-debugging-utilities/hero.svg",    "alt": "Visual Debugging Utilities" },
-                                { "type": "image",   "src": "assets/images/visual-debugging-utilities/shot-1.svg",  "alt": "On-screen debug messages" },
-                                { "type": "image",   "src": "assets/images/visual-debugging-utilities/shot-2.svg",  "alt": "World-space debug shapes" },
-                                { "type": "image",   "src": "assets/images/visual-debugging-utilities/shot-3.svg",  "alt": "Shapes render always on top" },
-                                { "type": "youtube", "id": "YOUR_YOUTUBE_ID", "thumb": "assets/images/better-logger/video-thumb.svg", "alt": "Visual Debugging Utilities tutorial" }
+                                { "type": "image", "src": "assets/images/visual-debugging-utilities/coming-soon.svg", "alt": "Visual Debugging Utilities, screenshots coming soon" }
                             ]
                             </script>
                         </media-gallery>
@@ -119,7 +116,7 @@
                     <!-- Product info panel -->
                     <div class="col-12 col-lg-4 p-0 pl-lg-5 mt-4 mt-lg-0 align-self-start">
                         <h1 class="bl-name">Visual Debugging Utilities</h1>
-                        <p class="bl-lead">Unreal-style on-screen and world-space debug visualization for Unity. Print HUD messages and draw spheres, cubes, arrows, and text in the world &mdash; in the editor or in builds, with zero scene setup.</p>
+                        <p class="bl-lead">Unreal-style on-screen and world-space debug visualization for Unity. Print HUD messages and draw spheres, cubes, arrows, and text in the world, whether in the editor or in builds, with zero scene setup.</p>
 
                         <ul class="bl-tags">
                             <li class="status">In development</li>
@@ -128,8 +125,6 @@
                             <li>Debugging</li>
                             <li>URP</li>
                         </ul>
-
-                        <a href="https://github.com/d-davison/Unity-Visual-Debugging-Utilities" target="_blank" rel="noopener noreferrer" class="btn primary-button"><i class="icon-social-github"></i>View on GitHub</a>
 
                         <p class="bl-meta">Developed by Zest Studios</p>
                     </div>
@@ -148,9 +143,9 @@
 
                         <p>Visual Debugging Utilities brings Unreal Engine's beloved debug helpers to Unity. If you've ever missed <code>AddOnScreenDebugMessage</code> or <code>DrawDebugSphere</code>, this package gives you the same quick, throwaway visualizations for gameplay logic, AI, physics, and more.</p>
 
-                        <p>Two systems cover most needs. <strong>DebugScreen</strong> prints on-screen HUD messages with a duration and colour &mdash; perfect for live stats or one-off warnings. <strong>DebugDraw</strong> renders world-space shapes &mdash; spheres, cubes, arrows, and text &mdash; at any position for a set number of seconds.</p>
+                        <p>Two systems cover most needs. <strong>DebugScreen</strong> prints on-screen HUD messages with a duration and colour, perfect for live stats or one-off warnings. <strong>DebugDraw</strong> renders world-space shapes (spheres, cubes, arrows, and text) at any position for a set number of seconds.</p>
 
-                        <p>There's zero setup. The utilities auto-initialize as singletons on first use and persist across scenes via <code>DontDestroyOnLoad</code>, so you can call them from anywhere &mdash; Update loops, coroutines, gameplay code &mdash; without wiring anything into your scene. Shapes render on top of the scene, so they stay visible even when occluded by geometry. It works in the editor and in builds, and runs on URP out of the box.</p>
+                        <p>There's zero setup. The utilities auto-initialize as singletons on first use and persist across scenes via <code>DontDestroyOnLoad</code>, so you can call them from anywhere (Update loops, coroutines, gameplay code) without wiring anything into your scene. Shapes render on top of the scene, so they stay visible even when occluded by geometry. It works in the editor and in builds, and runs on URP out of the box.</p>
 
                         <h3 class="mt-5">Quick start</h3>
                         <p>Add the namespace and call the static methods from anywhere:</p>
@@ -168,11 +163,11 @@ DebugDraw.Text(target.position, <span class="t">"Target"</span>, 3f, 1f, Color.w
 
                         <h3 class="mt-5">Coming from Unreal?</h3>
                         <ul class="bl-features">
-                            <li><strong>AddOnScreenDebugMessage</strong> <code>DebugScreen.Log(...)</code> &mdash; on-screen HUD messages.</li>
-                            <li><strong>DrawDebugSphere</strong> <code>DebugDraw.Sphere(...)</code> &mdash; world-space sphere.</li>
-                            <li><strong>DrawDebugBox</strong> <code>DebugDraw.Cube(...)</code> &mdash; world-space cube, with an optional rotation overload.</li>
-                            <li><strong>DrawDebugDirectionalArrow</strong> <code>DebugDraw.Arrow(...)</code> &mdash; world-space arrow.</li>
-                            <li><strong>DrawDebugString</strong> <code>DebugDraw.Text(...)</code> &mdash; world-space text label.</li>
+                            <li><strong>AddOnScreenDebugMessage</strong> <code>DebugScreen.Log(...)</code>: on-screen HUD messages.</li>
+                            <li><strong>DrawDebugSphere</strong> <code>DebugDraw.Sphere(...)</code>: world-space sphere.</li>
+                            <li><strong>DrawDebugBox</strong> <code>DebugDraw.Cube(...)</code>: world-space cube, with an optional rotation overload.</li>
+                            <li><strong>DrawDebugDirectionalArrow</strong> <code>DebugDraw.Arrow(...)</code>: world-space arrow.</li>
+                            <li><strong>DrawDebugString</strong> <code>DebugDraw.Text(...)</code>: world-space text label.</li>
                         </ul>
 
                         <h3 class="mt-5">Features</h3>
@@ -181,7 +176,7 @@ DebugDraw.Text(target.position, <span class="t">"Target"</span>, 3f, 1f, Color.w
                             <li><strong>World-space shapes</strong> Draw spheres, cubes, arrows, and world-space text at any position for a set duration.</li>
                             <li><strong>Rotated shapes</strong> The Cube overload accepts Euler rotation for oriented boxes.</li>
                             <li><strong>Always-on-top rendering</strong> Shapes stay visible even behind walls and other geometry.</li>
-                            <li><strong>Zero setup</strong> Auto-initializing singletons &mdash; no prefabs to place &mdash; that persist across scenes.</li>
+                            <li><strong>Zero setup</strong> Auto-initializing singletons (no prefabs to place) that persist across scenes.</li>
                             <li><strong>Editor &amp; build support</strong> The same calls work in play mode and in shipped builds.</li>
                             <li><strong>URP-ready</strong> Works with URP out of the box; Built-in / HDRP with a one-line change.</li>
                             <li><strong>Editor testers included</strong> Try the on-screen and world APIs without writing gameplay code.</li>
@@ -194,12 +189,12 @@ DebugDraw.Text(target.position, <span class="t">"Target"</span>, 3f, 1f, Color.w
                             <li><span class="k">Namespace</span><span class="v"><code>Dandev.Unity_Visual_Debugging_Utilities</code></span></li>
                             <li><span class="k">On-screen API</span><span class="v"><code>DebugScreen.Log(string label, float time, Color color)</code></span></li>
                             <li><span class="k">World-space API</span><span class="v"><code>DebugDraw.Sphere / Cube / Arrow / Text</code> (position, duration, size, color)</span></li>
-                            <li><span class="k">Setup</span><span class="v">None &mdash; auto-initializing singletons, persist via <code>DontDestroyOnLoad</code></span></li>
+                            <li><span class="k">Setup</span><span class="v">None: auto-initializing singletons, persist via <code>DontDestroyOnLoad</code></span></li>
                             <li><span class="k">Rendering</span><span class="v">Shapes draw on top of the scene; URP out of the box, Built-in / HDRP with a directive change</span></li>
                             <li><span class="k">Assemblies</span><span class="v">Single asmdef with editor testers alongside runtime code</span></li>
                         </ul>
 
-                        <p class="ai-note">This package is in active development and its API may change before release. AI coding assistants were used to help write and refactor the source code; all code was reviewed and tested by the developer. The package contains no AI-generated art, audio, or other assets.</p>
+                        <p class="ai-note">This package is in active development and its API may change before release.</p>
 
                     </main>
                 </div>
