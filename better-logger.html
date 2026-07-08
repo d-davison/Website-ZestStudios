@@ -73,7 +73,6 @@
             .bl-features li::before{content:'';position:absolute;left:0;top:1.05rem;width:12px;height:12px;border-radius:3px;background:#dd1e4b;}
             .bl-features strong{display:block;margin-bottom:.15rem;}
             .bl-features code,#content code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
-            .ai-note{margin-top:2.25rem;padding:1rem 1.25rem;background:#efefef;border-left:3px solid #bbb;border-radius:6px;color:#555;font-size:.9rem;}
         </style>
 
         <script src="assets/components/header.js" type="text/javascript" defer></script>
@@ -95,19 +94,12 @@
                     <!-- Media gallery (Asset Store style) -->
                     <div class="col-12 col-lg-8 p-0 align-self-start">
                         <media-gallery>
-                            <!--
-                                To use your real media later: replace the SVG placeholders with
-                                your own images, and set the YouTube item's "id" to your video id
-                                (the bit after v= in the URL). Reuse this whole <media-gallery>
-                                block on any page — just include media-gallery.js in the head.
-                            -->
                             <script type="application/json">
                             [
-                                { "type": "image",   "src": "assets/images/better-logger/hero.svg",        "alt": "Better Logger" },
-                                { "type": "image",   "src": "assets/images/better-logger/shot-1.svg",      "alt": "Custom Logging Console" },
-                                { "type": "image",   "src": "assets/images/better-logger/shot-2.svg",      "alt": "Project Settings channels" },
-                                { "type": "image",   "src": "assets/images/better-logger/shot-3.svg",      "alt": "Colored console prefixes" },
-                                { "type": "youtube", "id": "YOUR_YOUTUBE_ID", "thumb": "assets/images/better-logger/video-thumb.svg", "alt": "Better Logger tutorial" }
+                                { "type": "image", "src": "assets/images/better-logger/front-page.png",      "alt": "Better Logger" },
+                                { "type": "image", "src": "assets/images/better-logger/logging-channels.png", "alt": "Colour-coded logging channels" },
+                                { "type": "image", "src": "assets/images/better-logger/migration.png",        "alt": "One-click Debug.Log migration tool" },
+                                { "type": "image", "src": "assets/images/better-logger/refactoring.png",      "alt": "Rename and refactor channels safely" }
                             ]
                             </script>
                         </media-gallery>
@@ -124,9 +116,6 @@
                             <li>Logging</li>
                             <li>2D / 3D</li>
                         </ul>
-
-                        <!-- TODO: replace # with the Unity Asset Store URL once published -->
-                        <a href="#" class="btn primary-button"><i class="icon-rocket"></i>Get on the Asset Store</a>
 
                         <p class="bl-meta">Developed by Zest Studios</p>
                     </div>
@@ -164,8 +153,6 @@
                             <li><strong>Runtime OnLog event</strong> Subscribe to a <code>LogEntry</code> stream to build in-game consoles, overlays, or custom log sinks.</li>
                             <li><strong>Clean assembly definitions</strong> Separate runtime and editor asmdefs keep editor tooling out of your builds.</li>
                         </ul>
-
-                        <p class="ai-note">AI coding assistants were used to help write and refactor the package's source code. All code was reviewed and tested by the developer. The package contains no AI-generated art, audio, or other assets.</p>
 
                     </main>
                 </div>
