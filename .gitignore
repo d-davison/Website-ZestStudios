@@ -1,0 +1,3 @@
+# Local dev preview server (mimics GitHub Pages clean URLs) — not part of the site
+serve.py
+.vscode/
