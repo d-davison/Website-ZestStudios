@@ -62,9 +62,16 @@
                 --footer-bg-color: #191919;
             }
 
-            /* Product cards are whole-card links (not .gallery lightboxes) */
+            /* Product cards: whole-card links, all forced to an equal size with a uniform image box */
+            #games .items .item,
+            #packages .items .item{display:flex;flex-direction:column;}
             #games .items .item > a,
-            #packages .items .item > a{display:block;color:inherit;text-decoration:none;}
+            #packages .items .item > a{display:flex;flex-direction:column;flex:1 1 auto;color:inherit;text-decoration:none;}
+            #games .items .card,
+            #packages .items .card{display:flex;flex-direction:column;flex:1 1 auto;}
+            /* Every image fills the same box (Tilt Rocket's ratio); wide/tall art is centre-cropped, never squashed */
+            #games .items .card img,
+            #packages .items .card img{width:100%;aspect-ratio:838/650;object-fit:cover;display:block;border-radius:2px;margin-top:auto;}
         </style>
         
         <script src="assets/components/header.js" type="text/javascript" defer></script>
