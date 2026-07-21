@@ -36,6 +36,7 @@ class Header extends HTMLElement {
                       <li class="nav-item dropdown">
                           <a href="#" class="nav-link">Packages<i class="icon-arrow-down"></i></a>
                           <ul class="dropdown-menu">
+                              <li class="nav-item"><a href="buzzkit" class="nav-link">Buzzkit</a></li>
                               <li class="nav-item"><a href="better-logger" class="nav-link">Better Logger</a></li>
                               <li class="nav-item"><a href="visual-debugging-utilities" class="nav-link">Visual Debugging Utilities</a></li>
                               <li class="nav-item"><a href="modular-settings-ui" class="nav-link">Modular Settings UI</a></li>
