@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- ==============================================
+        Basic Page Needs
+        =============================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+
+        <title>Zest Studios - Todo Manager</title>
+
+        <meta name="description" content="Every TODO, FIXME and BUG comment in your Unity project, in one window. Filter by category, group by file, namespace or owner, assign teammates, and link comments to your issue tracker.">
+        <meta name="subject" content="TODO comment tracking and task management for Unity">
+        <meta name="author" content="Zest Studios">
+
+        <!-- ==============================================
+        Favicons
+        =============================================== -->
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+        <!-- ==============================================
+        Vendor Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/slider.min.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/vendor/icons.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/animation.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/gallery.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/cookie-notice.min.css">
+
+        <!-- ==============================================
+        Custom Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/default.css">
+        <link rel="stylesheet" href="assets/css/theme-pink.css">
+
+        <!-- ==============================================
+        Theme Settings
+        =============================================== -->
+        <style>
+            :root {
+                --header-bg-color: #111111;
+                --nav-item-color: #f5f5f5;
+                --top-nav-item-color: #f5f5f5;
+
+                --section-1-bg-color: #ffffff;
+                --section-2-bg-color: #f5f5f5;
+
+                --footer-bg-color: #191919;
+            }
+
+            /* Solid dark header bar: this page's top section is light, so the
+               fixed transparent overlay navbar (white text) would otherwise vanish. */
+            #header .navbar{background-color:#111111;box-shadow:0 2px 12px rgba(0,0,0,.18);}
+
+            /* Todo Manager product panel + feature list */
+            #product .bl-name{font-size:2.6rem;font-weight:800;line-height:1.1;margin:0 0 .5rem;}
+            #product .bl-lead{font-size:1.05rem;color:#555;}
+            #product .bl-meta{color:#8a8a8a;font-size:.85rem;margin-top:1rem;}
+            .bl-tags{display:flex;flex-wrap:wrap;gap:8px;margin:1.25rem 0;padding:0;list-style:none;}
+            .bl-tags li{background:#efefef;border-radius:999px;padding:.28rem .8rem;font-size:.8rem;color:#444;}
+            .bl-features{list-style:none;padding:0;margin:1.5rem 0 0;}
+            .bl-features li{position:relative;padding:.65rem 0 .65rem 2rem;border-top:1px solid #e6e6e6;}
+            .bl-features li:last-child{border-bottom:1px solid #e6e6e6;}
+            .bl-features li::before{content:'';position:absolute;left:0;top:1.05rem;width:12px;height:12px;border-radius:3px;background:#dd1e4b;}
+            .bl-features strong{display:block;margin-bottom:.15rem;}
+            .bl-features code,#content code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
+        </style>
+
+        <script src="assets/components/header.js" type="text/javascript" defer></script>
+        <script src="assets/components/footer.js" type="text/javascript" defer></script>
+        <script src="assets/components/contact.js" type="text/javascript" defer></script>
+        <script src="assets/components/media-gallery.js" type="text/javascript" defer></script>
+    </head>
+
+    <body>
+
+        <!-- Header -->
+        <header-component></header-component>
+
+        <!-- Product [gallery + info] -->
+        <section id="product" class="section-1 single featured">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Media gallery (Asset Store style) -->
+                    <div class="col-12 col-lg-8 p-0 align-self-start">
+                        <media-gallery>
+                            <script type="application/json">
+                            [
+                                { "type": "image", "src": "assets/images/todo-manager/coming-soon.svg", "alt": "Todo Manager" }
+                            ]
+                            </script>
+                        </media-gallery>
+                    </div>
+
+                    <!-- Product info panel -->
+                    <div class="col-12 col-lg-4 p-0 pl-lg-5 mt-4 mt-lg-0 align-self-start">
+                        <h1 class="bl-name">Todo Manager</h1>
+                        <p class="bl-lead">Every TODO, FIXME and BUG comment in your Unity project, in one window. Filter by category, group by file, namespace or owner, assign teammates, and link comments to your issue tracker.</p>
+
+                        <ul class="bl-tags">
+                            <li>Unity</li>
+                            <li>Editor Tool</li>
+                            <li>Productivity</li>
+                            <li>Team Workflow</li>
+                        </ul>
+
+                        <p class="bl-meta">Developed by Zest Studios</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Content [description] -->
+        <section id="content" class="section-2 single">
+            <div class="container">
+                <div class="row">
+                    <main class="col-12 col-lg-10 mx-auto p-0">
+
+                        <h2 class="featured mt-0 ml-0">Turn code comments into a task list your team actually works from</h2>
+
+                        <p>Todo Manager turns the TODO comments scattered through your codebase into an organized, actionable task list inside the Unity editor.</p>
+
+                        <p>One window lists every tagged comment in your project. Click a row to jump straight to the line, search by message, person or file, and slice the list however you think: group by file, by C# namespace, by owner, or by whether a comment is already linked to an issue. The categories themselves are yours to define; TODO, FIXME, HACK, BUG and NOTE come built in, each with its own color, and you can add your own keywords like REVIEW or PERF from the settings.</p>
+
+                        <p>Assignments live in the code, not in a separate database. Pick a person on any row and the comment itself is rewritten to <code>TODO(Dan): fix this</code>; only that one line changes, so it's diff-friendly and perfectly readable for teammates who don't use the tool. The team roster, like the category list, is a committed asset your whole team shares.</p>
+
+                        <p>Working with an issue tracker? Link any comment to an issue URL and it's written into the comment as an <code>[issue: …]</code> tag, shown as a short label like <code>ENG-123</code> that opens the issue in one click. Copy any TODO as a paste-ready issue description in Wiki, Markdown or plain-text markup. Todo Manager is editor-only; nothing ships in your builds.</p>
+
+                        <h3 class="mt-5">Features</h3>
+                        <ul class="bl-features">
+                            <li><strong>Every TODO in one window</strong> Scans your scripts (and optionally Packages/) and lists every tagged comment, with search and one-click jump to the exact line.</li>
+                            <li><strong>Configurable categories</strong> TODO, FIXME, HACK, BUG and NOTE out of the box; add, remove and recolor keywords from Settings, shared with your team via a committed asset.</li>
+                            <li><strong>Category filter dropdown</strong> Tick categories on and off with live counts; the popup stays open while you toggle.</li>
+                            <li><strong>Group by anything</strong> Group the list by file, C# namespace, owner, or linked / unlinked state.</li>
+                            <li><strong>In-comment assignees</strong> Assigning a person rewrites the comment to <code>TODO(Name)</code>; one line changes, diffs stay clean, and no tool is needed to read it.</li>
+                            <li><strong>Shared team roster</strong> A committed asset with per-person colors; off-team names are detected with one-click "Add to team".</li>
+                            <li><strong>Issue-tracker linking</strong> Attach an issue URL to any comment as an <code>[issue: …]</code> tag with tracker-agnostic short labels (<code>ENG-123</code>, <code>#123</code>) that open in one click.</li>
+                            <li><strong>Paste-ready issue descriptions</strong> Copy any TODO as a formatted issue body; Wiki, Markdown or plain text, with file, line, assignee and a code snippet included.</li>
+                            <li><strong>String-literal aware scanning</strong> A <code>//</code> inside a string like <code>"https://…"</code> is never mistaken for a comment.</li>
+                            <li><strong>Editor-only</strong> Lives entirely in the editor with a clean editor-only assembly definition; nothing enters your builds.</li>
+                        </ul>
+
+                    </main>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <!-- Points of Contact -->
+        <contact-component></contact-component>
+
+        <footer-component></footer-component>
+
+        <!-- #region Global ============================ -->
+
+        <!-- Modal [search] -->
+        <div id="search" class="p-0 modal fade" role="dialog" aria-labelledby="search" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        Search <i class="icon-close"></i>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="row">
+                                    <div class="col-12 p-0 pb-3">
+                                        <h2>What are you looking for?</h2>
+                                        <p>Search for services and news about the best that happens in the world.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="text" class="form-control" placeholder="Enter Keywords">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group align-self-center">
+                                        <button class="btn primary-button"><i class="icon-magnifier"></i>SEARCH</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal [responsive menu] -->
+        <div id="menu" class="p-0 modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        Menu <i class="icon-close"></i>
+                    </div>
+                    <div class="menu modal-body">
+                        <div class="row w-100">
+                            <div class="items p-0 col-12 text-center">
+                                <!-- Append [navbar] -->
+                            </div>
+                            <div class="contacts p-0 col-12 text-center">
+                                <!-- Append [navbar] -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll [to top] -->
+        <div id="scroll-to-top" class="scroll-to-top">
+            <a href="#header" class="smooth-anchor">
+                <i class="icon-arrow-up"></i>
+            </a>
+        </div>
+
+        <!-- ==============================================
+        Vendor Scripts
+        =============================================== -->
+        <script src="assets/js/vendor/jquery.min.js"></script>
+        <script src="assets/js/vendor/jquery.easing.min.js"></script>
+        <script src="assets/js/vendor/jquery.inview.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/ponyfill.min.js"></script>
+        <script src="assets/js/vendor/slider.min.js"></script>
+        <script src="assets/js/vendor/animation.min.js"></script>
+        <script src="assets/js/vendor/progress-radial.min.js"></script>
+        <script src="assets/js/vendor/bricklayer.min.js"></script>
+        <script src="assets/js/vendor/gallery.min.js"></script>
+        <script src="assets/js/vendor/shuffle.min.js"></script>
+        <script src="assets/js/vendor/cookie-notice.min.js"></script>
+        <script src="assets/js/vendor/particles.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <!-- #endregion Global ========================= -->
+
+    </body>
+</html>
