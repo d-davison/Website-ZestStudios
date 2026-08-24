@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- ==============================================
+        Basic Page Needs
+        =============================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+
+        <title>Zest Studios - Better Logger Documentation</title>
+
+        <meta name="description" content="The Better Logger user manual: installation, setup, creating channels, sending logs, converting Debug.Log calls, updating, and troubleshooting.">
+        <meta name="subject" content="Better Logger documentation">
+        <meta name="author" content="Zest Studios">
+
+        <!-- ==============================================
+        Favicons
+        =============================================== -->
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+        <!-- ==============================================
+        Vendor Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/slider.min.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/vendor/icons.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/animation.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/gallery.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/cookie-notice.min.css">
+
+        <!-- ==============================================
+        Custom Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/default.css">
+        <link rel="stylesheet" href="assets/css/theme-pink.css">
+
+        <!-- ==============================================
+        Theme Settings
+        =============================================== -->
+        <style>
+            :root {
+                --header-bg-color: #111111;
+                --nav-item-color: #f5f5f5;
+                --top-nav-item-color: #f5f5f5;
+
+                --section-1-bg-color: #ffffff;
+                --section-2-bg-color: #f5f5f5;
+
+                --footer-bg-color: #191919;
+            }
+
+            /* Solid dark header bar: this page is light, so the fixed transparent
+               overlay navbar (white text) would otherwise vanish. */
+            #header .navbar{background-color:#111111;box-shadow:0 2px 12px rgba(0,0,0,.18);}
+
+            /* Docs layout */
+            .docs-title{font-size:2.6rem;font-weight:800;line-height:1.1;margin:0 0 .35rem;}
+            .docs-sub{color:#8a8a8a;font-size:.95rem;margin-bottom:0;}
+            .docs-toc{background:#ffffff;border:1px solid #e6e6e6;border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0;}
+            .docs-toc h3{margin:0 0 .75rem;font-size:1.05rem;}
+            .docs-toc ol{margin:0;padding-left:1.2rem;}
+            .docs-toc li{padding:.15rem 0;}
+            .docs-toc a{color:#c0165a;text-decoration:none;}
+            .docs-toc a:hover{text-decoration:underline;}
+            #content h2{font-size:1.5rem;margin:2.75rem 0 .75rem;scroll-margin-top:90px;}
+            #content h3{font-size:1.1rem;margin:1.5rem 0 .5rem;}
+            #content code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
+            .docs-code{background:#1d1d1f;color:#e8e8e8;border-radius:8px;padding:1rem 1.25rem;font-family:Consolas,Menlo,monospace;font-size:.85rem;line-height:1.6;overflow-x:auto;margin:.75rem 0 1.25rem;}
+            .docs-code .k{color:#7ec3f0;} .docs-code .s{color:#e8b571;} .docs-code .c{color:#8a8f98;} .docs-code .g{color:#59d75b;}
+            .docs-note{background:#eef4fb;border:1px solid #d5e3f3;border-radius:8px;padding:.85rem 1.1rem;margin:1rem 0 1.5rem;}
+            .docs-steps{padding-left:1.3rem;margin:0 0 1rem;}
+            .docs-steps li{padding:.3rem 0;}
+            table.docs-table{width:100%;border-collapse:collapse;margin:.75rem 0 1.5rem;background:#fff;}
+            table.docs-table th,table.docs-table td{border:1px solid #dcdcdc;padding:.6rem .8rem;text-align:left;vertical-align:top;font-size:.92rem;}
+            table.docs-table th{background:#efefef;}
+            .docs-backlink{margin-top:2.5rem;}
+        </style>
+
+        <script src="assets/components/header.js" type="text/javascript" defer></script>
+        <script src="assets/components/footer.js" type="text/javascript" defer></script>
+        <script src="assets/components/contact.js" type="text/javascript" defer></script>
+    </head>
+
+    <body>
+
+        <!-- Header -->
+        <header-component></header-component>
+
+        <!-- Docs -->
+        <section id="content" class="section-1 single featured">
+            <div class="container">
+                <div class="row">
+                    <main class="col-12 col-lg-10 mx-auto p-0">
+
+                        <h1 class="docs-title">Better Logger Documentation</h1>
+                        <p class="docs-sub">User manual for version 1.0.0. Also included in the package as Documentation.pdf. <a href="better-logger">Back to the product page</a>.</p>
+
+                        <div class="docs-toc">
+                            <h3>Contents</h3>
+                            <ol>
+                                <li><a href="#what-it-does">What Better Logger does</a></li>
+                                <li><a href="#installation">Installation and first-time setup</a></li>
+                                <li><a href="#first-channel">Creating your first channel</a></li>
+                                <li><a href="#sending-logs">Sending logs from code</a></li>
+                                <li><a href="#channels-window">The Channels window</a></li>
+                                <li><a href="#converting">Converting your existing Debug.Log calls</a></li>
+                                <li><a href="#your-files">Where your files live, and moving them</a></li>
+                                <li><a href="#updating">Updating the package</a></li>
+                                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                                <li><a href="#support">Support</a></li>
+                            </ol>
+                        </div>
+
+                        <h2 id="what-it-does">1. What Better Logger does</h2>
+                        <p>Better Logger organizes your Unity console. Instead of one long stream of grey text, every log message belongs to a named <strong>channel</strong>. Each channel has its own color and its own on/off switch.</p>
+                        <p>A log sent to the Player channel looks like this in the Unity Console:</p>
+                        <div class="docs-code"><span class="g">[Player]</span> Spawned at checkpoint</div>
+                        <p>Because each channel can be switched off, you can mute the parts of your game you are not working on and only see the messages you care about.</p>
+
+                        <h3>1.1 Requirements</h3>
+                        <p>Unity 2021.2 or newer. No other packages are required.</p>
+
+                        <h3>1.2 What is in the package</h3>
+                        <p>The package installs into <code>Assets/Zest Studios/BetterLogger</code>. It contains the compiled tool (Runtime and Editor), a demo scene in the Demo folder, and the manual.</p>
+
+                        <h2 id="installation">2. Installation and first-time setup</h2>
+                        <ol class="docs-steps">
+                            <li>Import the package from the Asset Store (Window &gt; Package Manager &gt; My Assets).</li>
+                            <li>After the import finishes, a window called <strong>Better Logger Setup</strong> opens on its own.</li>
+                            <li>The window shows a Base Folder field. This is where Better Logger will store <em>your</em> files. The default (<code>Assets/Zest Studios/Better Logger Config</code>) is fine for almost everyone.</li>
+                            <li>Below the folder field, the window lists exactly which files will be created and where. Check the paths look right.</li>
+                            <li>Click <strong>Set Up Here</strong>. Setup creates your config file and your channel list code, and the window closes. You are done installing.</li>
+                        </ol>
+                        <div class="docs-note"><strong>Closed the window by accident?</strong> Open it again from the menu: <strong>Tools &gt; Better Logger &gt; Setup...</strong></div>
+
+                        <h3>2.1 What setup creates</h3>
+                        <p>Setup creates one folder with everything that belongs to you inside it:</p>
+                        <div class="docs-code">Assets/Zest Studios/Better Logger Config/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Resources/LogConfig.asset &nbsp;&nbsp;<span class="c">(your channel list)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Generated/LogChannels.generated.cs &nbsp;&nbsp;<span class="c">(your channels as code)</span></div>
+                        <p>These files are yours. Updating Better Logger never changes them (see section 8).</p>
+
+                        <h2 id="first-channel">3. Creating your first channel</h2>
+                        <ol class="docs-steps">
+                            <li>Open <strong>Tools &gt; Better Logger &gt; Channels</strong>.</li>
+                            <li>Click <strong>Create New</strong>. A channel named NewChannel appears in the list.</li>
+                            <li>Click the arrow on the left of the row to expand it, then click <strong>Rename...</strong> and type a name, for example <strong>Player</strong>.</li>
+                            <li>Click the color bar and pick a color. This is the color the channel tag will have in the console.</li>
+                            <li>Click <strong>Save LogChannels Enums</strong> at the bottom of the window. This writes your channels into code so you can use them in scripts.</li>
+                        </ol>
+                        <div class="docs-note"><strong>Important:</strong> after adding, renaming, or deleting a channel, always click <strong>Save LogChannels Enums</strong>. Color changes and the on/off switch save on their own and do not need this.</div>
+
+                        <h2 id="sending-logs">4. Sending logs from code</h2>
+                        <p>Add the using line at the top of your script, then call <code>Log.Send</code>:</p>
+                        <div class="docs-code"><span class="k">using</span> Zest.BetterLogger;<br><br>
+Log.Send(LogChannels.Player, <span class="s">"Jumped"</span>);<br>
+Log.Send(LogChannels.Enemies, <span class="s">"Took damage"</span>, context: gameObject, type: LogType.Warning);</div>
+                        <p>The full set of options:</p>
+                        <div class="docs-code">Log.Send(<br>
+&nbsp;&nbsp;LogChannels channel, &nbsp;&nbsp;<span class="c">// which channel</span><br>
+&nbsp;&nbsp;<span class="k">string</span> message, &nbsp;&nbsp;<span class="c">// the text to log</span><br>
+&nbsp;&nbsp;UnityEngine.Object context = <span class="k">null</span>, &nbsp;&nbsp;<span class="c">// click the log to highlight this object</span><br>
+&nbsp;&nbsp;LogType type = LogType.Log); &nbsp;&nbsp;<span class="c">// Log / Warning / Error / Assert / Exception</span></div>
+                        <p>If a channel is switched off, its messages are skipped completely. Nothing is logged and nothing is computed, so muted channels cost no performance.</p>
+
+                        <h3>4.1 Building your own tools on top</h3>
+                        <p>Every send also raises the <code>Log.OnLog</code> event with the time, type, channel id and name, color, message, stack trace, and context object. Subscribe to it to build an in-game console or a debug overlay.</p>
+
+                        <h2 id="channels-window">5. The Channels window</h2>
+                        <p>Open it from <strong>Tools &gt; Better Logger &gt; Channels</strong>. Each row is one channel.</p>
+                        <table class="docs-table">
+                            <tr><th>Button</th><th>What it does</th></tr>
+                            <tr><td>Create New</td><td>Adds a channel. It starts enabled, colored white.</td></tr>
+                            <tr><td>Rename...</td><td>Renames the channel and updates every script that uses it.</td></tr>
+                            <tr><td>Color bar</td><td>Expand a row to pick the color of the channel tag in the console.</td></tr>
+                            <tr><td>Enabled / Disabled</td><td>Click the label to mute or unmute the channel.</td></tr>
+                            <tr><td>Show Usages...</td><td>Lists every script line that logs to this channel.</td></tr>
+                            <tr><td>Delete...</td><td>Removes the channel. It first shows everything that still uses it, so nothing breaks silently.</td></tr>
+                            <tr><td>Save LogChannels Enums</td><td>Writes your channel changes into code. It lights up when there is something to save.</td></tr>
+                        </table>
+                        <p>The <strong>Default</strong> channel always exists and cannot be deleted.</p>
+
+                        <h2 id="converting">6. Converting your existing Debug.Log calls</h2>
+                        <p>If your project already has plain Debug.Log calls, Better Logger can convert them to channels for you.</p>
+                        <ol class="docs-steps">
+                            <li>Open <strong>Tools &gt; Better Logger &gt; Find Debug.Log Usages</strong>.</li>
+                            <li>The window lists every Debug.Log, Debug.LogWarning, and Debug.LogError call in your scripts.</li>
+                            <li>For each entry, pick a channel from the dropdown next to it.</li>
+                            <li>Click <strong>Swap</strong> on the entry. The call is rewritten to <code>Log.Send</code>. The log type (Warning, Error, and so on) and the context object are kept exactly as they were.</li>
+                            <li>Click <strong>Open</strong> on any entry to jump to that line in your code editor first, if you want to check it before converting.</li>
+                        </ol>
+
+                        <h2 id="your-files">7. Where your files live, and moving them</h2>
+                        <p>Your channel list (<code>LogConfig.asset</code>) must stay inside a folder named <strong>Resources</strong>. That is how Unity loads it when your game runs. Setup takes care of this for you.</p>
+
+                        <h3>7.1 Moving the folder</h3>
+                        <ol class="docs-steps">
+                            <li>Open <strong>Tools &gt; Better Logger &gt; Setup...</strong></li>
+                            <li>Pick a new base folder with <strong>Browse...</strong>. The window shows where each file will end up.</li>
+                            <li>Click <strong>Move Here</strong>. The config and the generated code move together.</li>
+                        </ol>
+                        <p>You can also move the folder by hand in the Project window. Keep the config inside a Resources folder, keep the Generated folder in one piece, and keep only one LogConfig in the project.</p>
+
+                        <h2 id="updating">8. Updating the package</h2>
+                        <p>Updating is safe. An update only replaces the package folder (<code>Assets/Zest Studios/BetterLogger</code>). Your config and your generated channel code live outside it and are never part of an update, so your channels survive every update with no steps needed from you.</p>
+
+                        <h2 id="troubleshooting">9. Troubleshooting</h2>
+                        <table class="docs-table">
+                            <tr><th>Problem</th><th>Fix</th></tr>
+                            <tr><td>The setup window keeps appearing</td><td>There is no config yet. Click Set Up Here to create it.</td></tr>
+                            <tr><td>My logs are not appearing</td><td>Open Tools &gt; Better Logger &gt; Channels and check the channel is not Disabled. Also confirm LogConfig.asset sits inside a folder named Resources.</td></tr>
+                            <tr><td>"Multiple LogConfig assets found"</td><td>You have more than one config. The setup window lists their paths. Delete the extras so exactly one remains.</td></tr>
+                            <tr><td>My new channel is not showing up in code</td><td>You did not save. Click Save LogChannels Enums in the Channels window, or run Tools &gt; Better Logger &gt; Rebuild LogChannels.generated.cs.</td></tr>
+                            <tr><td>Errors about LogChannels after an update</td><td>Let Unity finish importing and recompiling. If anything persists, run Tools &gt; Better Logger &gt; Rebuild LogChannels.generated.cs.</td></tr>
+                        </table>
+
+                        <h2 id="support">10. Support</h2>
+                        <p>Discord: <a href="https://discord.gg/2ths8Hj9QE" target="_blank" rel="noopener">discord.gg/2ths8Hj9QE</a> (the fastest way to reach us)</p>
+                        <p>Email: <a href="mailto:studioszest@gmail.com">studioszest@gmail.com</a></p>
+                        <p>If anything in this manual is unclear, that is a bug in the manual. Tell us and we will fix it.</p>
+
+                        <p class="docs-backlink"><a href="better-logger">&larr; Back to Better Logger</a></p>
+
+                    </main>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <contact-component></contact-component>
+
+        <footer-component></footer-component>
+
+        <!-- Scroll [to top] -->
+        <div id="scroll-to-top" class="scroll-to-top">
+            <a href="#header" class="smooth-anchor">
+                <i class="icon-arrow-up"></i>
+            </a>
+        </div>
+
+        <!-- ==============================================
+        Vendor Scripts
+        =============================================== -->
+        <script src="assets/js/vendor/jquery.min.js"></script>
+        <script src="assets/js/vendor/jquery.easing.min.js"></script>
+        <script src="assets/js/vendor/jquery.inview.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/ponyfill.min.js"></script>
+        <script src="assets/js/vendor/slider.min.js"></script>
+        <script src="assets/js/vendor/animation.min.js"></script>
+        <script src="assets/js/vendor/cookie-notice.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>

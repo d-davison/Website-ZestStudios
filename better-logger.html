@@ -15,7 +15,7 @@
 
         <title>Zest Studios - Better Logger</title>
 
-        <meta name="description" content="Type-safe, channel-based logging for Unity. Organize logs into color-coded channels, toggle them on/off, filter in a custom console, and convert existing Debug.Log calls in one click.">
+        <meta name="description" content="Type-safe, channel-based logging for Unity. Organize logs into color-coded channels, toggle them on/off, and convert existing Debug.Log calls in one click.">
         <meta name="subject" content="Type-safe, channel-based logging for Unity">
         <meta name="author" content="Zest Studios">
 
@@ -108,7 +108,7 @@
                     <!-- Product info panel -->
                     <div class="col-12 col-lg-4 p-0 pl-lg-5 mt-4 mt-lg-0 align-self-start">
                         <h1 class="bl-name">Better Logger</h1>
-                        <p class="bl-lead">Type-safe, channel-based logging for Unity. Organize logs into color-coded channels, toggle them on/off, filter in a custom console, and convert existing Debug.Log calls in one click.</p>
+                        <p class="bl-lead">Type-safe, channel-based logging for Unity. Organize logs into color-coded channels, toggle them on/off, and convert existing Debug.Log calls in one click.</p>
 
                         <ul class="bl-tags">
                             <li>Unity</li>
@@ -116,6 +116,8 @@
                             <li>Logging</li>
                             <li>2D / 3D</li>
                         </ul>
+
+                        <a href="better-logger-docs" class="btn primary-button mt-2"><i class="icon-book-open"></i>DOCUMENTATION</a>
 
                         <p class="bl-meta">Developed by Zest Studios</p>
                     </div>
@@ -134,7 +136,7 @@
 
                         <p>Better Logger replaces scattered, hard-to-read Debug.Log calls with an organized, channel-based logging system for Unity.</p>
 
-                        <p>Instead of one undifferentiated console stream, you group your logs into named channels; Gameplay, AI, Networking, UI, or whatever fits your project. Each channel gets its own color and an on/off toggle, so you can silence the noise and focus on the subsystem you're debugging. Channels are fully customizable: create, rename, recolor, and delete them from a dedicated Project Settings page, no code required.</p>
+                        <p>Instead of one undifferentiated console stream, you group your logs into named channels; Gameplay, AI, Networking, UI, or whatever fits your project. Each channel gets its own color and an on/off toggle, so you can silence the noise and focus on the subsystem you're debugging. Channels are fully customizable: create, rename, recolor, and delete them from the dedicated Channels window, no code required.</p>
 
                         <p>Logging is type-safe. Channels are exposed through an auto-generated <code>LogChannels</code> enum, so you pick a channel with autocomplete instead of error-prone magic strings, and renaming a channel updates everywhere it's used.</p>
 
@@ -145,8 +147,7 @@
                             <li><strong>Channel-based logging</strong> Group logs into named, color-coded channels with a single <code>Log.Send(LogChannels.Gameplay, "message")</code> call.</li>
                             <li><strong>Type-safe channels</strong> Channels are code-generated into a <code>LogChannels</code> enum; no magic strings, full autocomplete.</li>
                             <li><strong>Per-channel color &amp; enable toggle</strong> Recolor channels and mute them individually without touching code.</li>
-                            <li><strong>Project Settings integration</strong> Create, rename, recolor, and delete channels from a dedicated settings page.</li>
-                            <li><strong>Custom Logging Console window</strong> Dedicated window with per-channel filtering and search.</li>
+                            <li><strong>Dedicated Channels window</strong> Create, rename, recolor, and delete channels from one window, no code required.</li>
                             <li><strong>Colored console prefixes</strong> Each entry is tagged <code>[Channel]</code> in the channel's color in the standard Unity console.</li>
                             <li><strong>One-click Debug.Log migration</strong> The "Find Debug.Log Usages" tool locates existing Debug.Log/Warning/Error calls and converts them to channels, preserving log type and context.</li>
                             <li><strong>Channel usage finder</strong> See everywhere a channel is referenced, and get safe rename/delete with usage checks.</li>
