@@ -13,10 +13,10 @@
 
         <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
 
-        <title>Zest Studios - Visual Debugging Utilities</title>
+        <title>Zest Studios - Visual Debugger</title>
 
-        <meta name="description" content="Unreal-style on-screen and world-space debug visualization for Unity. Print HUD messages and draw spheres, cubes, arrows, and text in the world - in the editor or in builds, with zero scene setup.">
-        <meta name="subject" content="Unreal-style debug visualization for Unity">
+        <meta name="description" content="Unreal-style debug drawing for Unity. Print colored on-screen messages and draw world-space spheres, cubes, arrows, and text with one static call. Zero setup, works in the editor and in builds.">
+        <meta name="subject" content="Unreal-style debug drawing for Unity">
         <meta name="author" content="Zest Studios">
 
         <!-- ==============================================
@@ -57,31 +57,22 @@
                 --footer-bg-color: #191919;
             }
 
-            /* Solid dark header bar (light top section would hide the overlay navbar). */
+            /* Solid dark header bar: this page's top section is light, so the
+               fixed transparent overlay navbar (white text) would otherwise vanish. */
             #header .navbar{background-color:#111111;box-shadow:0 2px 12px rgba(0,0,0,.18);}
 
-            /* Product panel + content */
+            /* Visual Debugger product panel + feature list */
             #product .bl-name{font-size:2.6rem;font-weight:800;line-height:1.1;margin:0 0 .5rem;}
             #product .bl-lead{font-size:1.05rem;color:#555;}
             #product .bl-meta{color:#8a8a8a;font-size:.85rem;margin-top:1rem;}
             .bl-tags{display:flex;flex-wrap:wrap;gap:8px;margin:1.25rem 0;padding:0;list-style:none;}
             .bl-tags li{background:#efefef;border-radius:999px;padding:.28rem .8rem;font-size:.8rem;color:#444;}
-            .bl-tags li.status{background:#fdecc8;color:#8a5a00;}
             .bl-features{list-style:none;padding:0;margin:1.5rem 0 0;}
             .bl-features li{position:relative;padding:.65rem 0 .65rem 2rem;border-top:1px solid #e6e6e6;}
             .bl-features li:last-child{border-bottom:1px solid #e6e6e6;}
             .bl-features li::before{content:'';position:absolute;left:0;top:1.05rem;width:12px;height:12px;border-radius:3px;background:#dd1e4b;}
             .bl-features strong{display:block;margin-bottom:.15rem;}
-            code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
-            .spec{list-style:none;padding:0;margin:1rem 0 0;}
-            .spec li{display:flex;gap:.25rem 1rem;padding:.6rem 0;border-top:1px solid #e6e6e6;}
-            .spec li .k{flex:0 0 240px;font-weight:700;color:#333;}
-            .spec li .v{flex:1 1 auto;min-width:0;color:#555;}
-            @media (max-width:640px){.spec li{flex-wrap:wrap;}.spec li .k,.spec li .v{flex:0 0 100%;}}
-            .code-block{background:#12151b;color:#e6e6e6;border-radius:10px;padding:1.15rem 1.35rem;overflow-x:auto;font-family:Consolas,Menlo,monospace;font-size:.92rem;line-height:1.6;white-space:pre;margin:1rem 0 0;}
-            .code-block .c{color:#7f8a9a;}
-            .code-block .t{color:#57e389;}
-            .ai-note{margin-top:2.25rem;padding:1rem 1.25rem;background:#efefef;border-left:3px solid #bbb;border-radius:6px;color:#555;font-size:.9rem;}
+            .bl-features code,#content code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
         </style>
 
         <script src="assets/components/header.js" type="text/javascript" defer></script>
@@ -103,11 +94,11 @@
                     <!-- Media gallery (Asset Store style) -->
                     <div class="col-12 col-lg-8 p-0 align-self-start">
                         <media-gallery>
-                            <!-- Placeholder art for now. Replace the SVGs with real screenshots,
-                                 and set the last item's "id" to your YouTube tutorial id. -->
                             <script type="application/json">
                             [
-                                { "type": "image", "src": "assets/images/visual-debugging-utilities/coming-soon.svg", "alt": "Visual Debugging Utilities, screenshots coming soon" }
+                                { "type": "image", "src": "assets/images/visual-debugging-utilities/front-page.png",        "alt": "Visual Debugger" },
+                                { "type": "image", "src": "assets/images/visual-debugging-utilities/on-screen-logging.png", "alt": "On-screen logging with colored, timed messages" },
+                                { "type": "image", "src": "assets/images/visual-debugging-utilities/3d-logging.png",        "alt": "World-space debug shapes: arrows, spheres, and cubes" }
                             ]
                             </script>
                         </media-gallery>
@@ -115,16 +106,17 @@
 
                     <!-- Product info panel -->
                     <div class="col-12 col-lg-4 p-0 pl-lg-5 mt-4 mt-lg-0 align-self-start">
-                        <h1 class="bl-name">Visual Debugging Utilities</h1>
-                        <p class="bl-lead">Unreal-style on-screen and world-space debug visualization for Unity. Print HUD messages and draw spheres, cubes, arrows, and text in the world, whether in the editor or in builds, with zero scene setup.</p>
+                        <h1 class="bl-name">Visual Debugger</h1>
+                        <p class="bl-lead">Unreal-style debug drawing for Unity. Print colored on-screen messages and draw world-space spheres, cubes, arrows, and text with one static call. Zero setup, works in the editor and in builds.</p>
 
                         <ul class="bl-tags">
-                            <li class="status">In development</li>
-                            <li>Unity 6</li>
+                            <li>Unity</li>
                             <li>Editor Tool</li>
                             <li>Debugging</li>
-                            <li>URP</li>
+                            <li>2D / 3D</li>
                         </ul>
+
+                        <a href="visual-debugging-utilities-docs" class="btn primary-button mt-2"><i class="icon-book-open"></i>DOCUMENTATION</a>
 
                         <p class="bl-meta">Developed by Zest Studios</p>
                     </div>
@@ -141,25 +133,27 @@
 
                         <h2 class="featured mt-0 ml-0">Unreal-style debug drawing, in Unity</h2>
 
-                        <p>Visual Debugging Utilities brings Unreal Engine's beloved debug helpers to Unity. If you've ever missed <code>AddOnScreenDebugMessage</code> or <code>DrawDebugSphere</code>, this package gives you the same quick, throwaway visualizations for gameplay logic, AI, physics, and more.</p>
+                        <p>Visual Debugger brings Unreal-style debug visualization to Unity: on-screen log messages and world-space debug shapes, each drawn with a single static call.</p>
 
-                        <p>Two systems cover most needs. <strong>DebugScreen</strong> prints on-screen HUD messages with a duration and colour, perfect for live stats or one-off warnings. <strong>DebugDraw</strong> renders world-space shapes (spheres, cubes, arrows, and text) at any position for a set number of seconds.</p>
+                        <p>Instead of tabbing between the Game view and a wall of console text, you put debug output where you're already looking; on the screen and in the world. <code>DebugScreen.Log</code> prints a colored, timed message to a stacking on-screen list, perfect for live stats, state changes, and one-off warnings. <code>DebugDraw</code> renders spheres, cubes, arrows, and floating text labels at any world position, in any color, for as long as you need them.</p>
 
-                        <p>There's zero setup. The utilities auto-initialize as singletons on first use and persist across scenes via <code>DontDestroyOnLoad</code>, so you can call them from anywhere (Update loops, coroutines, gameplay code) without wiring anything into your scene. Shapes render on top of the scene, so they stay visible even when occluded by geometry. It works in the editor and in builds, and runs on URP out of the box.</p>
+                        <p>There is zero setup. The debug systems create themselves on first use and survive scene loads, so you can call them from anywhere: Update loops, coroutines, collision callbacks. Shapes draw on top of everything, so they stay visible through walls and geometry, and they're pooled, so drawing every frame is fine.</p>
 
-                        <h3 class="mt-5">Quick start</h3>
-                        <p>Add the namespace and call the static methods from anywhere:</p>
-                        <div class="code-block"><span class="c">// On-screen message for 2 seconds, in yellow</span>
-DebugScreen.Log(<span class="t">"Hello, Unity!"</span>, 2f, Color.yellow);
+                        <p>You decide where debug output appears. Screen and shape debugging each have an independent mode: Off, Editor Only, Editor + Development Builds, or All Builds. Leave the overlay on in development builds for on-device debugging, and ship release builds with everything stripped; no <code>#if</code> wrapping required.</p>
 
-<span class="c">// Update a live stat every frame</span>
-DebugScreen.Log($<span class="t">"Speed: {speed:0.0}"</span>, 0.1f, Color.cyan);
-
-<span class="c">// World-space shapes (position, duration, size, color)</span>
-DebugDraw.Sphere(transform.position, 5f, 1f, Color.green);
-DebugDraw.Cube(new Vector3(0, 1, 0), new Vector3(0, 45f, 0), 4f, 1.2f, Color.blue);
-DebugDraw.Arrow(agent.position, dir, 2.5f, 1f, Color.red);
-DebugDraw.Text(target.position, <span class="t">"Target"</span>, 3f, 1f, Color.white);</div>
+                        <h3 class="mt-5">Features</h3>
+                        <ul class="bl-features">
+                            <li><strong>On-screen HUD messages</strong> <code>DebugScreen.Log("Target hit", 5f, Color.green)</code> prints a colored, timed message to a stacking screen list.</li>
+                            <li><strong>World-space shapes</strong> <code>DebugDraw.Sphere / Cube / Arrow / Text</code> draw at any position with a duration, size, and color; every parameter after position is optional.</li>
+                            <li><strong>Oriented cubes &amp; directional arrows</strong> A Cube overload takes Euler angles; Arrow points along a direction vector.</li>
+                            <li><strong>Always-on-top rendering</strong> Shapes and labels stay visible through walls and level geometry.</li>
+                            <li><strong>Zero scene setup</strong> The debug systems create themselves on first use and persist across scene loads.</li>
+                            <li><strong>Per-build-type output control</strong> Screen and shape debugging independently set to Off, Editor Only, Editor + Development Builds, or All Builds; disabled calls early-out with no objects created.</li>
+                            <li><strong>Pooled shapes</strong> Draw every frame without per-call instantiation; shapes are recycled automatically.</li>
+                            <li><strong>In-editor testers</strong> Fire test messages and shapes from an inspector, no code required.</li>
+                            <li><strong>No dependencies</strong> Built-in uGUI text (no TextMeshPro) and a simple unlit overlay shader; no render pipeline packages required.</li>
+                            <li><strong>Clean assembly definitions</strong> Separate runtime and editor asmdefs keep editor tooling out of your builds.</li>
+                        </ul>
 
                         <h3 class="mt-5">Coming from Unreal?</h3>
                         <ul class="bl-features">
@@ -169,32 +163,6 @@ DebugDraw.Text(target.position, <span class="t">"Target"</span>, 3f, 1f, Color.w
                             <li><strong>DrawDebugDirectionalArrow</strong> <code>DebugDraw.Arrow(...)</code>: world-space arrow.</li>
                             <li><strong>DrawDebugString</strong> <code>DebugDraw.Text(...)</code>: world-space text label.</li>
                         </ul>
-
-                        <h3 class="mt-5">Features</h3>
-                        <ul class="bl-features">
-                            <li><strong>On-screen HUD messages</strong> <code>DebugScreen.Log(text, seconds, color)</code> prints to the screen in the editor or in a build.</li>
-                            <li><strong>World-space shapes</strong> Draw spheres, cubes, arrows, and world-space text at any position for a set duration.</li>
-                            <li><strong>Rotated shapes</strong> The Cube overload accepts Euler rotation for oriented boxes.</li>
-                            <li><strong>Always-on-top rendering</strong> Shapes stay visible even behind walls and other geometry.</li>
-                            <li><strong>Zero setup</strong> Auto-initializing singletons (no prefabs to place) that persist across scenes.</li>
-                            <li><strong>Editor &amp; build support</strong> The same calls work in play mode and in shipped builds.</li>
-                            <li><strong>URP-ready</strong> Works with URP out of the box; Built-in / HDRP with a one-line change.</li>
-                            <li><strong>Editor testers included</strong> Try the on-screen and world APIs without writing gameplay code.</li>
-                        </ul>
-
-                        <h3 class="mt-5">Technical details</h3>
-                        <ul class="spec">
-                            <li><span class="k">Package</span><span class="v"><code>com.dandev.unity-visual-debugging-utilities</code> (v1.0.1)</span></li>
-                            <li><span class="k">Unity version</span><span class="v">Developed with Unity 6000.3.12f1</span></li>
-                            <li><span class="k">Namespace</span><span class="v"><code>Dandev.Unity_Visual_Debugging_Utilities</code></span></li>
-                            <li><span class="k">On-screen API</span><span class="v"><code>DebugScreen.Log(string label, float time, Color color)</code></span></li>
-                            <li><span class="k">World-space API</span><span class="v"><code>DebugDraw.Sphere / Cube / Arrow / Text</code> (position, duration, size, color)</span></li>
-                            <li><span class="k">Setup</span><span class="v">None: auto-initializing singletons, persist via <code>DontDestroyOnLoad</code></span></li>
-                            <li><span class="k">Rendering</span><span class="v">Shapes draw on top of the scene; URP out of the box, Built-in / HDRP with a directive change</span></li>
-                            <li><span class="k">Assemblies</span><span class="v">Single asmdef with editor testers alongside runtime code</span></li>
-                        </ul>
-
-                        <p class="ai-note">This package is in active development and its API may change before release.</p>
 
                     </main>
                 </div>
@@ -208,6 +176,39 @@ DebugDraw.Text(target.position, <span class="t">"Target"</span>, 3f, 1f, Color.w
         <footer-component></footer-component>
 
         <!-- #region Global ============================ -->
+
+        <!-- Modal [search] -->
+        <div id="search" class="p-0 modal fade" role="dialog" aria-labelledby="search" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-slideout" role="document">
+                <div class="modal-content full">
+                    <div class="modal-header" data-dismiss="modal">
+                        Search <i class="icon-close"></i>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row">
+                            <div class="col-12 p-0 align-self-center">
+                                <div class="row">
+                                    <div class="col-12 p-0 pb-3">
+                                        <h2>What are you looking for?</h2>
+                                        <p>Search for services and news about the best that happens in the world.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group">
+                                        <input type="text" class="form-control" placeholder="Enter Keywords">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 p-0 input-group align-self-center">
+                                        <button class="btn primary-button"><i class="icon-magnifier"></i>SEARCH</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Modal [responsive menu] -->
         <div id="menu" class="p-0 modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">

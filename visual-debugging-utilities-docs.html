@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- ==============================================
+        Basic Page Needs
+        =============================================== -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+
+        <title>Zest Studios - Visual Debugger Documentation</title>
+
+        <meta name="description" content="The Visual Debugger user manual: installation, on-screen messages, world-space shapes, build settings, updating, and troubleshooting.">
+        <meta name="subject" content="Visual Debugger documentation">
+        <meta name="author" content="Zest Studios">
+
+        <!-- ==============================================
+        Favicons
+        =============================================== -->
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+        <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+        <!-- ==============================================
+        Vendor Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/slider.min.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/vendor/icons.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/animation.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/gallery.min.css">
+        <link rel="stylesheet" href="assets/css/vendor/cookie-notice.min.css">
+
+        <!-- ==============================================
+        Custom Stylesheet
+        =============================================== -->
+        <link rel="stylesheet" href="assets/css/default.css">
+        <link rel="stylesheet" href="assets/css/theme-pink.css">
+
+        <!-- ==============================================
+        Theme Settings
+        =============================================== -->
+        <style>
+            :root {
+                --header-bg-color: #111111;
+                --nav-item-color: #f5f5f5;
+                --top-nav-item-color: #f5f5f5;
+
+                --section-1-bg-color: #ffffff;
+                --section-2-bg-color: #f5f5f5;
+
+                --footer-bg-color: #191919;
+            }
+
+            /* Solid dark header bar: this page is light, so the fixed transparent
+               overlay navbar (white text) would otherwise vanish. */
+            #header .navbar{background-color:#111111;box-shadow:0 2px 12px rgba(0,0,0,.18);}
+
+            /* Docs layout */
+            .docs-title{font-size:2.6rem;font-weight:800;line-height:1.1;margin:0 0 .35rem;}
+            .docs-sub{color:#8a8a8a;font-size:.95rem;margin-bottom:0;}
+            .docs-toc{background:#ffffff;border:1px solid #e6e6e6;border-radius:8px;padding:1.25rem 1.5rem;margin:2rem 0;}
+            .docs-toc h3{margin:0 0 .75rem;font-size:1.05rem;}
+            .docs-toc ol{margin:0;padding-left:1.2rem;}
+            .docs-toc li{padding:.15rem 0;}
+            .docs-toc a{color:#c0165a;text-decoration:none;}
+            .docs-toc a:hover{text-decoration:underline;}
+            #content h2{font-size:1.5rem;margin:2.75rem 0 .75rem;scroll-margin-top:90px;}
+            #content h3{font-size:1.1rem;margin:1.5rem 0 .5rem;}
+            #content code{display:inline;background:#ececec;border-radius:4px;padding:.05rem .35rem;font-size:.9em;color:#c0165a;white-space:normal;}
+            .docs-code{background:#1d1d1f;color:#e8e8e8;border-radius:8px;padding:1rem 1.25rem;font-family:Consolas,Menlo,monospace;font-size:.85rem;line-height:1.6;overflow-x:auto;margin:.75rem 0 1.25rem;}
+            .docs-code .k{color:#7ec3f0;} .docs-code .s{color:#e8b571;} .docs-code .c{color:#8a8f98;} .docs-code .g{color:#59d75b;}
+            .docs-note{background:#eef4fb;border:1px solid #d5e3f3;border-radius:8px;padding:.85rem 1.1rem;margin:1rem 0 1.5rem;}
+            .docs-steps{padding-left:1.3rem;margin:0 0 1rem;}
+            .docs-steps li{padding:.3rem 0;}
+            table.docs-table{width:100%;border-collapse:collapse;margin:.75rem 0 1.5rem;background:#fff;}
+            table.docs-table th,table.docs-table td{border:1px solid #dcdcdc;padding:.6rem .8rem;text-align:left;vertical-align:top;font-size:.92rem;}
+            table.docs-table th{background:#efefef;}
+            .docs-backlink{margin-top:2.5rem;}
+        </style>
+
+        <script src="assets/components/header.js" type="text/javascript" defer></script>
+        <script src="assets/components/footer.js" type="text/javascript" defer></script>
+        <script src="assets/components/contact.js" type="text/javascript" defer></script>
+    </head>
+
+    <body>
+
+        <!-- Header -->
+        <header-component></header-component>
+
+        <!-- Docs -->
+        <section id="content" class="section-1 single featured">
+            <div class="container">
+                <div class="row">
+                    <main class="col-12 col-lg-10 mx-auto p-0">
+
+                        <h1 class="docs-title">Visual Debugger Documentation</h1>
+                        <p class="docs-sub">User manual for version 1.0.0. Also included in the package as Documentation.pdf. <a href="visual-debugging-utilities">Back to the product page</a>.</p>
+
+                        <div class="docs-toc">
+                            <h3>Contents</h3>
+                            <ol>
+                                <li><a href="#what-it-does">What Visual Debugger does</a></li>
+                                <li><a href="#installation">Installation</a></li>
+                                <li><a href="#first-message">Your first debug message</a></li>
+                                <li><a href="#screen-messages">On-screen messages</a></li>
+                                <li><a href="#world-shapes">World-space shapes</a></li>
+                                <li><a href="#debug-settings">Choosing where debug output appears</a></li>
+                                <li><a href="#testers">Trying it without writing code</a></li>
+                                <li><a href="#updating">Updating the package</a></li>
+                                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                                <li><a href="#support">Support</a></li>
+                            </ol>
+                        </div>
+
+                        <h2 id="what-it-does">1. What Visual Debugger does</h2>
+                        <p>Visual Debugger puts your debug output where you are already looking: on the screen and in the game world. It has two systems, and both are used the same way, with one line of code:</p>
+                        <ul class="docs-steps">
+                            <li><strong>On-screen messages.</strong> <code>DebugScreen.Log</code> prints a colored message to a list in the corner of the screen. The message disappears on its own after the number of seconds you choose.</li>
+                            <li><strong>World-space shapes.</strong> <code>DebugDraw</code> draws spheres, cubes, arrows, and text labels at any position in the world, in any color, for however long you choose. Shapes draw on top of everything, so walls never hide them.</li>
+                        </ul>
+                        <p>There is nothing to set up in your scene. The first call creates everything the systems need, and they keep working when a new scene loads.</p>
+
+                        <h3>1.1 Requirements</h3>
+                        <p>Unity 6000.3 or newer. No other packages are required.</p>
+
+                        <h3>1.2 What is in the package</h3>
+                        <p>The package installs into <code>Assets/Zest Studios/VisualDebugger</code>. It contains the compiled tool (Runtime and Editor), a demo scene in the Demo folder, and the manual.</p>
+
+                        <h3>1.3 Coming from Unreal?</h3>
+                        <p>Every Unreal debug helper you are used to has a direct equivalent:</p>
+                        <table class="docs-table">
+                            <tr><th>Unreal</th><th>Visual Debugger</th></tr>
+                            <tr><td><code>GEngine-&gt;AddOnScreenDebugMessage</code></td><td><code>DebugScreen.Log</code></td></tr>
+                            <tr><td><code>DrawDebugSphere</code> / <code>DrawDebugBox</code></td><td><code>DebugDraw.Sphere</code> / <code>DebugDraw.Cube</code></td></tr>
+                            <tr><td><code>DrawDebugString</code></td><td><code>DebugDraw.Text</code></td></tr>
+                            <tr><td><code>DrawDebugDirectionalArrow</code></td><td><code>DebugDraw.Arrow</code></td></tr>
+                        </table>
+
+                        <h2 id="installation">2. Installation</h2>
+                        <ol class="docs-steps">
+                            <li>Import the package from the Asset Store (Window &gt; Package Manager &gt; My Assets).</li>
+                            <li>Wait for Unity to finish importing and compiling. That is the whole installation; there is no setup window and nothing to configure.</li>
+                        </ol>
+                        <div class="docs-note"><strong>Where did it go?</strong> The package lives in <code>Assets/Zest Studios/VisualDebugger</code>, and its menu is <strong>Tools &gt; Visual Debugger</strong>.</div>
+
+                        <h2 id="first-message">3. Your first debug message</h2>
+                        <ol class="docs-steps">
+                            <li>Open any script that runs in your scene (or create a new MonoBehaviour and add it to any GameObject).</li>
+                            <li>Add the using line at the top of the file, and a log call in <code>Start</code>:</li>
+                        </ol>
+                        <div class="docs-code"><span class="k">using</span> Zest.VisualDebugger;<br><br>
+<span class="k">void</span> Start()<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DebugScreen.Log(<span class="s">"Hello from Visual Debugger!"</span>, 3f, Color.green);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DebugDraw.Sphere(transform.position, 3f, 1f, Color.red);<br>
+}</div>
+                        <ol class="docs-steps" start="3">
+                            <li>Press Play. A green message appears on the screen, and a red wireframe sphere appears at the object's position. Both disappear after three seconds.</li>
+                        </ol>
+
+                        <h2 id="screen-messages">4. On-screen messages</h2>
+                        <p>One method does everything:</p>
+                        <div class="docs-code">DebugScreen.Log(<br>
+&nbsp;&nbsp;<span class="k">string</span> label, &nbsp;&nbsp;<span class="c">// the text to show</span><br>
+&nbsp;&nbsp;<span class="k">float</span> time, &nbsp;&nbsp;<span class="c">// how many seconds it stays on screen</span><br>
+&nbsp;&nbsp;Color color); &nbsp;&nbsp;<span class="c">// the text color</span></div>
+                        <p>Messages stack in a list on the screen with the newest at the top, and each message fades out when its time runs out.</p>
+                        <div class="docs-code"><span class="c">// A one-off event</span><br>
+DebugScreen.Log(<span class="s">"Checkpoint reached"</span>, 2f, Color.yellow);<br><br>
+<span class="c">// A live stat: log it every frame with a short time</span><br>
+DebugScreen.Log($<span class="s">"Speed: {speed:0.0}"</span>, 0.1f, Color.cyan);</div>
+
+                        <h2 id="world-shapes">5. World-space shapes</h2>
+                        <p>All shapes share one parameter order: <strong>position, (direction or rotation,) duration, size, color</strong>. Note that <strong>duration comes before size</strong>.</p>
+                        <div class="docs-code">DebugDraw.Sphere(Vector3 position, <span class="k">float</span> duration = 5f, <span class="k">float</span> size = 1f, Color color = <span class="k">default</span>);<br>
+DebugDraw.Cube&nbsp;&nbsp;(Vector3 position, <span class="k">float</span> duration = 5f, <span class="k">float</span> size = 1f, Color color = <span class="k">default</span>);<br>
+DebugDraw.Cube&nbsp;&nbsp;(Vector3 position, Vector3 rotation, <span class="k">float</span> duration = 5f, <span class="k">float</span> size = 1f, Color color = <span class="k">default</span>);<br>
+DebugDraw.Text&nbsp;&nbsp;(Vector3 position, <span class="k">string</span> label, <span class="k">float</span> duration = 5f, <span class="k">float</span> size = 1f, Color color = <span class="k">default</span>);<br>
+DebugDraw.Arrow&nbsp;(Vector3 position, Vector3 direction, <span class="k">float</span> duration = 5f, <span class="k">float</span> size = 1f, Color color = <span class="k">default</span>);</div>
+                        <p>Details worth knowing:</p>
+                        <ul class="docs-steps">
+                            <li>The second <code>Cube</code> overload takes <strong>Euler angles</strong> for oriented boxes.</li>
+                            <li><code>Arrow</code> takes a <strong>direction vector</strong>; the arrow points along it, and <code>size</code> is its length.</li>
+                            <li>Shapes draw with an always-on-top material, so they stay visible through geometry.</li>
+                            <li>Shapes are pooled. Calling draw methods every frame is fine.</li>
+                        </ul>
+                        <div class="docs-note"><strong>Color is optional.</strong> If you leave the color out, the shape is drawn in white. Pass a color when you need to tell shapes apart.</div>
+                        <div class="docs-code"><span class="c">// An aim line from the muzzle, 1.5 units long, for 2 seconds</span><br>
+DebugDraw.Arrow(muzzle.position, muzzle.forward, 2f, 1.5f, Color.yellow);<br><br>
+<span class="c">// A label above an enemy for 1 second</span><br>
+DebugDraw.Text(enemy.position + Vector3.up, <span class="s">"HP 3/3"</span>, 1f, 1f, Color.white);</div>
+
+                        <h2 id="debug-settings">6. Choosing where debug output appears</h2>
+                        <p>You control where debug output shows up, without touching your code. Open <strong>Tools &gt; Visual Debugger &gt; Debug Settings</strong>. Shape debugging and screen debugging each have their own mode:</p>
+                        <table class="docs-table">
+                            <tr><th>Mode</th><th>Behaviour</th></tr>
+                            <tr><td>Off</td><td>Calls are ignored everywhere.</td></tr>
+                            <tr><td>Editor Only <em>(default)</em></td><td>Draws in the editor, ignored in every build.</td></tr>
+                            <tr><td>Editor + Development Builds</td><td>Also draws in builds made with <em>Development Build</em> enabled. Use this for on-device debugging.</td></tr>
+                            <tr><td>All Builds</td><td>Draws everywhere, including release builds.</td></tr>
+                        </table>
+                        <p>The setting is stored in <code>Resources/VisualDebuggingSettings.asset</code> inside the package, so your builds read the same value as the editor. When a system is off, calls return immediately and no debug objects are ever created, so leftover calls cost almost nothing.</p>
+
+                        <h2 id="testers">7. Trying it without writing code</h2>
+                        <p>Two helper components let you fire test output from the Inspector:</p>
+                        <ol class="docs-steps">
+                            <li>Add the <strong>DebugScreenTester</strong> or <strong>DebugWorldTester</strong> component to any GameObject.</li>
+                            <li>Press Play.</li>
+                            <li>Use the buttons in the component's Inspector to fire random test messages and shapes.</li>
+                        </ol>
+                        <p>The Demo folder also contains a small sample scene showing both systems in a playable setting.</p>
+
+                        <h2 id="updating">8. Updating the package</h2>
+                        <p>An update replaces the package folder (<code>Assets/Zest Studios/VisualDebugger</code>). Your own scripts are never touched by an update.</p>
+                        <div class="docs-note"><strong>One thing to re-check:</strong> the Debug Settings asset lives inside the package folder, so an update resets it to the default (Editor Only for both systems). If you had changed the modes, open <strong>Tools &gt; Visual Debugger &gt; Debug Settings</strong> after updating and set them again.</div>
+
+                        <h2 id="troubleshooting">9. Troubleshooting</h2>
+                        <table class="docs-table">
+                            <tr><th>Problem</th><th>Fix</th></tr>
+                            <tr><td>Nothing draws in my build</td><td>The default mode is Editor Only. Open Tools &gt; Visual Debugger &gt; Debug Settings and choose Editor + Development Builds (and make sure Development Build is ticked in Build Settings), or All Builds.</td></tr>
+                            <tr><td>A shape is invisible</td><td>If you passed a color, check its alpha: an alpha of 0 draws fully transparent. An omitted color draws white. Also remember the parameter order: duration comes before size.</td></tr>
+                            <tr><td>My message vanishes instantly</td><td>The second parameter of <code>DebugScreen.Log</code> is the time in seconds. A very small value (for example 0.1f) is right for per-frame stats, but a one-off message needs a second or more.</td></tr>
+                            <tr><td>A shape lasts longer or is bigger than expected</td><td>The parameter order is duration first, then size. <code>Sphere(pos, 5f, 1f)</code> is five seconds at size one, not the other way round.</td></tr>
+                            <tr><td>Output still shows in a release build</td><td>One of the modes is set to All Builds. Open Tools &gt; Visual Debugger &gt; Debug Settings and lower both modes.</td></tr>
+                        </table>
+
+                        <h2 id="support">10. Support</h2>
+                        <p>Discord: <a href="https://discord.gg/2ths8Hj9QE" target="_blank" rel="noopener">discord.gg/2ths8Hj9QE</a> (the fastest way to reach us)</p>
+                        <p>Email: <a href="mailto:studioszest@gmail.com">studioszest@gmail.com</a></p>
+                        <p>If anything in this manual is unclear, that is a bug in the manual. Tell us and we will fix it.</p>
+
+                        <p class="docs-backlink"><a href="visual-debugging-utilities">&larr; Back to Visual Debugger</a></p>
+
+                    </main>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <contact-component></contact-component>
+
+        <footer-component></footer-component>
+
+        <!-- Scroll [to top] -->
+        <div id="scroll-to-top" class="scroll-to-top">
+            <a href="#header" class="smooth-anchor">
+                <i class="icon-arrow-up"></i>
+            </a>
+        </div>
+
+        <!-- ==============================================
+        Vendor Scripts
+        =============================================== -->
+        <script src="assets/js/vendor/jquery.min.js"></script>
+        <script src="assets/js/vendor/jquery.easing.min.js"></script>
+        <script src="assets/js/vendor/jquery.inview.min.js"></script>
+        <script src="assets/js/vendor/popper.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/ponyfill.min.js"></script>
+        <script src="assets/js/vendor/slider.min.js"></script>
+        <script src="assets/js/vendor/animation.min.js"></script>
+        <script src="assets/js/vendor/cookie-notice.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
