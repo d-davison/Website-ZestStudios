@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /mockups/
+Disallow: /tools/
+
+Sitemap: https://zeststudios.net/sitemap.xml
