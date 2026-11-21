@@ -31,7 +31,7 @@
     var style = document.createElement("style");
     style.id = "mg-styles";
     style.textContent = [
-      ".mg{--mg-accent:#dd1e4b;--mg-radius:12px;width:100%;}",
+      ".mg{--mg-accent:#c095ff;--mg-radius:12px;width:100%;}",
       ".mg:focus{outline:none;}",
       ".mg-stage{position:relative;width:100%;aspect-ratio:16/10;background:#0e1014;border-radius:var(--mg-radius);overflow:hidden;display:flex;align-items:center;justify-content:center;}",
       ".mg-media{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}",
@@ -46,7 +46,6 @@
       ".mg-toolbar{position:absolute;top:12px;right:12px;display:flex;gap:8px;z-index:2;}",
       ".mg-btn{width:38px;height:38px;border:0;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:background .2s;}",
       ".mg-btn:hover{background:rgba(0,0,0,.78);}",
-      ".mg-btn i{margin:0;}",
       ".mg-toast{position:absolute;top:58px;right:12px;background:rgba(0,0,0,.82);color:#fff;font-size:.75rem;padding:.4rem .65rem;border-radius:6px;opacity:0;transform:translateY(-4px);transition:.2s;pointer-events:none;z-index:2;}",
       ".mg-toast.show{opacity:1;transform:none;}",
       ".mg-thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}",
@@ -66,6 +65,11 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   }
+
+  // Inline icons, so the gallery doesn't need an icon font.
+  var SVG = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+  var ICON_SHARE = SVG + '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>';
+  var ICON_FULL = SVG + '<path d="M8 3H3v5M21 8V3h-5M16 21h5v-5M3 16v5h5"/></svg>';
 
   function isVideo(it) { return it && (it.type === "youtube" || it.type === "video"); }
 
@@ -99,8 +103,8 @@
           '<div class="mg-stage">' +
             '<div class="mg-media"></div>' +
             '<div class="mg-toolbar">' +
-              '<button class="mg-btn mg-share" type="button" title="Share" aria-label="Share"><i class="icon-share-alt"></i></button>' +
-              '<button class="mg-btn mg-full" type="button" title="Fullscreen" aria-label="Fullscreen"><i class="icon-size-fullscreen"></i></button>' +
+              '<button class="mg-btn mg-share" type="button" title="Share" aria-label="Share">' + ICON_SHARE + '</button>' +
+              '<button class="mg-btn mg-full" type="button" title="Fullscreen" aria-label="Fullscreen">' + ICON_FULL + '</button>' +
             '</div>' +
             '<div class="mg-toast">Link copied</div>' +
             (multi ? '<div class="mg-counter"></div>' : '') +

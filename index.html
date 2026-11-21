@@ -1,464 +1,169 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zest Studios | Indie Games and Unity Tools</title>
+    <meta name="description" content="Indie studio making games and Unity editor tools. Our next game, Free Sweetcorn, is coming in 2027. Find our packages on the Unity Asset Store.">
+    <meta name="author" content="Zest Studios">
+    <meta name="theme-color" content="#0b0b0d">
+    <link rel="canonical" href="https://zeststudios.net/">
 
-    <head>
+    <!-- Social previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zest Studios">
+    <meta property="og:title" content="Zest Studios | Indie Games and Unity Tools">
+    <meta property="og:description" content="Indie studio making games and Unity editor tools. Our next game, Free Sweetcorn, is coming in 2027. Find our packages on the Unity Asset Store.">
+    <meta property="og:url" content="https://zeststudios.net/">
+    <meta property="og:image" content="https://zeststudios.net/assets/images/og/home.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@studioszest">
 
-        <!-- ==============================================
-        Basic Page Needs
-        =============================================== -->
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/images/favicon.png" sizes="256x256" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
-        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/zest.css?v=856a3872">
+    <script src="assets/components/header.js?v=bb983c19" defer></script>
+    <script src="assets/components/footer.js?v=f9935f7b" defer></script>
 
-        <title>Zest Studios - Landing Pad</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://zeststudios.net/#org",
+          "name": "Zest Studios",
+          "url": "https://zeststudios.net/",
+          "logo": "https://zeststudios.net/assets/images/favicon.png",
+          "email": "studioszest@gmail.com",
+          "sameAs": [
+            "https://twitter.com/studioszest",
+            "https://www.instagram.com/studioszest/",
+            "https://www.facebook.com/studioszest",
+            "https://assetstore.unity.com/publishers/51920"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "Zest Studios",
+          "url": "https://zeststudios.net/",
+          "publisher": {
+            "@id": "https://zeststudios.net/#org"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
 
-        <meta name="description" content="Zest Studios is an indie game and app studio making hyper-casual mobile games for Android, AR mobile applications, and Unity editor tools and asset packs.">
-        <meta name="subject" content="Zest Studios - Games, Apps and Unity Tools">
-        <meta name="author" content="Zest Studios">
+    <header-component></header-component>
 
-        <!-- ==============================================
-        Favicons
-        =============================================== -->
-        <link rel="icon" type="image/png" href="assets/images/favicon.png">
-        <link rel="apple-touch-icon" href="assets/images/favicon.png">
-
-        <!-- ==============================================
-        Vendor Stylesheet
-        =============================================== -->
-        <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/slider.min.css">
-        <link rel="stylesheet" href="assets/css/main.css">
-        <link rel="stylesheet" href="assets/css/vendor/icons.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/animation.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/gallery.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/cookie-notice.min.css">
-
-        <!-- ==============================================
-        Custom Stylesheet
-        =============================================== -->
-        <link rel="stylesheet" href="assets/css/default.css">
-        <link rel="stylesheet" href="assets/css/theme-pink.css">
-
-        <!-- ==============================================
-        Theme Settings
-        =============================================== -->
-        <style>
-            :root {
-                --header-bg-color: #111111;
-                --nav-item-color: #f5f5f5;
-                --top-nav-item-color: #f5f5f5;
-                --hero-bg-color: #000000;
-
-                --section-1-bg-color: #f5f5f5;
-                --section-2-bg-color: #eeeeee;
-                --section-3-bg-color: #111111;
-                --section-4-bg-color: #eeeeee;
-                --section-5-bg-color: #111111;
-                --section-6-bg-color: #f5f5f5;
-
-                --footer-bg-color: #191919;
-            }
-
-            /* Product cards: whole-card links, all forced to an equal size with a uniform image box */
-            #games .items .item,
-            #packages .items .item{display:flex;flex-direction:column;}
-            #games .items .item > a,
-            #packages .items .item > a{display:flex;flex-direction:column;flex:1 1 auto;color:inherit;text-decoration:none;}
-            #games .items .card,
-            #packages .items .card{display:flex;flex-direction:column;flex:1 1 auto;}
-            /* Every image fills the same box (Tilt Rocket's ratio); wide/tall art is centre-cropped, never squashed */
-            #games .items .card img,
-            #packages .items .card img{width:100%;aspect-ratio:838/650;object-fit:cover;display:block;border-radius:2px;margin-top:auto;}
-        </style>
-        
-        <script src="assets/components/header.js" type="text/javascript" defer></script>
-        <script src="assets/components/footer.js" type="text/javascript" defer></script>
-        <script src="assets/components/contact.js" type="text/javascript" defer></script>
-    </head>
-
-    <body>
-
-        <!-- Header -->
-        <header-component></header-component>
+    <main>
 
         <!-- Hero -->
-        <section id="slider" class="hero p-0">
-            <div class="swiper-container no-slider animation slider-h-100">
-                <div class="swiper-wrapper">
-
-                    <!-- Item 1 -->
-                    <div class="swiper-slide slide-center">
-
-                        <video class="full-image" data-mask="70" playsinline autoplay muted loop>
-                            <source src="assets/videos/zestbackground_4.mp4" type="video/mp4" />
-                        </video> 
-
-                        <!-- 
-                            Suggestion: Add a video to your assets folder and configure it here.
-
-                            <video type="video/mp4" class="full-image" data-mask="70" src="assets/videos/yourvideo.mp4" autoplay muted loop></video> 
-                        -->
-
-                        <div class="slide-content row">
-                            <div class="col-12 d-flex inner">
-                                <div class="center align-self-center text-center">
-                                    <h1 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text">ZEST STUDIOS</h1>
-                                    <h2 data-aos="zoom-out-up" data-aos-delay="400" >GAME AND APP DEVELOPERS</h2>
-                                    <a href="#features" data-aos="zoom-out-up" data-aos-delay="1200" class="smooth-anchor ml-auto mr-auto mt-5 btn primary-button"><i class="icon-cup"></i>GET STARTED</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-
-        <!-- Features -->
-        <section id="features" class="section-1 offers featured">
-            <div class="container">
-                <div class="row justify-content-center text-center items">
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <div class="card no-hover">
-                            <i class="icon icon-screen-smartphone"></i>
-                            <h4>Mobile Apps</h4>
-                            <p>Augmeneted Reality Mobile Applications for eLearning and eCommerce.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <div class="card no-hover">
-                            <i class="icon icon-game-controller"></i>
-                            <h4>Mobile Games</h4>
-                            <p>Hyper Fun, Hyper Casual Mobile Games.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <div class="card no-hover">
-                            <i class="icon icon-puzzle"></i>
-                            <h4>Unity Packages</h4>
-                            <p>Editor tools and asset packs that speed up your Unity workflow.</p>
-                        </div>
-                    </div>
+        <header class="hero">
+            <img src="assets/images/bg-freesweetcorn.webp" alt="">
+            <div class="wrap">
+                <p class="eyebrow">Indie studio · Games · Unity tools</p>
+                <h1>Made with <span class="grad">zest.</span></h1>
+                <p class="lead">We make games and the Unity tools behind them. Our next game, Free Sweetcorn, lands in 2027.</p>
+                <div class="cta">
+                    <a class="btn btn-p" href="#games">Free Sweetcorn · 2027</a>
+                    <a class="btn btn-g" href="#packages">Browse packages</a>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- About [video] -->
-        <section id="video" class="section-2 highlights image-center">
-            <div class="container smaller">
-                <div class="row text-center intro">
-                    <div class="col-12">
-                        <h2>About Us</h2>
-                        <p class="text-max-800">At Zest Studios we make games and apps. We venture into the immersive technologies too developing Augmented and Virtual Reality products. Why? Because we love doing it, and we love sharing fun!</p>
-                    </div>
-                </div>
-                <div class="row text-center">
-                    <div class="col-12 gallery">
-                        <a href="assets/images/news-4.png" class="square-image d-flex justify-content-center align-items-center">
-                            <img src="assets/images/news-4.png" alt="Zest Logo" style="box-shadow:none;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing -->
-        
         <!-- Games -->
-        <section id="games" class="section-1 offers featured">
-            <div class="container">
-                <div class="row intro">
-                    <div class="col-12 align-self-center text-center text-md-left">
-                        <h2 class="featured">Our Games</h2>
-                        <p>Hyper-casual and mobile games for Android</p>
-                    </div>
+        <section id="games">
+            <div class="wrap">
+                <div class="head">
+                    <h2>Games</h2>
+                    <p>Our next game is in the oven.</p>
                 </div>
-                <div class="row justify-content-center text-center items">
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="tilt-rocket">
-                            <div class="card featured">
-                                <h4>Tilt Rocket</h4>
-                                <p>Hyper Casual Rocket Game for Android</p>
-                                <img src="assets/images/work-1.jpg" alt="Tilt Rocket" class="w-100">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="free-sweetcorn">
-                            <div class="card featured">
-                                <h4>Free Sweetcorn</h4>
-                                <p>Platformer RPG with Sweetcorn for Android</p>
-                                <img src="assets/images/work-2.jpg" alt="Free Sweetcorn" class="w-100">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="balltopia">
-                            <div class="card featured">
-                                <h4>Balltopia</h4>
-                                <p>Puzzle platformer for Android</p>
-                                <img src="assets/images/news-balltopia.jpg" alt="Balltopia" class="w-100">
-                            </div>
-                        </a>
+                <div class="teaser">
+                    <img loading="lazy" src="assets/images/news-freesweetcorn.jpg" alt="Prince Sweetcorn in a castle level">
+                    <div class="in">
+                        <p class="eyebrow">Platformer RPG</p>
+                        <h2>Free Sweetcorn</h2>
+                        <div class="year grad">2027</div>
+                        <p>Prince Sweetcorn is getting a fresh start. Join the Discord to hear first.</p>
+                        <div class="cta">
+                            <a class="btn btn-p" href="https://discord.gg/2ths8Hj9QE" target="_blank" rel="noopener noreferrer"><svg class="ico" aria-hidden="true"><use href="assets/images/icons.svg#discord"/></svg>Join the Discord</a>
+                            <a class="btn btn-g" href="free-sweetcorn">More</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Packages -->
-        <section id="packages" class="section-2 offers featured">
-            <div class="container">
-                <div class="row intro">
-                    <div class="col-12 align-self-center text-center text-md-left">
-                        <h2 class="featured">Our Packages</h2>
-                        <p>Editor tools and asset packs for Unity</p>
-                    </div>
+        <section id="packages" class="tight">
+            <div class="wrap">
+                <div class="head">
+                    <h2>Packages</h2>
+                    <p>Available now on the Unity Asset Store.</p>
                 </div>
-                <div class="row justify-content-center text-center items">
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="buzzkit">
-                            <div class="card featured">
-                                <h4>Buzzkit</h4>
-                                <p>Cross-platform haptics and rumble for Unity</p>
-                                <img src="assets/images/buzzkit/front-page.png" alt="Buzzkit" class="w-100">
+                <div class="grid">
+                    <article class="card">
+                        <a href="better-logger"><img loading="lazy" src="assets/images/better-logger/front-page.webp" alt="Better Logger"></a>
+                        <div class="body">
+                            <span class="tag">Editor tool</span>
+                            <h3><a href="better-logger">Better Logger</a></h3>
+                            <p>Type-safe, channel-based logging with colours and per-channel toggles.</p>
+                            <div class="links">
+                                <a href="better-logger">Details</a>
+                                <a href="https://assetstore.unity.com/packages/tools/utilities/better-logger-channels-colors-and-toggles-389850" target="_blank" rel="noopener noreferrer">Asset Store ↗</a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="better-logger">
-                            <div class="card featured">
-                                <h4>Better Logger</h4>
-                                <p>Type-safe, channel-based logging for Unity</p>
-                                <img src="assets/images/better-logger/front-page.png" alt="Better Logger" class="w-100">
+                        </div>
+                    </article>
+                    <article class="card">
+                        <a href="level-management-kit"><img loading="lazy" src="assets/images/news-lmp1.jpg" alt="Level Management Kit"></a>
+                        <div class="body">
+                            <span class="tag">System</span>
+                            <h3><a href="level-management-kit">Level Management Kit</a></h3>
+                            <p>Automatic level select, loading and saving for mobile games.</p>
+                            <div class="links">
+                                <a href="level-management-kit">Details</a>
+                                <a href="https://assetstore.unity.com/packages/tools/gui/complete-automatic-mobile-level-management-kit-214640" target="_blank" rel="noopener noreferrer">Asset Store ↗</a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="todo-manager">
-                            <div class="card featured">
-                                <h4>Todo Manager</h4>
-                                <p>TODO comment tracking &amp; task management for Unity</p>
-                                <img src="assets/images/todo-manager/front-page.png" alt="Todo Manager" class="w-100">
+                        </div>
+                    </article>
+                    <article class="card">
+                        <a href="low-poly-weapons"><img loading="lazy" src="assets/images/news-lowpolyweapons.jpg" alt="Low Poly Medieval Weapon Pack"></a>
+                        <div class="body">
+                            <span class="tag">3D art</span>
+                            <h3><a href="low-poly-weapons">Low Poly Weapon Pack</a></h3>
+                            <p>Low poly 3D medieval weapons, ready to drop into any project.</p>
+                            <div class="links">
+                                <a href="low-poly-weapons">Details</a>
+                                <a href="https://assetstore.unity.com/packages/3d/props/weapons/low-poly-3d-medieval-weapon-pack-186935" target="_blank" rel="noopener noreferrer">Asset Store ↗</a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="visual-debugging-utilities">
-                            <div class="card featured">
-                                <h4>Visual Debugger</h4>
-                                <p>Unreal-style on-screen &amp; world debug drawing for Unity</p>
-                                <img src="assets/images/visual-debugging-utilities/front-page.png" alt="Visual Debugger" class="w-100">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="modular-settings-ui">
-                            <div class="card featured">
-                                <h4>Modular Settings UI</h4>
-                                <p>Data-driven settings menus for Unity</p>
-                                <img src="assets/images/modular-settings-ui/coming-soon.svg" alt="Modular Settings UI" class="w-100">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="level-management-kit">
-                            <div class="card featured">
-                                <h4>Level Management Kit</h4>
-                                <p>Complete &amp; automatic level management kit for Unity</p>
-                                <img src="assets/images/news-lmp1.jpg" alt="Level Management Kit" class="w-100">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 item">
-                        <a href="low-poly-weapons">
-                            <div class="card featured">
-                                <h4>Low Poly Weapon Pack</h4>
-                                <p>Low poly 3D medieval weapons for Unity</p>
-                                <img src="assets/images/news-lowpolyweapons.jpg" alt="Low Poly Weapon Pack" class="w-100">
-                            </div>
-                        </a>
-                    </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
-        
-        
-        <!-- Footer -->
-        <!-- Points of Contact -->
-        <contact-component></contact-component>
 
-        <footer-component></footer-component>
-
-        <!-- #region Global ============================ -->
-
-        <!-- Modal [search] -->
-        <div id="search" class="p-0 modal fade" role="dialog" aria-labelledby="search" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideout" role="document">
-                <div class="modal-content full">
-                    <div class="modal-header" data-dismiss="modal">
-                        Search <i class="icon-close"></i>
-                    </div>
-                    <div class="modal-body">
-                        <form class="row">
-                            <div class="col-12 p-0 align-self-center">
-                                <div class="row">
-                                    <div class="col-12 p-0 pb-3">
-                                        <h2>What are you looking for?</h2>
-                                        <p>Search for services and news about the best that happens in the world.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="text" class="form-control" placeholder="Enter Keywords">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group align-self-center">
-                                        <button class="btn primary-button"><i class="icon-magnifier"></i>SEARCH</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <!-- About -->
+        <section id="about" class="tight">
+            <div class="wrap split">
+                <h2>Small studio,<br>sharp tools.</h2>
+                <p>At Zest Studios we make games and the Unity tools behind them. Everything we sell, we use in our own projects first. <a href="about">More about us</a>.</p>
             </div>
-        </div>
+        </section>
 
-        <!-- Modal [sign] -->
-        <div id="sign" class="p-0 modal fade" role="dialog" aria-labelledby="sign" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideout" role="document">
-                <div class="modal-content full">
-                    <div class="modal-header" data-dismiss="modal">
-                        Sign In Form <i class="icon-close"></i>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="row">
-                            <div class="col-12 p-0 align-self-center">
-                                <div class="row">
-                                    <div class="col-12 p-0 pb-3">
-                                        <h2>Sign In</h2>
-                                        <p>Don't have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#register">Register now</a>.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="email" class="form-control" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group align-self-center">
-                                        <button class="btn primary-button"><i class="icon-login"></i>LOGIN</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </main>
 
-        <!-- Modal [register] -->
-        <div id="register" class="p-0 modal fade" role="dialog" aria-labelledby="register" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideout" role="document">
-                <div class="modal-content full">
-                    <div class="modal-header" data-dismiss="modal">
-                        Register Form <i class="icon-close"></i>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" class="row">
-                            <div class="col-12 p-0 align-self-center">
-                                <div class="row">
-                                    <div class="col-12 p-0 pb-3">
-                                        <h2>Register</h2>
-                                        <p>Have an account? <a href="#" class="primary-color" data-toggle="modal" data-target="#sign">Sign In</a>.</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="text" class="form-control" placeholder="Name" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="email" class="form-control" placeholder="Email" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
-                                    </div>
-                                    <div class="col-12 p-0 input-group">
-                                        <input type="password" class="form-control" placeholder="Confirm Password" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0 input-group align-self-center">
-                                        <button class="btn primary-button"><i class="icon-rocket"></i>REGISTER</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <footer-component></footer-component>
 
-        <!-- Modal [responsive menu] -->
-        <div id="menu" class="p-0 modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-slideout" role="document">
-                <div class="modal-content full">
-                    <div class="modal-header" data-dismiss="modal">
-                        Menu <i class="icon-close"></i>
-                    </div>
-                    <div class="menu modal-body">
-                        <div class="row w-100">
-                            <div class="items p-0 col-12 text-center">
-                                <!-- Append [navbar] -->
-                            </div>
-                            <div class="contacts p-0 col-12 text-center">
-                                <!-- Append [navbar] -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll [to top] -->
-        <div id="scroll-to-top" class="scroll-to-top">
-            <a href="#header" class="smooth-anchor">
-                <i class="icon-arrow-up"></i>
-            </a>
-        </div>        
-        
-        <!-- ==============================================
-        Google reCAPTCHA // Put your site key here
-        =============================================== -->
-        <script src="https://www.google.com/recaptcha/api.js?render=6Lf-NwEVAAAAAPo_wwOYxFW18D9_EKvwxJxeyUx7"></script>
-
-        <!-- ==============================================
-        Vendor Scripts
-        =============================================== -->
-        <script src="assets/js/vendor/jquery.min.js"></script>
-        <script src="assets/js/vendor/jquery.easing.min.js"></script>
-        <script src="assets/js/vendor/jquery.inview.min.js"></script>
-        <script src="assets/js/vendor/popper.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-        <script src="assets/js/vendor/ponyfill.min.js"></script>
-        <script src="assets/js/vendor/slider.min.js"></script>
-        <script src="assets/js/vendor/animation.min.js"></script>
-        <script src="assets/js/vendor/progress-radial.min.js"></script>
-        <script src="assets/js/vendor/bricklayer.min.js"></script>
-        <script src="assets/js/vendor/gallery.min.js"></script>
-        <script src="assets/js/vendor/shuffle.min.js"></script>
-        <script src="assets/js/vendor/cookie-notice.min.js"></script>
-        <script src="assets/js/vendor/particles.min.js"></script>
-        <script src="assets/js/main.js"></script>
-
-        <!-- #endregion Global ========================= -->
-
-    </body>
+</body>
 </html>

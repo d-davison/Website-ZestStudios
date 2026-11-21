@@ -1,71 +1,34 @@
+/* <header-component>: site nav. Styles live in assets/css/zest.css. */
 class Header extends HTMLElement {
-    constructor() {
-        super();
-    }
-
     connectedCallback() {
+        var links = [
+            ["free-sweetcorn", "Games"],
+            ["/#packages", "Packages"],
+            ["about", "About"]
+        ];
+        var here = location.pathname.replace(/^\/|\.html$/g, "");
+        var item = function (l) {
+            return '<li><a href="' + l[0] + '"' + (l[0] === here ? ' aria-current="page"' : "") + ">" + l[1] + "</a></li>";
+        };
+        var store = '<a class="btn btn-g" href="https://assetstore.unity.com/publishers/51920" target="_blank" rel="noopener noreferrer">Asset Store ↗</a>';
+
         this.innerHTML = `
-      <header id="header">
-
-          <!-- Navbar -->
-          <nav data-aos="zoom-out" data-aos-delay="800" class="navbar navbar-expand">
-              <div class="container header">
-
-                  <!-- Navbar Brand-->
-                  <a class="navbar-brand" href="/">
-                      ZEST STUDIOS<i class="leverage-2-0"></i>
-                      <!--
-                          Custom Logo
-                          <img src="assets/images/logo.svg" alt="Zest Studios">
-                      -->
-                  </a>
-
-                  <!-- Nav holder -->
-                  <div class="ml-auto"></div>
-
-                  <!-- Navbar Items -->
-                  <ul class="navbar-nav items">
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link">Games<i class="icon-arrow-down"></i></a>
-                          <ul class="dropdown-menu">
-                              <li class="nav-item"><a href="tilt-rocket" class="nav-link">Tilt Rocket</a></li>
-                              <li class="nav-item"><a href="free-sweetcorn" class="nav-link">Free Sweetcorn</a></li>
-                              <li class="nav-item"><a href="balltopia" class="nav-link">Balltopia</a></li>
-                          </ul>
-                      </li>
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link">Packages<i class="icon-arrow-down"></i></a>
-                          <ul class="dropdown-menu">
-                              <li class="nav-item"><a href="buzzkit" class="nav-link">Buzzkit</a></li>
-                              <li class="nav-item"><a href="better-logger" class="nav-link">Better Logger</a></li>
-                              <li class="nav-item"><a href="todo-manager" class="nav-link">Todo Manager</a></li>
-                              <li class="nav-item"><a href="visual-debugging-utilities" class="nav-link">Visual Debugger</a></li>
-                              <li class="nav-item"><a href="modular-settings-ui" class="nav-link">Modular Settings UI</a></li>
-                              <li class="nav-item"><a href="level-management-kit" class="nav-link">Level Management Kit</a></li>
-                              <li class="nav-item"><a href="low-poly-weapons" class="nav-link">Low Poly Medieval Weapon Pack</a></li>
-                          </ul>
-                      </li>
-                      <li class="nav-item">
-                          <a href="about" class="nav-link">About</a>
-                      </li>
+      <nav class="nav" aria-label="Main">
+          <div class="wrap">
+              <a class="brand" href="/">ZEST <span class="grad">STUDIOS</span></a>
+              <ul class="nav-links">${links.map(item).join("")}<li>${store}</li></ul>
+              <details class="nav-menu">
+                  <summary>Menu</summary>
+                  <ul>
+                      ${links.map(item).join("")}
+                      <li><a href="better-logger">Better Logger</a></li>
+                      <li><a href="level-management-kit">Level Management Kit</a></li>
+                      <li><a href="low-poly-weapons">Low Poly Weapon Pack</a></li>
+                      <li><a href="https://assetstore.unity.com/publishers/51920" target="_blank" rel="noopener noreferrer">Asset Store ↗</a></li>
                   </ul>
-
-                  <!-- Navbar Toggle -->
-                  <ul class="navbar-nav toggle">
-                      <li class="nav-item">
-                          <a href="#" class="nav-link" data-toggle="modal" data-target="#menu">
-                              <i class="icon-menu m-0"></i>
-                          </a>
-                      </li>
-                  </ul>
-
-                  <!-- Navbar Action -->
-
-              </div>
-          </nav>
-
-      </header>
-      `;
+              </details>
+          </div>
+      </nav>`;
     }
 }
 
