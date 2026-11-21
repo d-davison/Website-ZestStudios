@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup A · Refined Dark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0b0b0d;--panel:#141418;--line:#26262d;--text:#f2f0f7;--muted:#a19cae;--p1:#dac1ff;--p2:#c095ff;--grad:linear-gradient(45deg,var(--p1) 15%,var(--p2) 65%)}
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--text);font:400 16px/1.6 Poppins,system-ui,sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+  nav{position:fixed;inset:0 0 auto;z-index:10;background:rgba(11,11,13,.7);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:32px;height:64px}
+  .brand{font-weight:800;letter-spacing:.04em}
+  .brand span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  nav ul{display:flex;gap:28px;list-style:none;padding:0;margin-left:auto;font-size:14px;color:var(--muted)}
+  nav ul a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:14px;transition:transform .15s,background .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-p{background:var(--grad);color:#16101f}
+  .btn-g{border:1px solid var(--line);color:var(--text)}
+  .btn-g:hover{background:#1c1c22}
+  nav .btn{padding:8px 16px}
+
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.2),var(--bg) 92%)}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:96px}
+  .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--p1);margin-bottom:20px}
+  h1{font-size:clamp(40px,7vw,84px);line-height:1.02;font-weight:800;letter-spacing:-.02em;max-width:14ch}
+  h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:18px;max-width:52ch;margin:24px 0 36px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+
+  section{padding:96px 0}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+  h2{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.01em}
+  .head p{color:var(--muted);max-width:40ch}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
+  .card:hover{border-color:#4a3d63}
+  .card img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+  .card .body{padding:22px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .tag{font-size:12px;color:var(--p1);letter-spacing:.06em;text-transform:uppercase}
+  .card h3{font-size:20px;font-weight:600}
+  .card p{color:var(--muted);font-size:14px;flex:1}
+  .card .row{display:flex;gap:16px;margin-top:14px;font-size:14px;font-weight:600}
+  .card .row a:last-child{color:var(--p1)}
+
+  .teaser{position:relative;border-radius:20px;overflow:hidden;min-height:380px;display:flex;align-items:center}
+  .teaser img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .teaser::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,13,.95) 30%,rgba(11,11,13,.2))}
+  .teaser .in{position:relative;z-index:1;padding:48px;max-width:520px}
+  .year{font-size:clamp(56px,9vw,112px);font-weight:800;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .teaser p{color:var(--muted);margin:12px 0 28px}
+
+  .about{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start;border-top:1px solid var(--line);padding-top:64px}
+  .about p{color:var(--muted);font-size:18px}
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  footer .links{display:flex;gap:20px}
+
+  @media(max-width:860px){
+    nav ul{display:none}
+    nav .btn{margin-left:auto}
+    .grid,.about{grid-template-columns:1fr}
+    .head{flex-direction:column;align-items:start}
+    .teaser .in{padding:32px}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#">ZEST <span>STUDIOS</span></a>
+  <ul><li><a href="#packages">Packages</a></li><li><a href="#games">Games</a></li><li><a href="#about">About</a></li></ul>
+  <a class="btn btn-g" href="https://assetstore.unity.com/publishers/51920" target="_blank" rel="noopener">Asset Store ↗</a>
+</div></nav>
+
+<header class="hero">
+  <img src="../assets/images/bg-freesweetcorn.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35">
+  <div class="wrap">
+    <p class="eyebrow">Indie studio · Unity tools · Games</p>
+    <h1>Unity tools that <em>just work.</em></h1>
+    <p class="lead">We build the editor tools and assets we wish we'd had, and we're cooking up our next game for 2027.</p>
+    <div class="cta">
+      <a class="btn btn-p" href="#packages">Browse packages</a>
+      <a class="btn btn-g" href="#games">Free Sweetcorn · 2027</a>
+    </div>
+  </div>
+</header>
+
+<section id="packages"><div class="wrap">
+  <div class="head">
+    <h2>Packages</h2>
+    <p>Available now on the Unity Asset Store.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <img src="../assets/images/better-logger/front-page.webp" alt="Better Logger">
+      <div class="body">
+        <span class="tag">Editor tool</span>
+        <h3>Better Logger</h3>
+        <p>Type-safe, channel-based logging with colours and per-channel toggles.</p>
+        <div class="row"><a href="../better-logger.html">Details</a><a href="https://assetstore.unity.com/packages/tools/utilities/better-logger-channels-colors-and-toggles-389850" target="_blank" rel="noopener">Asset Store ↗</a></div>
+      </div>
+    </article>
+    <article class="card">
+      <img src="../assets/images/news-lmp1.jpg" alt="Level Management Kit">
+      <div class="body">
+        <span class="tag">System</span>
+        <h3>Level Management Kit</h3>
+        <p>Automatic level select, loading and saving for mobile games.</p>
+        <div class="row"><a href="../level-management-kit.html">Details</a><a href="https://assetstore.unity.com/packages/tools/gui/complete-automatic-mobile-level-management-kit-214640" target="_blank" rel="noopener">Asset Store ↗</a></div>
+      </div>
+    </article>
+    <article class="card">
+      <img src="../assets/images/news-lowpolyweapons.jpg" alt="Low Poly Medieval Weapon Pack">
+      <div class="body">
+        <span class="tag">3D art</span>
+        <h3>Low Poly Weapon Pack</h3>
+        <p>Low poly 3D medieval weapons, ready to drop into any project.</p>
+        <div class="row"><a href="../low-poly-weapons.html">Details</a><a href="https://assetstore.unity.com/packages/3d/props/weapons/low-poly-3d-medieval-weapon-pack-186935" target="_blank" rel="noopener">Asset Store ↗</a></div>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section id="games" style="padding-top:0"><div class="wrap">
+  <div class="teaser">
+    <img src="../assets/images/bg-freesweetcorn.webp" alt="">
+    <div class="in">
+      <p class="eyebrow">Our next game</p>
+      <h2>Free Sweetcorn</h2>
+      <div class="year">2027</div>
+      <p>Prince Sweetcorn is getting a fresh start. Join the Discord to hear first.</p>
+      <a class="btn btn-p" href="https://discord.gg/2ths8Hj9QE" target="_blank" rel="noopener">Join the Discord</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="about" style="padding-top:0"><div class="wrap about">
+  <h2>Small studio,<br>sharp tools.</h2>
+  <p>At Zest Studios we make games and the Unity tools behind them. Everything we sell, we use in our own projects first.</p>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© Zest Studios</span>
+  <div class="links"><a href="https://discord.gg/2ths8Hj9QE">Discord</a><a href="https://twitter.com/studioszest">Twitter</a><a href="https://www.instagram.com/studioszest/">Instagram</a><a href="mailto:studioszest@gmail.com">Email</a></div>
+</div></footer>
+
+</body>
+</html>

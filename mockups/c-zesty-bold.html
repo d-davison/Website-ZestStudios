@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup C · Zesty Bold</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#121212;--ink:#f4f1ea;--muted:#9a978f;--line:#2a2a2a;--zest:#d6ff3d;--violet:#c095ff}
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:400 16px/1.6 "DM Sans",system-ui,sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  .disp{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.03em;line-height:.92}
+
+  nav .wrap{display:flex;align-items:center;height:72px;gap:28px;font-size:15px}
+  .dot{width:14px;height:14px;border-radius:50%;background:var(--zest);display:inline-block;margin-right:10px;vertical-align:-1px}
+  .brand{font-family:"Bricolage Grotesque";font-weight:800;font-size:20px}
+  nav ul{display:flex;gap:28px;list-style:none;padding:0;margin-left:auto;color:var(--muted)}
+  nav ul a:hover{color:var(--zest)}
+
+  .hero{padding:72px 0 40px}
+  .hero h1{font-size:clamp(64px,14vw,200px)}
+  .hero h1 .z{color:var(--zest)}
+  .hero .sub{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:end}
+  .hero .sub p{font-size:20px;color:var(--muted);max-width:36ch}
+  .hero .sub p b{color:var(--ink);font-weight:500}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:500;background:var(--zest);color:#121212;justify-self:end;transition:transform .15s}
+  .btn:hover{transform:rotate(-2deg) scale(1.03)}
+
+  .ticker{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:14px 0;color:var(--muted);font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+  .ticker span{display:inline-block;animation:slide 30s linear infinite}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.ticker span{animation:none}}
+
+  section{padding:88px 0}
+  .label{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--zest);margin-bottom:28px}
+  .rows{border-top:1px solid var(--line)}
+  .rowp{display:grid;grid-template-columns:90px 1fr 1.1fr 200px;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);transition:background .2s}
+  .rowp:hover{background:#181818}
+  .rowp .n{color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+  .rowp h3{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(26px,3.4vw,44px);letter-spacing:-.02em;line-height:1}
+  .rowp p{color:var(--muted)}
+  .rowp img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;filter:grayscale(1);transition:filter .3s}
+  .rowp:hover img{filter:none}
+  .rowp .go{grid-column:2/-1;display:flex;gap:20px;font-size:14px;margin-top:-8px}
+  .rowp .go a{border-bottom:1px solid var(--line)}
+  .rowp .go a:hover{border-color:var(--zest);color:var(--zest)}
+
+  .sweet{position:relative;border-radius:24px;overflow:hidden;background:#1a1712}
+  .sweet img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
+  .sweet .in{position:relative;padding:64px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px}
+  .sweet h2{font-size:clamp(40px,6vw,80px)}
+  .sweet .yr{font-size:clamp(90px,18vw,260px);color:#ffd23f;-webkit-text-stroke:0}
+  .sweet p{color:#d9d3c4;margin-top:12px;max-width:34ch}
+
+  footer{padding:48px 0;color:var(--muted);font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  footer .links{display:flex;gap:22px}
+  footer a:hover{color:var(--zest)}
+
+  @media(max-width:860px){
+    nav ul{display:none}
+    .hero .sub,.sweet .in{grid-template-columns:1fr}
+    .btn{justify-self:start}
+    .rowp{grid-template-columns:1fr}
+    .rowp p,.rowp img,.rowp .go{grid-column:1}
+    .rowp .go{margin-top:0}
+    .sweet .in{padding:32px}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#"><span class="dot"></span>zest studios</a>
+  <ul><li><a href="#packages">Packages</a></li><li><a href="#games">Games</a></li><li><a href="../about.html">About</a></li></ul>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1 class="disp">Fresh tools<br>for <span class="z">Unity.</span></h1>
+  <div class="sub">
+    <p><b>Zest Studios</b> is a tiny indie studio making Unity packages, and one very determined piece of sweetcorn.</p>
+    <a class="btn" href="https://assetstore.unity.com/publishers/51920" target="_blank" rel="noopener">Shop the Asset Store ↗</a>
+  </div>
+</div></header>
+
+<div class="ticker" aria-hidden="true"><span>Better Logger ✦ Level Management Kit ✦ Low Poly Weapon Pack ✦ Free Sweetcorn 2027 ✦ Better Logger ✦ Level Management Kit ✦ Low Poly Weapon Pack ✦ Free Sweetcorn 2027 ✦ </span></div>
+
+<section id="packages"><div class="wrap">
+  <p class="label">Packages</p>
+  <div class="rows">
+    <article class="rowp">
+      <span class="n">Tool</span><h3>Better Logger</h3>
+      <p>Channel-based, type-safe logging with colours and toggles.</p>
+      <img src="../assets/images/better-logger/front-page.webp" alt="">
+      <div class="go"><a href="https://assetstore.unity.com/packages/tools/utilities/better-logger-channels-colors-and-toggles-389850" target="_blank" rel="noopener">Asset Store ↗</a><a href="../better-logger.html">Details</a><a href="../better-logger-docs.html">Docs</a></div>
+    </article>
+    <article class="rowp">
+      <span class="n">System</span><h3>Level Management Kit</h3>
+      <p>Automatic level select, loading and saving for mobile.</p>
+      <img src="../assets/images/news-lmp1.jpg" alt="">
+      <div class="go"><a href="https://assetstore.unity.com/packages/tools/gui/complete-automatic-mobile-level-management-kit-214640" target="_blank" rel="noopener">Asset Store ↗</a><a href="../level-management-kit.html">Details</a></div>
+    </article>
+    <article class="rowp">
+      <span class="n">3D art</span><h3>Low Poly Weapon Pack</h3>
+      <p>Low poly 3D medieval weapons for any project.</p>
+      <img src="../assets/images/news-lowpolyweapons.jpg" alt="">
+      <div class="go"><a href="https://assetstore.unity.com/packages/3d/props/weapons/low-poly-3d-medieval-weapon-pack-186935" target="_blank" rel="noopener">Asset Store ↗</a><a href="../low-poly-weapons.html">Details</a></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="games" style="padding-top:0"><div class="wrap">
+  <p class="label">Games</p>
+  <a class="sweet" href="../free-sweetcorn.html" style="display:block">
+    <img src="../assets/images/bg-freesweetcorn.webp" alt="">
+    <div class="in">
+      <div><h2 class="disp">Free<br>Sweetcorn</h2><p>Small sweetcorn. Big castle. Full rebuild in progress.</p></div>
+      <span class="disp yr">’27</span>
+    </div>
+  </a>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© Zest Studios</span>
+  <div class="links"><a href="https://discord.gg/2ths8Hj9QE">Discord</a><a href="https://twitter.com/studioszest">Twitter</a><a href="https://www.instagram.com/studioszest/">Instagram</a><a href="mailto:studioszest@gmail.com">Email</a></div>
+</div></footer>
+
+</body>
+</html>

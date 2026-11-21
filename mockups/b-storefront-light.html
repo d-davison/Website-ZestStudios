@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup B · Storefront Light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#faf8f5;--card:#fff;--ink:#17141c;--muted:#6b6575;--line:#e7e2da;--accent:#7a3cf0;--accent-soft:#efe6ff}
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Figtree,system-ui,sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;letter-spacing:-.015em;line-height:1.08}
+
+  nav .wrap{display:flex;align-items:center;gap:32px;height:72px}
+  .brand{font-family:"Young Serif",serif;font-weight:400;font-size:22px}
+  .brand b{color:var(--accent)}
+  nav ul{display:flex;gap:28px;list-style:none;padding:0;margin-left:auto;font-size:15px;color:var(--muted)}
+  nav ul a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:15px}
+  .btn-p{background:var(--ink);color:#fff}
+  .btn-p:hover{background:var(--accent)}
+  .btn-l{color:var(--accent)}
+  .btn-l:hover{text-decoration:underline}
+
+  .hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center;padding-top:56px;padding-bottom:88px}
+  .pill{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;margin-bottom:20px}
+  h1{font-size:clamp(40px,5.6vw,68px)}
+  .lead{color:var(--muted);font-size:19px;margin:20px 0 32px;max-width:44ch}
+  .cta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .shot{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:0 30px 60px -30px rgba(0,0,0,.25);transform:rotate(1.2deg)}
+  .shot img{width:100%;display:block;border-radius:10px}
+  .shot figcaption{display:flex;justify-content:space-between;padding:12px 6px 4px;font-size:14px;color:var(--muted)}
+  .shot figcaption b{color:var(--ink)}
+
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  .head{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px;gap:16px;flex-wrap:wrap}
+  h2{font-size:clamp(30px,4vw,44px)}
+  .head p{color:var(--muted)}
+
+  .list{display:grid;gap:16px}
+  .item{display:grid;grid-template-columns:280px 1fr auto;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;transition:box-shadow .2s}
+  .item:hover{box-shadow:0 12px 32px -16px rgba(0,0,0,.2)}
+  .item img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;display:block}
+  .item h3{font-size:24px}
+  .item p{color:var(--muted);margin-top:6px;max-width:52ch}
+  .meta{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .meta span{font-size:12px;border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--muted)}
+  .item .acts{display:flex;flex-direction:column;gap:6px;align-items:stretch;min-width:170px}
+  .item .acts .btn{justify-content:center}
+
+  .game{display:grid;grid-template-columns:1.3fr 1fr;border-radius:18px;overflow:hidden;background:#17141c;color:#fff}
+  .game img{width:100%;height:100%;object-fit:cover;display:block;min-height:280px}
+  .game .in{padding:44px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+  .game .in p{color:#b9b2c6}
+  .stamp{align-self:start;font-family:"Young Serif",serif;font-size:20px;border:2px solid #f5c542;color:#f5c542;padding:4px 14px;border-radius:8px;transform:rotate(-3deg)}
+
+  footer{padding:40px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  footer .links{display:flex;gap:20px}
+
+  @media(max-width:860px){
+    nav ul{display:none}
+    .hero .wrap,.game{grid-template-columns:1fr}
+    .item{grid-template-columns:1fr}
+    .item .acts{flex-direction:row}
+    .shot{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#">Zest<b>.</b></a>
+  <ul><li><a href="#packages">Packages</a></li><li><a href="#games">Games</a></li><li><a href="#about">About</a></li></ul>
+  <a class="btn btn-p" href="https://assetstore.unity.com/publishers/51920" target="_blank" rel="noopener">Our Asset Store page</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="pill">New · Better Logger</span>
+    <h1>Unity packages that save you hours.</h1>
+    <p class="lead">Small, focused editor tools and assets from Zest Studios, an indie game studio that builds what it needs and shares it.</p>
+    <div class="cta">
+      <a class="btn btn-p" href="#packages">See all packages</a>
+      <a class="btn btn-l" href="../better-logger.html">Meet Better Logger →</a>
+    </div>
+  </div>
+  <figure class="shot">
+    <img src="../assets/images/better-logger/front-page.webp" alt="Better Logger in the Unity editor">
+    <figcaption><b>Better Logger</b><span>Channels, colours &amp; toggles</span></figcaption>
+  </figure>
+</div></header>
+
+<section id="packages"><div class="wrap">
+  <div class="head"><h2>Packages</h2><p>3 packages on the Unity Asset Store</p></div>
+  <div class="list">
+    <article class="item">
+      <img src="../assets/images/better-logger/front-page.webp" alt="">
+      <div><h3>Better Logger</h3><p>Type-safe, channel-based logging. Colour-code your console, mute noisy systems, and migrate old Debug.Log calls in one click.</p>
+        <div class="meta"><span>Editor tool</span><span>Logging</span></div></div>
+      <div class="acts"><a class="btn btn-p" href="https://assetstore.unity.com/packages/tools/utilities/better-logger-channels-colors-and-toggles-389850" target="_blank" rel="noopener">Asset Store ↗</a><a class="btn btn-l" href="../better-logger.html">Details</a></div>
+    </article>
+    <article class="item">
+      <img src="../assets/images/news-lmp1.jpg" alt="">
+      <div><h3>Level Management Kit</h3><p>Set your levels and sections; level select, loading and saving are generated for you. Just add gameplay.</p>
+        <div class="meta"><span>Mobile</span><span>Save system</span></div></div>
+      <div class="acts"><a class="btn btn-p" href="https://assetstore.unity.com/packages/tools/gui/complete-automatic-mobile-level-management-kit-214640" target="_blank" rel="noopener">Asset Store ↗</a><a class="btn btn-l" href="../level-management-kit.html">Details</a></div>
+    </article>
+    <article class="item">
+      <img src="../assets/images/news-lowpolyweapons.jpg" alt="">
+      <div><h3>Low Poly Medieval Weapon Pack</h3><p>A set of low poly 3D medieval weapons, ready to drop into any Unity project.</p>
+        <div class="meta"><span>3D art</span><span>Props</span></div></div>
+      <div class="acts"><a class="btn btn-p" href="https://assetstore.unity.com/packages/3d/props/weapons/low-poly-3d-medieval-weapon-pack-186935" target="_blank" rel="noopener">Asset Store ↗</a><a class="btn btn-l" href="../low-poly-weapons.html">Details</a></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="games"><div class="wrap">
+  <div class="game">
+    <img src="../assets/images/bg-freesweetcorn.webp" alt="Free Sweetcorn castle level">
+    <div class="in">
+      <span class="stamp">Coming 2027</span>
+      <h2>Free Sweetcorn</h2>
+      <p>Our platformer RPG is getting a full rebuild. Small sweetcorn, big castle.</p>
+      <a class="btn btn-l" style="color:#d7c2ff;padding-left:0" href="../free-sweetcorn.html">Follow along →</a>
+    </div>
+  </div>
+</div></section>
+
+<footer id="about"><div class="wrap">
+  <span>Zest Studios · games and Unity tools</span>
+  <div class="links"><a href="../about.html">About</a><a href="https://discord.gg/2ths8Hj9QE">Discord</a><a href="https://twitter.com/studioszest">Twitter</a><a href="mailto:studioszest@gmail.com">Email</a></div>
+</div></footer>
+
+</body>
+</html>
