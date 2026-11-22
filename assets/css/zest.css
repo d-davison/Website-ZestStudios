@@ -161,6 +161,10 @@ media-gallery .mg-stage, media-gallery .mg-thumb { background: var(--panel); }
 .docs-table th { background: var(--panel); color: var(--text); }
 .docs-backlink { margin-top: 40px; }
 
+/* A button-shaped label for things that are not available yet */
+.btn[aria-disabled="true"] { cursor: default; opacity: .75; }
+.btn[aria-disabled="true"]:hover { transform: none; background: none; }
+
 /* --------------------------------------------------------------------------
    Small screens
    -------------------------------------------------------------------------- */

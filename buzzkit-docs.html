@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buzzkit Documentation | Zest Studios</title>
+    <meta name="description" content="Buzzkit user manual: installation, playing haptics from code, creating your own haptics, player settings, testing on phones and troubleshooting.">
+    <meta name="author" content="Zest Studios">
+    <meta name="theme-color" content="#0b0b0d">
+    <link rel="canonical" href="https://zeststudios.net/buzzkit-docs">
+
+    <!-- Social previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zest Studios">
+    <meta property="og:title" content="Buzzkit Documentation | Zest Studios">
+    <meta property="og:description" content="Buzzkit user manual: installation, playing haptics from code, creating your own haptics, player settings, testing on phones and troubleshooting.">
+    <meta property="og:url" content="https://zeststudios.net/buzzkit-docs">
+    <meta property="og:image" content="https://zeststudios.net/assets/images/og/buzzkit.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@studioszest">
+
+    <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/images/favicon.png" sizes="256x256" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/zest.css?v=544ff91b">
+    <script src="assets/components/header.js?v=b4342773" defer></script>
+    <script src="assets/components/footer.js?v=3584fb3a" defer></script>
+</head>
+<body>
+
+    <header-component></header-component>
+
+    <main class="page">
+        <section>
+            <div class="wrap narrow prose">
+                <h1 class="docs-title">Buzzkit Documentation</h1>
+                <p class="docs-sub">User manual for version 1.0.0. Also included in the package as Documentation.pdf. <a href="buzzkit">Back to the product page</a>.</p>
+
+                <div class="docs-toc">
+                    <h3>Contents</h3>
+                    <ol>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#installing">Installing Buzzkit</a></li>
+                        <li><a href="#setup">Setting up your project</a></li>
+                        <li><a href="#first-haptic">Your first haptic</a></li>
+                        <li><a href="#from-code">Playing haptics from code</a></li>
+                        <li><a href="#window">The Haptics window</a></li>
+                        <li><a href="#creating">Creating your own haptics</a></li>
+                        <li><a href="#player-settings">Letting players control haptics</a></li>
+                        <li><a href="#demo">The demo scene</a></li>
+                        <li><a href="#phone">Testing on a phone</a></li>
+                        <li><a href="#other-hardware">Supporting other hardware (advanced)</a></li>
+                        <li><a href="#updating">Updating Buzzkit</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ol>
+                </div>
+
+                <h2 id="introduction">1. Introduction</h2>
+                <h3>1.1 What Buzzkit does</h3>
+                <p>Buzzkit makes phones vibrate and game controllers rumble. You write one line of C#, and Buzzkit plays the right kind of haptic on whatever the player is holding: an iPhone, an Android phone, or a gamepad.</p>
+                <p>A haptic is a short pattern of vibration. Buzzkit describes every haptic with two values that change over time:</p>
+                <ul>
+                    <li><strong>Intensity</strong>: how strong the vibration is, from 0 (off) to 1 (full).</li>
+                    <li><strong>Sharpness</strong>: how it feels, from 0 (a soft, dull rumble) to 1 (a crisp, clicky tap).</li>
+                </ul>
+
+                <h3>1.2 What is included</h3>
+                <ul>
+                    <li>A single C# class, <code>Haptics</code>, for playing haptics.</li>
+                    <li>42 ready-made haptics (coins, explosions, footsteps, menu clicks and more) that you can use as they are or change.</li>
+                    <li>The <strong>Haptics window</strong>, for browsing, testing and creating haptics.</li>
+                    <li>A player setting for turning haptics on or off and changing their strength, saved automatically.</li>
+                    <li>A demo scene.</li>
+                </ul>
+
+                <h3>1.3 Supported hardware</h3>
+                <table class="docs-table">
+                    <tr><th>Hardware</th><th>What you get</th></tr>
+                    <tr><td>iPhone with iOS 13 or later</td><td>Full intensity and sharpness, using Apple's Core Haptics</td></tr>
+                    <tr><td>Android 11 or later</td><td>Rich haptics using Android's built-in effects</td></tr>
+                    <tr><td>Android 8 to 10</td><td>Vibration with varying strength</td></tr>
+                    <tr><td>Older Android phones, or phones without strength control</td><td>Simple on and off vibration</td></tr>
+                    <tr><td>Gamepads on Windows, macOS and Linux (through Unity's Input System)</td><td>Rumble from both motors</td></tr>
+                    <tr><td>Anything else</td><td>Nothing happens, and nothing breaks</td></tr>
+                </table>
+                <p>Buzzkit never shows an error because the hardware cannot vibrate. On a computer with no gamepad, every call simply does nothing.</p>
+
+                <h2 id="installing">2. Installing Buzzkit</h2>
+                <h3>2.1 Requirements</h3>
+                <ul>
+                    <li>Unity 2021.3 or later.</li>
+                    <li>Optional: Unity's <strong>Input System</strong> package, if you want gamepad rumble. Phone haptics work without it.</li>
+                </ul>
+
+                <h3>2.2 Importing the package</h3>
+                <ol class="docs-steps">
+                    <li>Open your project in Unity.</li>
+                    <li>Open <strong>Window &gt; Package Manager</strong>.</li>
+                    <li>In the drop-down at the top left, choose <strong>My Assets</strong>.</li>
+                    <li>Find <strong>Buzzkit</strong> in the list and click <strong>Download</strong>, then <strong>Import</strong>.</li>
+                    <li>In the import window, leave everything ticked and click <strong>Import</strong>.</li>
+                </ol>
+
+                <h3>2.3 Checking it worked</h3>
+                <p>When the import finishes, a folder named <code>Assets/Zest Studios/Buzzkit</code> appears in the Project window, and the menu <strong>Tools &gt; Buzzkit</strong> appears at the top of the Unity window.</p>
+                <div class="docs-note"><strong>Do not move or rename</strong> the <code>Assets/Zest Studios/Buzzkit</code> folder. Buzzkit finds its icons and its built-in haptics by that path.</div>
+
+                <h2 id="setup">3. Setting up your project</h2>
+                <h3>3.1 Phones</h3>
+                <p>There is nothing to set up.</p>
+                <ul>
+                    <li><strong>Android</strong>: Android only lets an app vibrate if it asks for permission. Buzzkit adds that permission to your build for you.</li>
+                    <li><strong>iOS</strong>: Buzzkit includes the small native file it needs. Xcode compiles it automatically.</li>
+                </ul>
+
+                <h3>3.2 Gamepads</h3>
+                <p>Gamepad rumble uses Unity's Input System package.</p>
+                <ol class="docs-steps">
+                    <li>Open <strong>Window &gt; Package Manager</strong>.</li>
+                    <li>Choose <strong>Unity Registry</strong> in the drop-down, find <strong>Input System</strong>, and click <strong>Install</strong>.</li>
+                    <li>If Unity asks whether to enable the new input backends, click <strong>Yes</strong>. Unity restarts.</li>
+                    <li>To check, open <strong>Edit &gt; Project Settings &gt; Player</strong>, expand <strong>Other Settings</strong>, and find <strong>Active Input Handling</strong>. It must say <strong>Input System Package (New)</strong> or <strong>Both</strong>.</li>
+                </ol>
+                <p>If you skip this, Buzzkit still works on phones. Gamepads simply do not rumble.</p>
+
+                <h2 id="first-haptic">4. Your first haptic</h2>
+                <p>This section plays a haptic in about two minutes.</p>
+
+                <h3>4.1 Turn on haptic logging</h3>
+                <p>Your computer cannot vibrate, so Buzzkit can print a message in the Console instead each time a haptic would play on a phone. Open <strong>Tools &gt; Buzzkit</strong> and click <strong>Log Haptics In Editor</strong>. A tick appears next to it.</p>
+
+                <h3>4.2 Add a haptic to your game</h3>
+                <ol class="docs-steps">
+                    <li>In the Project window, right-click and choose <strong>Create &gt; MonoBehaviour Script</strong> (in older Unity versions, <strong>Create &gt; C# Script</strong>). Name it <code>HapticTest</code>.</li>
+                    <li>Open the script and replace its contents with the code below.</li>
+                    <li>Save the script and return to Unity.</li>
+                    <li>Drag the script onto any object in your scene.</li>
+                    <li>Press <strong>Play</strong>.</li>
+                </ol>
+                <pre class="docs-code"><span class="k">using</span> UnityEngine;
+<span class="k">using</span> Zest.Buzzkit;
+
+<span class="k">public class</span> HapticTest : MonoBehaviour
+{
+    <span class="k">void</span> Start()
+    {
+        Haptics.Impact(ImpactStyle.Heavy);
+    }
+}</pre>
+
+                <h3>4.3 What you should see</h3>
+                <p>The Console shows a line that starts with:</p>
+                <pre class="docs-code"><span class="g">[Buzzkit] (editor) would play preset Impact(Heavy) on Device</span></pre>
+                <p>If a gamepad is connected and you completed section 3.2, the gamepad also rumbles. On a phone, the phone gives one strong tap.</p>
+
+                <h2 id="from-code">5. Playing haptics from code</h2>
+                <p>Every script that uses Buzzkit needs this line at the top:</p>
+                <pre class="docs-code"><span class="k">using</span> Zest.Buzzkit;</pre>
+
+                <h3>5.1 Quick haptics with one line</h3>
+                <p>These need no setup and work everywhere:</p>
+                <pre class="docs-code">Haptics.Selection();                   <span class="c">// the lightest tick, for scrolling through a list</span>
+Haptics.Impact(ImpactStyle.Medium);    <span class="c">// a tap: Light, Medium, Heavy, Soft or Rigid</span>
+Haptics.Notify(NotifyType.Success);    <span class="c">// a result: Success, Warning or Error</span></pre>
+
+                <h3>5.2 Playing one of the 42 built-in haptics</h3>
+                <p>The built-in haptics are files in <code>Assets/Zest Studios/Buzzkit/Presets/</code>, sorted into folders such as <strong>Combat</strong>, <strong>Rewards</strong> and <strong>UI</strong>. The easiest way to use one:</p>
+                <ol class="docs-steps">
+                    <li>Add a field to your script:</li>
+                </ol>
+                <pre class="docs-code"><span class="k">using</span> UnityEngine;
+<span class="k">using</span> Zest.Buzzkit;
+
+<span class="k">public class</span> Coin : MonoBehaviour
+{
+    [SerializeField] HapticPattern pickupHaptic;
+
+    <span class="k">void</span> OnTriggerEnter(Collider other)
+    {
+        Haptics.Play(pickupHaptic);
+    }
+}</pre>
+                <ol class="docs-steps" start="2">
+                    <li>Select the object with this script. In the Inspector, a <strong>Pickup Haptic</strong> field appears.</li>
+                    <li>Drag <code>Presets/Rewards/Coin</code> from the Project window into that field.</li>
+                </ol>
+                <p>You can also look a built-in haptic up by its name:</p>
+                <pre class="docs-code"><span class="k">if</span> (BuiltinPatterns.Library.TryGetValue(<span class="s">"Explosion Big"</span>, <span class="k">out var</span> explosion))
+    Haptics.Play(explosion);</pre>
+                <p>Names must match exactly, including capital letters and spaces. The Haptics window (section 6) lists every name.</p>
+
+                <h3>5.3 Choosing where a haptic plays</h3>
+                <p>By default a haptic plays everywhere the player can feel it: the phone and any gamepads. To choose, add a target:</p>
+                <pre class="docs-code">Haptics.Play(explosion, HapticTarget.Gamepad);   <span class="c">// gamepads only</span>
+Haptics.Play(explosion, HapticTarget.Device);    <span class="c">// the phone only</span></pre>
+                <p>To make one haptic weaker or stronger just this once, add a strength from 0 to 1:</p>
+                <pre class="docs-code">Haptics.Play(explosion, HapticTarget.All, 0.5f); <span class="c">// half strength</span></pre>
+
+                <h3>5.4 Local multiplayer: one controller at a time</h3>
+                <p>Each connected gamepad has a number, starting at 0. To rumble only player 2's controller:</p>
+                <pre class="docs-code">Haptics.PlayOnGamepad(explosion, 1);</pre>
+                <p><code>Haptics.GamepadCount</code> tells you how many gamepads are connected.</p>
+
+                <h3>5.5 Stopping a haptic</h3>
+                <pre class="docs-code">Haptics.Stop();</pre>
+                <p>You never need to stop haptics yourself when the game is paused, minimised or closed. Buzzkit does that automatically, so a controller is never left rumbling.</p>
+
+                <h3>5.6 Avoiding a delay on the first haptic</h3>
+                <p>On some phones the very first haptic can start slightly late. Call this once while your level loads:</p>
+                <pre class="docs-code">Haptics.Prepare();</pre>
+
+                <h3>5.7 Checking what the hardware can do</h3>
+                <pre class="docs-code"><span class="k">bool</span> canVibrate = Haptics.IsSupported;                      <span class="c">// anything at all</span>
+<span class="k">bool</span> hasGamepad = Haptics.Supports(HapticTarget.Gamepad);   <span class="c">// a controller is connected</span></pre>
+                <p>You do not need these checks before playing a haptic. Use them only to change your game, for example to hide a vibration option on a computer with no controller.</p>
+
+                <h2 id="window">6. The Haptics window</h2>
+                <p>Open it with <strong>Tools &gt; Buzzkit &gt; Haptics</strong>.</p>
+                <table class="docs-table">
+                    <tr><th>Part</th><th>What it does</th></tr>
+                    <tr><td><strong>Built-in</strong> tab</td><td>Lists the 42 haptics that come with Buzzkit, grouped by type</td></tr>
+                    <tr><td><strong>Custom</strong> tab</td><td>Lists the haptics you have made</td></tr>
+                    <tr><td>Search box</td><td>Filters the list by name or group</td></tr>
+                    <tr><td>Play button on a row</td><td>Plays that haptic. Works only while the game is running in Play mode</td></tr>
+                    <tr><td><strong>Duplicate</strong></td><td>Copies a built-in haptic so you can change the copy</td></tr>
+                    <tr><td><strong>Select</strong></td><td>On the Custom tab, shows that haptic in the Project window</td></tr>
+                    <tr><td><strong>Create New Haptic</strong></td><td>Makes a new haptic file</td></tr>
+                </table>
+                <p>To feel haptics from this window, press <strong>Play</strong> first and connect a gamepad. With logging turned on (section 4.1), each play also prints a line in the Console.</p>
+
+                <h2 id="creating">7. Creating your own haptics</h2>
+                <h3>7.1 Making a new haptic</h3>
+                <p>Choose one of these:</p>
+                <ul>
+                    <li><strong>Tools &gt; Buzzkit &gt; Create New Haptic</strong>, then choose where to save it. It starts as a single medium tap.</li>
+                    <li>In the Project window, right-click and choose <strong>Create &gt; Zest &gt; Buzzkit &gt; Haptic Pattern</strong>. It starts empty.</li>
+                    <li>In the Haptics window, click <strong>Duplicate</strong> next to a built-in haptic. This is the quickest way to start from something that already feels close.</li>
+                </ul>
+
+                <h3>7.2 Editing a haptic</h3>
+                <p>Select the haptic file. The Inspector shows its <strong>Events</strong>. Each event is one part of the haptic.</p>
+                <table class="docs-table">
+                    <tr><th>Setting</th><th>What it means</th></tr>
+                    <tr><td><strong>Type</strong></td><td><strong>Transient</strong> is a single instant tap. <strong>Continuous</strong> is a vibration that lasts</td></tr>
+                    <tr><td><strong>Time</strong></td><td>When the event starts, in seconds from the start of the haptic</td></tr>
+                    <tr><td><strong>Duration</strong></td><td>How long a Continuous event lasts, in seconds. Transient events ignore it</td></tr>
+                    <tr><td><strong>Intensity</strong></td><td>Strength, from 0 to 1</td></tr>
+                    <tr><td><strong>Sharpness</strong></td><td>Feel, from 0 (dull rumble) to 1 (crisp click)</td></tr>
+                    <tr><td><strong>Intensity Curve</strong>, <strong>Sharpness Curve</strong></td><td>Optional. Draw how the value changes from the start to the end of the event. A curve needs at least two points; otherwise the plain value is used</td></tr>
+                </table>
+                <p>Tips:</p>
+                <ul>
+                    <li>A click or a tap: one Transient event with high sharpness.</li>
+                    <li>A rumble: one Continuous event with low sharpness.</li>
+                    <li>A rumble that fades out: an Intensity Curve that goes from 1 down to 0.</li>
+                    <li>Where two Continuous events overlap, the stronger one is used.</li>
+                </ul>
+                <p>Under the events, the Inspector shows the haptic's total <strong>Duration</strong> and number of <strong>Events</strong>.</p>
+
+                <h3>7.3 Testing a haptic</h3>
+                <ol class="docs-steps">
+                    <li>Press <strong>Play</strong>.</li>
+                    <li>Select the haptic file.</li>
+                    <li>In the Inspector, click <strong>Play</strong>, <strong>Device</strong> or <strong>Gamepad</strong>. Click <strong>Stop</strong> to end it.</li>
+                </ol>
+                <p>A connected gamepad rumbles. Phone haptics can only be felt on a phone (section 10).</p>
+
+                <h3>7.4 Changing a built-in haptic</h3>
+                <p>You can edit the files in <code>Presets/</code> directly, but the change affects every place that haptic is used, and updating Buzzkit replaces it (section 12). It is safer to <strong>Duplicate</strong> the built-in haptic and change the copy.</p>
+
+                <h3>7.5 Making a haptic in code</h3>
+                <p>For haptics that depend on gameplay, such as a thud that gets stronger the harder something lands:</p>
+                <pre class="docs-code"><span class="k">using</span> UnityEngine;
+<span class="k">using</span> Zest.Buzzkit;
+
+<span class="k">public class</span> LandingHaptic : MonoBehaviour
+{
+    HapticPattern thud;
+
+    <span class="k">void</span> Awake()     =&gt; thud = HapticPattern.Create(HapticEvent.Transient(0f, 1f, 0.3f));
+    <span class="k">void</span> OnDestroy() =&gt; Destroy(thud);
+
+    <span class="k">void</span> OnCollisionEnter(Collision collision)
+    {
+        <span class="k">float</span> strength = Mathf.Clamp01(collision.relativeVelocity.magnitude / 20f);
+        Haptics.Play(thud, HapticTarget.All, strength);
+    }
+}</pre>
+                <p>Create the haptic once, as above, rather than every time it plays.</p>
+
+                <h2 id="player-settings">8. Letting players control haptics</h2>
+                <p>Some players dislike vibration, and some need it gentler. Buzzkit has two settings for this:</p>
+                <ul>
+                    <li><code>Haptics.Enabled</code>: turns every haptic in the game on or off.</li>
+                    <li><code>Haptics.Intensity</code>: makes every haptic weaker or stronger, from 0 to 1.</li>
+                </ul>
+                <p>Both are <strong>saved automatically</strong> and remembered the next time the game starts. On first launch, haptics are on at full strength.</p>
+
+                <h3>8.1 Connecting a toggle and a slider</h3>
+                <ol class="docs-steps">
+                    <li>In your settings menu, add a <strong>Toggle</strong> and a <strong>Slider</strong> (from <strong>GameObject &gt; UI</strong>, or <strong>UI (Legacy)</strong> in newer Unity versions).</li>
+                    <li>Create this script and add it to your settings menu:</li>
+                </ol>
+                <pre class="docs-code"><span class="k">using</span> UnityEngine;
+<span class="k">using</span> UnityEngine.UI;
+<span class="k">using</span> Zest.Buzzkit;
+
+<span class="k">public class</span> HapticsSettings : MonoBehaviour
+{
+    [SerializeField] Toggle onOffToggle;
+    [SerializeField] Slider strengthSlider;
+
+    <span class="k">void</span> Start()
+    {
+        onOffToggle.isOn = Haptics.Enabled;
+        onOffToggle.onValueChanged.AddListener(value =&gt; Haptics.Enabled = value);
+
+        strengthSlider.minValue = 0f;
+        strengthSlider.maxValue = 1f;
+        strengthSlider.value = Haptics.Intensity;
+        strengthSlider.onValueChanged.AddListener(value =&gt;
+        {
+            Haptics.Intensity = value;
+            Haptics.Selection();   <span class="c">// a small tick so the player feels the new strength</span>
+        });
+    }
+}</pre>
+                <ol class="docs-steps" start="3">
+                    <li>Drag your Toggle and Slider into the script's two fields in the Inspector.</li>
+                </ol>
+                <p>Changes apply straight away, even to a rumble that is already playing on a gamepad.</p>
+
+                <h2 id="demo">9. The demo scene</h2>
+                <p>Open <code>Assets/Zest Studios/Buzzkit/Demo/Buzzkit Demo.unity</code> and press <strong>Play</strong>.</p>
+                <ul>
+                    <li>Click any row to play that haptic.</li>
+                    <li><strong>Target</strong> switches between all outputs, the phone only, and gamepads only.</li>
+                    <li><strong>Enabled</strong> and <strong>Intensity</strong> are the real player settings from section 8.</li>
+                    <li>The status line shows whether the device can vibrate and how many gamepads are connected.</li>
+                    <li><strong>Stop all</strong> stops every haptic.</li>
+                </ul>
+                <p>To try this inside one of your own scenes instead, add the <strong>Buzzkit Demo</strong> component to any object and press <strong>Play</strong>. Build the demo scene to a phone to feel the haptics on the device.</p>
+
+                <h2 id="phone">10. Testing on a phone</h2>
+                <p>Haptics on a phone can only be felt in a build on a real phone. The Unity editor and phone simulators cannot vibrate.</p>
+
+                <h3>10.1 Android</h3>
+                <ol class="docs-steps">
+                    <li>Open <strong>File &gt; Build Profiles</strong> (in older Unity versions, <strong>File &gt; Build Settings</strong>), choose <strong>Android</strong>, and switch to it.</li>
+                    <li>Connect your phone with a USB cable, with USB debugging turned on.</li>
+                    <li>Click <strong>Build And Run</strong>.</li>
+                </ol>
+                <p>When the build is made, the Console shows a line starting <code>[Buzzkit] Added android.permission.VIBRATE</code>. That confirms Buzzkit added the vibration permission. If your project already declares that permission itself, Buzzkit leaves it alone and prints nothing.</p>
+                <p>If the phone does not vibrate, check that vibration and touch feedback are turned on in the phone's own settings. Buzzkit never shows an error on screen, but it writes warnings to the phone's log. To read them, run <code>adb logcat -s Unity</code> in a terminal and look for lines containing <code>[Buzzkit]</code>.</p>
+
+                <h3>10.2 iOS</h3>
+                <ol class="docs-steps">
+                    <li>Choose <strong>iOS</strong> in Build Profiles and click <strong>Build</strong>.</li>
+                    <li>Open the generated Xcode project, choose your iPhone, and click <strong>Run</strong>.</li>
+                </ol>
+                <p>Haptics need an iPhone 8 or later with iOS 13 or later. iPads and the iOS Simulator do not vibrate.</p>
+
+                <h2 id="other-hardware">11. Supporting other hardware (advanced)</h2>
+                <p>Buzzkit can drive hardware it does not support on its own, such as a games console controller, if you have access to that hardware's development kit. You write a small class, called a renderer, that passes Buzzkit's haptics to that kit. Your existing haptics and settings then work on the new hardware with no other changes.</p>
+                <pre class="docs-code"><span class="k">using</span> UnityEngine;
+<span class="k">using</span> Zest.Buzzkit;
+
+<span class="k">public sealed class</span> MyConsoleRenderer : IHapticRenderer
+{
+    <span class="k">public</span> HapticTarget Target =&gt; HapticTarget.Gamepad;
+    <span class="k">public bool</span> IsSupported =&gt; <span class="k">true</span>;   <span class="c">// return false when no controller is available</span>
+
+    <span class="k">public void</span> Prepare() { }
+    <span class="k">public void</span> PlayPreset(<span class="k">in</span> HapticPreset preset, <span class="k">float</span> strength) =&gt; Play(BuiltinPatterns.ForPreset(preset), strength);
+    <span class="k">public void</span> Play(HapticPattern pattern, <span class="k">float</span> strength) { <span class="c">/* start playing pattern on your hardware */</span> }
+    <span class="k">public void</span> Tick(<span class="k">float</span> deltaTime) { <span class="c">/* called every frame: update your hardware */</span> }
+    <span class="k">public void</span> Stop() { <span class="c">/* turn the hardware off */</span> }
+    <span class="k">public void</span> SetPaused(<span class="k">bool</span> paused) { <span class="k">if</span> (paused) Stop(); }
+    <span class="k">public void</span> Dispose() =&gt; Stop();
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    <span class="k">static void</span> Install() =&gt; Haptics.RegisterRenderer(<span class="k">new</span> MyConsoleRenderer());
+}</pre>
+                <p>Rules for a renderer:</p>
+                <ul>
+                    <li>It must never throw an error. If the hardware is missing, return <code>false</code> from <code>IsSupported</code>.</li>
+                    <li>Multiply every strength you send by <code>HapticSettings.Intensity</code>, so the player's setting from section 8 still works.</li>
+                    <li><code>Stop</code> and <code>SetPaused(true)</code> must turn the hardware off immediately.</li>
+                    <li>To read a haptic over time, use <code>PatternSampler.SampleContinuous</code> and <code>PatternSampler.CollectTransients</code>.</li>
+                    <li>To address controllers one at a time (section 5.4), implement <code>IIndexedHapticRenderer</code> instead.</li>
+                </ul>
+                <p>Buzzkit does not include any console development kit. Those are licensed separately by each platform holder.</p>
+
+                <h2 id="updating">12. Updating Buzzkit</h2>
+                <ol class="docs-steps">
+                    <li>Back up your project, or commit it to version control.</li>
+                    <li>Import the new version as in section 2.2.</li>
+                    <li>Read <code>Assets/Zest Studios/Buzzkit/CHANGELOG.md</code> to see what changed.</li>
+                </ol>
+                <p>What happens to your work:</p>
+                <ul>
+                    <li><strong>Your own haptics are kept</strong>, as long as they are saved outside <code>Assets/Zest Studios/Buzzkit/</code>.</li>
+                    <li><strong>Changes to the built-in haptics in <code>Presets/</code> are replaced</strong> by the new version. Duplicate a built-in before changing it (section 7.4).</li>
+                    <li><strong>Player settings are kept.</strong> They are stored on the player's device, not in the package.</li>
+                </ul>
+
+                <h2 id="troubleshooting">13. Troubleshooting</h2>
+                <table class="docs-table">
+                    <tr><th>Problem</th><th>Fix</th></tr>
+                    <tr><td>Nothing happens when I press Play</td><td>Your computer cannot vibrate. Turn on <strong>Tools &gt; Buzzkit &gt; Log Haptics In Editor</strong> (section 4.1), connect a gamepad, or test on a phone (section 10).</td></tr>
+                    <tr><td>Haptics do nothing outside Play mode</td><td>Haptics only run while the game is running. Press <strong>Play</strong> first.</td></tr>
+                    <tr><td>The gamepad does not rumble</td><td>The Input System is missing or not active. Follow section 3.2.</td></tr>
+                    <tr><td>"The type or namespace name 'Zest' could not be found"</td><td>Add <code>using Zest.Buzzkit;</code> at the top of the script. If the script is inside an Assembly Definition, select it and add <strong>Zest.Buzzkit.Runtime</strong> and <strong>Zest.Buzzkit.Data</strong> to its references.</td></tr>
+                    <tr><td>The Haptics window's Built-in tab is empty</td><td><code>Resources/Buzzkit/HapticLibrary</code> was moved or deleted. Reimport Buzzkit (section 12). The one-line haptics from section 5.1 keep working meanwhile.</td></tr>
+                    <tr><td>A new haptic does nothing</td><td>It has no events, or a Continuous event has a Duration of 0. Add an event, or give it a Duration above 0.</td></tr>
+                    <tr><td>A curve has no effect</td><td>The curve has fewer than two points. Add a second point.</td></tr>
+                    <tr><td>The Android phone does not vibrate</td><td>Turn on touch feedback in the phone's settings, then check the log as in section 10.1.</td></tr>
+                    <tr><td>A haptic feels weaker on a gamepad than on a phone</td><td>Gamepad motors are slower and less precise. This is normal; test each haptic on every kind of hardware you support.</td></tr>
+                    <tr><td>Haptics stopped for some players</td><td>They turned haptics off or the strength down. This is the player setting from section 8 working as intended.</td></tr>
+                </table>
+
+                <h2 id="support">14. Support</h2>
+                <p>Discord: <a href="https://discord.gg/2ths8Hj9QE" target="_blank" rel="noopener">discord.gg/2ths8Hj9QE</a> (the fastest way to reach us)</p>
+                <p>Email: <a href="mailto:studioszest@gmail.com">studioszest@gmail.com</a></p>
+                <p>When you get in touch, please include your Unity version, the platform you are building for, the phone or gamepad model, and any lines from the Console or phone log that contain <code>[Buzzkit]</code>.</p>
+
+                <p class="docs-backlink"><a href="buzzkit">&larr; Back to Buzzkit</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer-component></footer-component>
+
+</body>
+</html>

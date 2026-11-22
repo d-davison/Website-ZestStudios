@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buzzkit: Cross-Platform Haptics for Unity | Zest Studios</title>
+    <meta name="description" content="One-line haptics for Unity. Author a haptic effect once and play it on iOS, Android and game controllers from one API that is always safe to call.">
+    <meta name="author" content="Zest Studios">
+    <meta name="theme-color" content="#0b0b0d">
+    <link rel="canonical" href="https://zeststudios.net/buzzkit">
+
+    <!-- Social previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zest Studios">
+    <meta property="og:title" content="Buzzkit: Cross-Platform Haptics for Unity | Zest Studios">
+    <meta property="og:description" content="One-line haptics for Unity. Author a haptic effect once and play it on iOS, Android and game controllers from one API that is always safe to call.">
+    <meta property="og:url" content="https://zeststudios.net/buzzkit">
+    <meta property="og:image" content="https://zeststudios.net/assets/images/og/buzzkit.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@studioszest">
+
+    <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/images/favicon.png" sizes="256x256" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/zest.css?v=544ff91b">
+    <script src="assets/components/header.js?v=b4342773" defer></script>
+    <script src="assets/components/footer.js?v=3584fb3a" defer></script>
+    <script src="assets/components/media-gallery.js?v=78a4762a" defer></script>
+</head>
+<body>
+
+    <header-component></header-component>
+
+    <main class="page">
+        <div class="wrap product">
+            <div>
+                <media-gallery>
+                            <script type="application/json">
+                            [
+                                { "type": "image", "src": "assets/images/buzzkit/front-page.webp",        "alt": "Buzzkit: easy cross-platform haptics" },
+                                { "type": "image", "src": "assets/images/buzzkit/devices-supported.webp", "alt": "Multiple devices supported: Android, iOS and gamepads" }
+                            ]
+                            </script>
+                        </media-gallery>
+            </div>
+            <div>
+                <p class="eyebrow">Runtime tool</p>
+                <h1>Buzzkit</h1>
+                <p class="lead">One-line haptics for Unity that feel right everywhere. Author an effect once and Buzzkit plays it on iPhone, Android and game controllers, and it stays safe to call on hardware with no haptics at all.</p>
+                <ul class="pills"><li>Unity</li><li>Haptics</li><li>Rumble</li><li>Gamepad</li><li>Mobile</li></ul>
+                <div class="cta">
+                    <span class="btn btn-g" aria-disabled="true">Coming soon to the Asset Store</span>
+                    <a class="btn btn-g" href="buzzkit-docs">Documentation</a>
+                </div>
+                <p class="meta">Developed by Zest Studios</p>
+            </div>
+        </div>
+
+        <section class="tight">
+            <div class="wrap narrow prose">
+                <h2>Author once, feel it everywhere</h2>
+
+                <p>Buzzkit is a haptics package for Unity that gives you one clean API for vibration and rumble across iOS, Android and game controllers. Design a haptic effect once and every device renders it: the iPhone's Taptic Engine, an Android phone's vibrator, or a controller's rumble motors, all from a single line of code.</p>
+
+                <p>Effects are authored as platform-agnostic <code>HapticPattern</code> assets, a timeline of events each with an intensity and a sharpness. iOS maps them to Core Haptics, Android samples them into a vibration waveform, and a gamepad crossfades them across its two rumble motors. Prefer to skip the authoring? Buzzkit ships with 42 ready-made patterns: taps, impacts, UI ticks, rewards, combat hits and more.</p>
+
+                <p>Buzzkit is built to be safe to call from anywhere. It never throws and never buzzes unexpectedly: on hardware without haptics, or when the player has turned haptics off, every call is a silent no-op. A global enable toggle and intensity slider are built in, persist automatically, and double as an accessibility feature.</p>
+
+                <h3>Quick start</h3>
+                <p>Add the namespace and call the static methods from anywhere:</p>
+                <pre class="docs-code"><span class="k">using</span> Zest.Buzzkit;
+
+<span class="c">// One-line presets, safe on every platform</span>
+Haptics.Selection();
+Haptics.Impact(ImpactStyle.Heavy);
+Haptics.Notify(NotifyType.Success);
+
+<span class="c">// Play a custom pattern on phone and controller alike</span>
+Haptics.Play(explosionPattern);
+
+<span class="c">// Wire straight into your settings menu (values persist)</span>
+Haptics.Enabled   = hapticsToggle.isOn;
+Haptics.Intensity = intensitySlider.value;</pre>
+
+                <h3>Features</h3>
+                <ul class="features">
+                    <li><strong>One-line presets</strong> <code>Haptics.Selection()</code>, <code>Haptics.Impact(ImpactStyle.Heavy)</code> and <code>Haptics.Notify(NotifyType.Success)</code> give instant, tuned feedback.</li>
+                    <li><strong>Author once, feel everywhere</strong> A single <code>HapticPattern</code> renders on iOS, Android and gamepads with no per-platform code.</li>
+                    <li><strong>42 built-in patterns</strong> Taps, UI, rewards, combat, motion, sequences and notifications, shipped as editable assets you can retune or duplicate.</li>
+                    <li><strong>Player controls and accessibility</strong> A global enable toggle and intensity slider, persisted to <code>PlayerPrefs</code> and applied live, even mid-effect.</li>
+                    <li><strong>Per-controller targeting</strong> Rumble a single gamepad by index for local co-op with <code>PlayOnGamepad</code>, or aim effects with the <code>HapticTarget</code> flags.</li>
+                    <li><strong>Gamepad rumble done right</strong> Dual-motor rumble through the Input System, with automatic stuck-motor protection on focus loss, pause, quit and unplug.</li>
+                    <li><strong>Capability queries</strong> Check <code>Haptics.IsSupported</code> and <code>Supports(...)</code> to adapt your UI when there is no haptic hardware.</li>
+                    <li><strong>Haptics window</strong> Browse built-in and custom patterns, search, duplicate and audition them in Play mode from Tools &#9656; Buzzkit &#9656; Haptics.</li>
+                    <li><strong>Safe by design</strong> Never throws, never buzzes unexpectedly. Unsupported hardware or disabled haptics is always a silent no-op.</li>
+                    <li><strong>No native binaries</strong> A pure C# Android backend and a source Core Haptics bridge for iOS, with nothing to clash with your other plugins. The VIBRATE permission is added to Android builds for you.</li>
+                    <li><strong>Extensible</strong> A documented <code>IHapticRenderer</code> extension point lets licensed studios add their own console backend.</li>
+                </ul>
+
+                <h3>Technical details</h3>
+                <table class="docs-table">
+                    <tr><th>Unity version</th><td>2021.3 or newer</td></tr>
+                    <tr><th>Platforms</th><td>iOS 13+ (Core Haptics), Android 8+ (Composition on Android 11+, waveforms on 8 to 10), and Input System gamepads on PC, Mac and Steam</td></tr>
+                    <tr><th>Dependencies</th><td>None required. The Unity Input System (optional) enables gamepad rumble</td></tr>
+                    <tr><th>Render pipeline</th><td>Any: Built-in, URP or HDRP</td></tr>
+                    <tr><th>Namespace</th><td><code>Zest.Buzzkit</code></td></tr>
+                    <tr><th>Entry point</th><td><code>Haptics</code>: <code>Selection</code>, <code>Impact</code>, <code>Notify</code>, <code>Play</code>, <code>Stop</code>, <code>Prepare</code></td></tr>
+                    <tr><th>Authoring</th><td><code>HapticPattern</code> ScriptableObject: a timeline of intensity and sharpness events</td></tr>
+                    <tr><th>Extensibility</th><td><code>IHapticRenderer</code> for custom or console backends</td></tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer-component></footer-component>
+
+</body>
+</html>
